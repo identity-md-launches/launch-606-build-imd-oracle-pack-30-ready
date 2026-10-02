@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "question": "At the latest finalized Ethereum mainnet block when requested, what is the USDC paused() state at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48, encoded as bytes32 with integer 1 for paused and 0 for unpaused?",
+  "chainId": 1,
+  "window": {
+    "hours": 1
+  },
+  "answerType": "bytes32",
+  "evidence": "chain",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "call": "Call paused() returning bool on the USDC proxy at toBlock. True maps to 1; false maps to 0.",
+    "encoding": "Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling."
+  }
+}

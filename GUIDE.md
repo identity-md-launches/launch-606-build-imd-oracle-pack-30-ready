@@ -15,7 +15,7 @@ Write a sentence describing the consumer's decision before choosing the metric. 
 
 Then write the normalization contract: entity, observation anchor, complete input corpus, operation, units, order, tie rule and failure condition. Different seats should obtain the same value even if they find evidence in a different order. Put this contract in `definitions`, using short named entries under the 512-character value limit. Keep the central operation and entity in `question` too.
 
-For example, `04` asks about release publication during a fixed calendar interval. Its `window.hours` does not redefine that interval. `01` asks about a view call at the closing block. It does not ask whether the predicate was true at any point in the window. Mixing these two interpretations is a common way to produce honest disagreement.
+For example, `04` asks about release publication during September 2024 UTC. Its `window.hours` does not redefine that interval. `01` asks about a view call at the closing block. It does not ask whether the predicate was true at any point in the window. Mixing these two interpretations is a common way to produce honest disagreement.
 
 ## Resolve three clocks separately
 
@@ -35,18 +35,18 @@ For chain windows this pack explicitly includes both block endpoints. When adapt
 | `uint256` | Raw units, sum versus count, duplicate key, and any rounding before comparison |
 | `address` | The exact 20-byte field, not a label, identity or inferred owner |
 | `address[]` | Candidate set, unique keys, score, direction, tie break and short-list behavior |
-| `bytes32` | Block hash, transaction hash, pool ID or another named 32-byte field |
-| `bytes32[]` | Selection rule and order; do not alphabetically sort a transaction-index sample |
+| `bytes32` | Named value and exact encoding: e.g. unsigned reserve or balance, big-endian and zero-padded to 32 bytes; never an unspecified hash |
+| `bytes32[]` | Pool ID selection/ranking or fixed tuple positions; distinguish identifiers from encoded amounts |
 
 Consider `16`, the IMD recipient ranking. “Top recipients” is insufficient: a panel could rank net balances, transfer counts or gross incoming value. The body chooses summed raw `Transfer.value`, excludes the zero recipient, requires positive totals, and breaks ties numerically. An address casing difference must not change numeric order. It does not merge addresses into supposed people.
 
-For `29`, reordering hashes changes the answer because transaction index order is the metric. For `26`, reversing the newest-first order changes the answer. `head: 3` governs agreement on leading entries; it does not invent missing entries. This pack requests up to three entries. Confirm live short-list handling before relying on sparse-window answers; never pad a list with zero hashes to satisfy a length expectation.
+For `29`, entries are exactly `[reserve0, reserve1]`, each encoded as an unsigned bytes32 integer in raw asset units. Reversing them changes the consumer's liquidity test. For `26`, entries are pool IDs ordered by summed absolute swap amounts for one named token, with numeric pool-ID tie breaks. `head: 3` governs leading-entry agreement; it does not invent missing pools. Return fewer only for a complete scan with fewer eligible pools. Zero reserves are valid; missing calls are not zero reserves.
 
 Use `toleranceBps` only after establishing identical units and rounding. It is not a remedy for different definitions. Counts and raw event sums in this pack use zero tolerance. A tolerable numerical error also needs a consumer-side rationale: an answer near a liquidation or payout boundary is different from an approximate dashboard count.
 
 ## Choose evidence by reproducibility, not by subject matter
 
-The documented chain recipe set supports call comparisons, log sums/counts, rankings and v4-specific calculations. It does not list a scalar block-hash or scalar address recipe. This pack therefore labels block-field questions `panel`, even though their sources are RPC responses. Panel evidence has no documented deployer rerun. A source URL guard cannot turn it into one. Expect the free check to disagree: on 2 October 2026 it proposed `evidence: chain` for every one of these block-field bodies and flagged most of them `not_answerable` from public sources, without blocking them. Treat that as a signal to confirm seats can reach the named RPC, not as proof either way.
+Use `evidence: chain` for chain data, including contract calls and RPC-derived activity. Reserve `panel` for the two GitHub release questions. Do not change the evidence label to hide a missing recipe. The live docs list call comparisons, log sums/counts/rankings and v4 calculations. They do not list scalar address or bytes32 calls, reserve-word arrays, or block/transaction scanning recipes. Thus clean draft checks for those examples establish wording admission only; deployer reproduction remains unverified. The pack retains those typed examples as experimental consumer interfaces, not a promise of successful paid execution.
 
 For a chain recipe, make it possible to derive one ABI and one operation from the wording. Include the emitter address, stated as the contract that *emits* the logs ("Transfer value from 0x…" reads as the indexed `from` argument), complete event signature, indexed fields, decoded argument to aggregate and filter. A view comparison needs its call, return type, closing-block anchor and comparator. “Has this token been active?” supplies none of these.
 
@@ -54,11 +54,11 @@ For panel evidence, require sources that expose the necessary complete corpus. A
 
 ## Specify a real empty result separately from inability
 
-A complete event scan with no logs can establish zero. An RPC timeout cannot. A retrieved empty closing block can establish the empty transaction sample. Failure to retrieve it cannot. The pack's `missing` definition asks members to report inability rather than squeeze uncertainty into a typed sentinel.
+A complete event scan with no logs can establish zero. An RPC timeout cannot. A successful reserve read can establish a zero reserve. Failure to retrieve it cannot. The pack's `missing` definition asks members to report inability rather than squeeze uncertainty into a typed sentinel.
 
-Also check that the answer is not a chain constant. On Base every block opens with a type `0x7e` deposit from `0xdead…0001`, and on Robinhood Chain with a type `0x6a` ArbOS internal transaction; "transaction at index 0" or "any transaction" is then fixed before the question is asked, so `03`, `14` and `15` exclude those types by name. `12` and `13` keep a constant `miner` field on purpose and say so in their use case.
+Keep a state flag distinct from a retrieval failure. `24` encodes a successful `paused()` result as bytes32 integer 1 or 0; it never maps an RPC failure to 0. `11` and `12` allow a zero owner to represent renounced ownership; `15` allows a zero pair address to represent a missing market. A zero-address deny guard would contradict these meanings. `13` and `14` require code because they identify underlying pool assets.
 
-`14` and `15` deliberately reserve the zero address for a successfully retrieved block with no transactions of the eligible type. This sentinel is part of their consumer semantics, not a universal failure convention. Do not add a zero-address deny guard to those bodies. Similarly, demanding contract code for a block beneficiary or EOA sender would contradict the metric. This pack sets `mustHaveCode: false` on those scalar addresses; a protocol-selection question could legitimately require true.
+Relative-window wording now states the duration and observation anchor so the free draft checker does not need an omitted `window` field to understand it. Finalized-block state is read once at that anchor, not repeatedly at moving latest blocks. Before a paid request, compare the actual quoted blocks with the requested observation; the draft service still defaults its separate window to 24 hours. For release facts, use the explicit September 2024 UTC interval, not those default chain blocks.
 
 ## Review one seam at a time
 
@@ -72,4 +72,4 @@ Apply the research report's controlled-test approach to the normalization contra
 
 Record the body hash, pinned blocks, source observations and expected normalized value. Keep structural validation, wording screening, seat agreement, deployer reproduction and consumer verification as separate assertions. In this project `results.json` contains only the free screening responses. The checker first sends the exact body; the current service rejects its extra fields, so it separately sends the documented draft fields with definitions appended to the question. The fallback does **not** validate guards, quorum, lifetime, consumer or the actual requested window. Its draft window may differ.
 
-If a full body is refused, repair the named issue and screen again. If a draft passes but evidence is inaccessible, change the evidence plan or task. If seats disagree, inspect whether the disagreement is in corpus selection, arithmetic or normalization before increasing tolerance. Leave `allowAmbiguous` unset unless you deliberately accept unresolved readings; disabling a screen cannot resolve them.
+If a full body is refused, repair the named issue and screen again. If a draft has `wording` or `not_answerable` suggestions, revise and re-check even if blockers are empty. If a draft passes but evidence is inaccessible, change the evidence plan or task. If seats disagree, inspect whether the disagreement is in corpus selection, arithmetic or normalization before increasing tolerance. Leave `allowAmbiguous` unset unless you deliberately accept unresolved readings; disabling a screen cannot resolve them.

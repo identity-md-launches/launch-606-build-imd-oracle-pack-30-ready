@@ -1,0 +1,91 @@
+{
+  "input": {
+    "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 (the token contract) on chain 1 in the last 24 hours?\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank over Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 only: key indexed to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include every indexed from (sender). Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
+    "panelSize": 5,
+    "answerType": "address[]",
+    "evidence": "chain",
+    "chainId": 1,
+    "head": 3
+  },
+  "result": {
+    "date": "2026-10-02T21:53:35.623Z",
+    "verdict": "no_blockers",
+    "attempts": [
+      {
+        "date": "2026-10-02T21:53:35.623Z",
+        "number": 1,
+        "httpStatus": 200,
+        "response": {
+          "action": "oracle.request",
+          "request": {
+            "v": 1,
+            "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 (the token contract) on chain 1 in the last 24 hours?\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank over Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 only: key indexed to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include every indexed from (sender). Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
+            "chainId": 1,
+            "window": {
+              "hours": 24
+            },
+            "answerType": "address[]",
+            "evidence": "chain",
+            "panelSize": 5,
+            "quorum": 4,
+            "validForSeconds": 86400,
+            "head": 3
+          },
+          "proposed": {
+            "answerType": {
+              "value": "address[]",
+              "confidence": 1
+            },
+            "evidence": {
+              "value": "chain",
+              "confidence": 1
+            },
+            "chainId": {
+              "value": 1,
+              "confidence": 0.99
+            },
+            "toleranceBps": {
+              "value": 0,
+              "confidence": 0.66
+            },
+            "head": {
+              "value": 3,
+              "confidence": 1
+            }
+          },
+          "judged": true,
+          "blockers": [],
+          "suggestions": [],
+          "online": 546,
+          "limits": {
+            "minPanelSize": 5,
+            "maxPanelSize": 100
+          },
+          "chains": [
+            {
+              "id": 1,
+              "name": "Ethereum mainnet"
+            },
+            {
+              "id": 56,
+              "name": "BNB Chain"
+            },
+            {
+              "id": 4663,
+              "name": "Robinhood Chain"
+            },
+            {
+              "id": 8453,
+              "name": "Base"
+            },
+            {
+              "id": 42161,
+              "name": "Arbitrum One"
+            }
+          ]
+        },
+        "verdict": "no_blockers"
+      }
+    ]
+  }
+}

@@ -1,11 +1,11 @@
 {
   "v": 1,
-  "question": "At the closing block of the last 1 hours on chain 1, does totalSupply() on 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 return a uint256 greater than 0?",
+  "question": "At the latest finalized block on chain 1 when requested, what address does owner() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?",
   "chainId": 1,
   "window": {
     "hours": 1
   },
-  "answerType": "bool",
+  "answerType": "address",
   "evidence": "chain",
   "panelSize": 5,
   "quorum": 4,
@@ -13,6 +13,6 @@
   "definitions": {
     "window": "The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
-    "recipe": "call-compare: call totalSupply() returning uint256 on 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 at toBlock; compare strictly greater than 0."
+    "call": "Call owner() returning address via the token proxy at toBlock. Return the decoded 20-byte address; zero is a valid renounced owner."
   }
 }

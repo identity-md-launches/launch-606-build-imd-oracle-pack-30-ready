@@ -1,11 +1,11 @@
 {
   "v": 1,
-  "question": "At the closing block of the last 1 hours on chain 1, does totalSupply() on 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 return a uint256 greater than 0?",
+  "question": "At the latest finalized Ethereum mainnet block when requested, what address does getPair(0x6b175474e89094c44da98b954eedeac495271d0f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2) return on Uniswap V2 factory 0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f?",
   "chainId": 1,
   "window": {
     "hours": 1
   },
-  "answerType": "bool",
+  "answerType": "address",
   "evidence": "chain",
   "panelSize": 5,
   "quorum": 4,
@@ -13,6 +13,6 @@
   "definitions": {
     "window": "The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
-    "recipe": "call-compare: call totalSupply() returning uint256 on 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 at toBlock; compare strictly greater than 0."
+    "call": "Call getPair(address,address) returning address at toBlock with the two addresses in the question in that order. Zero means no pair exists."
   }
 }

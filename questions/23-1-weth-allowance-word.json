@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "question": "At the latest finalized Ethereum mainnet block when requested, what is allowance(0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc,0x7a250d5630b4cf539739df2c5dacab4c659f2488d) on WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2, encoded as bytes32?",
+  "chainId": 1,
+  "window": {
+    "hours": 1
+  },
+  "answerType": "bytes32",
+  "evidence": "chain",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "call": "Call allowance(address owner,address spender) returning uint256 at toBlock with the listed arguments. Units are raw wei of WETH. Zero is a valid allowance.",
+    "encoding": "Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling."
+  }
+}

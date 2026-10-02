@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release during [2026-09-01T00:00:00Z,2026-10-01T00:00:00Z)?",
+  "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release during [2024-09-01T00:00:00Z,2024-10-01T00:00:00Z)?",
   "chainId": 1,
   "window": {
     "hours": 720

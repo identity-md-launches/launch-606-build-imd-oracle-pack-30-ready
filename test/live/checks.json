@@ -1,0 +1,2798 @@
+{
+  "endpoint": "https://api.imd.fun/requests/check",
+  "completedAt": "2026-10-02T21:59:36.631Z",
+  "responses": [
+    {
+      "file": "questions/01-imd-supply-positive.json",
+      "sha256": "accc5b16a3c91147cde36a76259504ee4dfe9401a6af4bc41954fc2124129b90",
+      "date": "2026-10-02T21:55:40.387Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:55:37.104Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:55:40.387Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the closing block of the last 1 hours on chain 1, does totalSupply() on 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 return a uint256 greater than 0?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nrecipe: call-compare: call totalSupply() returning uint256 on 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 at toBlock; compare strictly greater than 0.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bool",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "bool",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 0.85
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.89
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 545,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/02-weth-supply-positive.json",
+      "sha256": "da1590f72e442a0149bac3a41dfefeab0048f6bede9afa90676d9587c0d222b0",
+      "date": "2026-10-02T21:55:47.228Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:55:44.173Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:55:47.228Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the closing block of the pinned window on chain 8453, does totalSupply() on 0x4200000000000000000000000000000000000006 return a uint256 greater than 0?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nrecipe: call-compare: call totalSupply() returning uint256 on 0x4200000000000000000000000000000000000006 at toBlock; compare strictly greater than 0.",
+              "chainId": 8453,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bool",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "bool",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 8453,
+                "confidence": 0.99
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.91
+              },
+              "head": {
+                "value": 1,
+                "confidence": 0.99
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 545,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/03-robinhood-block-activity.json",
+      "sha256": "146d8e21dc753a3d7f8d137c51c1065338469b291596212606c08ac117ebf7de",
+      "date": "2026-10-02T21:55:54.216Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:55:51.168Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:55:54.216Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Does at least one block in the last 1 hours on chain 4663 contain at least one transaction whose type is not 0x6a (ArbOS internal)?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId.\nmetric: Fetch every block with eth_getBlockByNumber(number,true). Ignore transactions with type 0x6a, which every block carries. Return true iff some block has a remaining transaction; false only after complete enumeration.",
+              "chainId": 4663,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bool",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "bool",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 4663,
+                "confidence": 0.97
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.83
+              },
+              "head": {
+                "value": 1,
+                "confidence": 0.99
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 545,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/04-go-ethereum-release.json",
+      "sha256": "156d34aa391ffa06278d197cb9bf7bdcdbc17797133244192470825f46b266da",
+      "date": "2026-10-02T21:56:01.955Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:55:58.907Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:56:01.955Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release during [2024-09-01T00:00:00Z,2024-10-01T00:00:00Z)?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bool",
+              "evidence": "panel",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "bool",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "panel",
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.97
+              },
+              "head": {
+                "value": 1,
+                "confidence": 0.96
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 545,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/05-node-release.json",
+      "sha256": "16c7d2d285f3dd037a46af576223620d9967b2223ede0621e945e374441db28d",
+      "date": "2026-10-02T21:56:08.956Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:56:05.908Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:56:08.956Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release during [2024-09-01T00:00:00Z,2024-10-01T00:00:00Z)?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
+              "chainId": 4663,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bool",
+              "evidence": "panel",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "bool",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "panel",
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.96
+              },
+              "head": {
+                "value": 1,
+                "confidence": 0.96
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 545,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/06-imd-transfer-count.json",
+      "sha256": "416ca244968dab5c0a58f128b3bab9170e7e47291dee6191c910c48252d84614",
+      "date": "2026-10-02T21:56:15.713Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:56:12.664Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:56:15.713Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "How many Transfer(address,address,uint256) logs were emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 in the last 24 hours?\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nmetric: Count matching logs, including zero-value transfers; deduplicate by blockHash, transactionHash and logIndex. Do not count other emitting contracts.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "uint256",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "uint256",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 0.98
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.44
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 545,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/07-weth-transfer-count.json",
+      "sha256": "81ddb6fb595144febeb3111f1d72f63636448b4cab4e601bc60c2758ffa713d7",
+      "date": "2026-10-02T21:56:22.441Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:56:19.394Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:56:22.441Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "How many Transfer(address,address,uint256) logs were emitted by 0x4200000000000000000000000000000000000006 on chain 8453 in the last 24 hours?\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nmetric: Count matching logs, including zero-value transfers; deduplicate by blockHash, transactionHash and logIndex. Do not count other emitting contracts.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)",
+              "chainId": 8453,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "uint256",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "uint256",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 8453,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 100,
+                "confidence": 0.2
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 545,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/08-imd-burn-sum.json",
+      "sha256": "37a2d24303b8b3162236903f92969f9aa73b3bf7d1b0c140ef518fca374f9bd6",
+      "date": "2026-10-02T21:56:29.315Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:56:26.270Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:56:29.315Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "What is the sum of value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 to 0x0000000000000000000000000000000000000000 in the last 168 hours on chain 1, in raw token units?\nwindow: The observation covers the last 168 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-sum over value; filter indexed to equal 0x0000000000000000000000000000000000000000. Sum each canonical log once. Empty complete log set returns 0; no decimal scaling.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "uint256",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "uint256",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 0.97
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.6
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 545,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/09-robinhood-block-count.json",
+      "sha256": "0eb199adf46f6e6bcabffcb9e13a4708a16e38291caacf9a96d5c6671cdfee2e",
+      "date": "2026-10-02T21:56:36.129Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:56:33.081Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:56:36.129Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "How many canonical block numbers are in the last 6 hours on chain 4663?\nwindow: The observation covers the last 6 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId.\nmetric: Return toBlock - fromBlock + 1 after verifying both boundary blocks exist and the pinned closing hash matches. Unit is blocks.",
+              "chainId": 4663,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "uint256",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "uint256",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 0.99
+              },
+              "chainId": {
+                "value": 4663,
+                "confidence": 0.99
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.15
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 545,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/10-robinhood-transaction-count.json",
+      "sha256": "6d10b75d66e0f3bd898e9f6d3f75696585d90357ed67d2dc00f02288266db39c",
+      "date": "2026-10-02T21:59:34.760Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:59:31.521Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:59:34.760Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "What is the total count of transactions included in canonical Robinhood Chain blocks (chain 4663) during the last one hour, counting both successful and reverted transactions and including system transactions?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId.\nmetric: Sum transactions.length from every eth_getBlockByNumber(number,false) result. Include reverted and system transactions if present in this array; count entries, not unique senders.",
+              "chainId": 4663,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "uint256",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "uint256",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 4663,
+                "confidence": 0.99
+              },
+              "toleranceBps": {
+                "value": 100,
+                "confidence": 0.18
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 547,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/11-1-usdc-owner.json",
+      "sha256": "ab8741eb46381b1866d7f5c3de913f2750cd49440582ef873abd14082b420891",
+      "date": "2026-10-02T21:56:50.267Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:56:47.222Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:56:50.267Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized block on chain 1 when requested, what address does owner() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call owner() returning address via the token proxy at toBlock. Return the decoded 20-byte address; zero is a valid renounced owner.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "address",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 0.91
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.93
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 545,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/12-8453-usdc-owner.json",
+      "sha256": "5890a5677a8247f5d8766ee1d7720438fd8f6fe58e8640510effdacb46fd01db",
+      "date": "2026-10-02T21:56:57.070Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:56:54.024Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:56:57.070Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized block on chain 8453 when requested, what address does owner() return on USDC at 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call owner() returning address via the token proxy at toBlock. Return the decoded 20-byte address; zero is a valid renounced owner.",
+              "chainId": 8453,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "address",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 8453,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.92
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 545,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/13-1-pair-token0.json",
+      "sha256": "b9f22903dfc7414ab5fba70297fa38b97545093285eb249452779876da0a012f",
+      "date": "2026-10-02T21:57:03.854Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:57:00.808Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:57:03.854Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized Ethereum mainnet block when requested, what address does token0() return on Uniswap V2 pair 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call token0() returning address at toBlock. Return the underlying asset address, not the pair address.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "address",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.89
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 546,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/14-1-pair-token1.json",
+      "sha256": "b4b1335cfb53e576b301cb97b039d9cd54c4eb98dfcef6a8492dc074a71bf73e",
+      "date": "2026-10-02T21:57:10.575Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:57:07.527Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:57:10.575Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized Ethereum mainnet block when requested, what address does token1() return on Uniswap V2 pair 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call token1() returning address at toBlock. Return the underlying asset address, not the pair address.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "address",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.86
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 546,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/15-1-dai-weth-pair.json",
+      "sha256": "5026171ce2c960e0e75f806f3ae1efa4eea73a9e680f635949da7cf239ea6a1e",
+      "date": "2026-10-02T21:57:17.359Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:57:14.314Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:57:17.359Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized Ethereum mainnet block when requested, what address does getPair(0x6b175474e89094c44da98b954eedeac495271d0f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2) return on Uniswap V2 factory 0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call getPair(address,address) returning address at toBlock with the two addresses in the question in that order. Zero means no pair exists.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "address",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.85
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 546,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/16-imd-recipient-rank.json",
+      "sha256": "5a865b9b54bf7b1978e3ba4918e64f1d1cfe6ae26070f03c1832b5d2febd24a8",
+      "date": "2026-10-02T21:57:24.197Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:57:21.152Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:57:24.197Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 (the token contract) on chain 1 in the last 24 hours?\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank over Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 only: key indexed to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include every indexed from (sender). Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "address[]",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400,
+              "head": 3
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address[]",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 0.99
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.61
+              },
+              "head": {
+                "value": 3,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 546,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/17-weth-recipient-rank.json",
+      "sha256": "f1bfe833ba984c2b5f387b835fb9805310fdbe6d4dbb75299e16a78f8d777ce1",
+      "date": "2026-10-02T21:57:31.001Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:57:27.956Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:57:31.001Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0x4200000000000000000000000000000000000006 (the token contract) on chain 8453 in the last 24 hours?\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank over Transfer logs emitted by 0x4200000000000000000000000000000000000006 only: key indexed to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include every indexed from (sender). Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
+              "chainId": 8453,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "address[]",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400,
+              "head": 3
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address[]",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 8453,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.55
+              },
+              "head": {
+                "value": 3,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 546,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/18-4663-sender-rank.json",
+      "sha256": "e4cc4b470d9ae7fc77d537b6c6e86f2a3bd27fcccc241375b3b843755786a59a",
+      "date": "2026-10-02T21:57:37.774Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:57:34.728Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:57:37.774Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Which three from addresses occur most often among transactions in the last 1 hours on chain 4663?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId.\nmetric: Enumerate eth_getBlockByNumber(number,true) for every block. Count each transaction once by its from field, including failed and system transactions. Do not infer beneficial ownership.\nordering: Rank by descending count, tie by ascending numeric address. Return up to 3 unique addresses with positive counts. Empty only if the complete window contains no transactions.",
+              "chainId": 4663,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "address[]",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400,
+              "head": 3
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address[]",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 4663,
+                "confidence": 0.99
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.52
+              },
+              "head": {
+                "value": 3,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 546,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/19-8453-sender-rank.json",
+      "sha256": "fcc0af4421b63e429df2654254375b546b6153473dc479adc4f1adf3956c7708",
+      "date": "2026-10-02T21:57:44.531Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:57:41.486Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:57:44.531Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Which three from addresses occur most often among transactions in the last 1 hours on chain 8453?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId.\nmetric: Enumerate eth_getBlockByNumber(number,true) for every block. Count each transaction once by its from field, including failed and system transactions. Do not infer beneficial ownership.\nordering: Rank by descending count, tie by ascending numeric address. Return up to 3 unique addresses with positive counts. Empty only if the complete window contains no transactions.",
+              "chainId": 8453,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "address[]",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400,
+              "head": 3
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address[]",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 8453,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.42
+              },
+              "head": {
+                "value": 3,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 546,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/20-1-imd-sender-value-rank.json",
+      "sha256": "44c0e80dfd8908e9cb5dce1b2e45e42580a961f1b5d147956c6813da062c7af4",
+      "date": "2026-10-02T21:57:51.301Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:57:48.256Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:57:51.301Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Which three sender addresses sent the largest total raw IMD value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on Ethereum mainnet during the last 24 hours?\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: Sum value grouped by indexed from. Include every recipient; exclude zero sender (minting). Deduplicate by blockHash, transactionHash and logIndex. Keep positive totals only.\nordering: Descending total, then ascending numeric address. Return up to 3 unique addresses; a complete empty scan returns [].",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "address[]",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400,
+              "head": 3
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address[]",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.41
+              },
+              "head": {
+                "value": 3,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 546,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/21-1-weth-balance-word.json",
+      "sha256": "7302b745c8db1eba9cd79dae9e5e399a7fb848af22238330454f72772875ff35",
+      "date": "2026-10-02T21:57:58.179Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:57:55.134Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:57:58.179Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized block on chain 1 when requested, what is balanceOf(0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc) on WETH at 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2, encoded as a bytes32 unsigned integer word?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call balanceOf(address) returning uint256 at toBlock. The argument is the holder named in the question. Units are raw wei of WETH (18 decimals).\nencoding: Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bytes32",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "uint256",
+                "confidence": 0.82
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 0.97
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.67
+              },
+              "head": {
+                "value": 1,
+                "confidence": 0.99
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 546,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/22-8453-weth-balance-word.json",
+      "sha256": "53e33712b268c379ff4541a4218b7677a884bc7950a9f21a527e3671b981f6eb",
+      "date": "2026-10-02T21:58:04.930Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:58:01.885Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:58:04.930Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized block on chain 8453 when requested, what is balanceOf(0x4200000000000000000000000000000000000010) on WETH at 0x4200000000000000000000000000000000000006, encoded as a bytes32 unsigned integer word?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call balanceOf(address) returning uint256 at toBlock. The argument is the holder named in the question. Units are raw wei of WETH (18 decimals).\nencoding: Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling.",
+              "chainId": 8453,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bytes32",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "uint256",
+                "confidence": 0.84
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 8453,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.7
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 546,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/23-1-weth-allowance-word.json",
+      "sha256": "ed0800e25616d4f7a5cacb4493e2af21c6c18807e9e497f7abf3e12862e441b4",
+      "date": "2026-10-02T21:58:12.069Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:58:09.023Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:58:12.069Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized Ethereum mainnet block when requested, what is allowance(0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc,0x7a250d5630b4cf539739df2c5dacab4c659f2488d) on WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2, encoded as bytes32?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call allowance(address owner,address spender) returning uint256 at toBlock with the listed arguments. Units are raw wei of WETH. Zero is a valid allowance.\nencoding: Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bytes32",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "uint256",
+                "confidence": 0.67
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.8
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 547,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/24-1-usdc-paused-word.json",
+      "sha256": "fc452c3b33a45f51a20e65467e455b40dc8495a4516846d96e89cbc3186c7e39",
+      "date": "2026-10-02T21:58:18.778Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:58:15.733Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:58:18.778Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized Ethereum mainnet block when requested, what is the USDC paused() state at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48, encoded as bytes32 with integer 1 for paused and 0 for unpaused?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call paused() returning bool on the USDC proxy at toBlock. True maps to 1; false maps to 0.\nencoding: Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bytes32",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "bytes32",
+                "confidence": 0.41
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.81
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 547,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/25-8453-weth-supply-word.json",
+      "sha256": "b75b18f9f6d3b3cd6f6ba408cc401abe82ada092295c907987c3f8cb8daccb1d",
+      "date": "2026-10-02T21:58:25.589Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:58:22.541Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:58:25.589Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized Base block (chain 8453) when requested, what is totalSupply() on WETH 0x4200000000000000000000000000000000000006, encoded as a bytes32 unsigned integer word?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call totalSupply() returning uint256 at toBlock. Units are raw wei of WETH (18 decimals).\nencoding: Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling.",
+              "chainId": 8453,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bytes32",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "uint256",
+                "confidence": 0.75
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 8453,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.67
+              },
+              "head": {
+                "value": 1,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 547,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/26-1-v4-volume-pools.json",
+      "sha256": "df7f16e2561aff976082072f14bcbedb79a511efc40fbb6a68dbfe012c8516b4",
+      "date": "2026-10-02T21:58:32.334Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:58:29.288Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:58:32.334Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Which three Uniswap v4 pool IDs paired with token 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 had the greatest swap volume in that token on chain 1 during the last 24 hours? Return bytes32[] pool IDs.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use only PoolManager 0x000000000004444c5dc75cb358380d2e3de08a90. Discover pool currency0/currency1 from its Initialize logs up to toBlock.\nmetric: For pools containing 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7, sum the absolute signed Swap amount for that currency over inclusive fromBlock..toBlock in raw token units. Count each canonical log once. Keep positive-volume pools only.\nordering: Sort by descending volume, ties by ascending numeric bytes32 pool ID. Return up to 3 unique IDs; return [] only for a complete scan with no eligible pools.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bytes32[]",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400,
+              "head": 3
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address[]",
+                "confidence": 0.62
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 0.97
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.58
+              },
+              "head": {
+                "value": 3,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 547,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/27-8453-v4-volume-pools.json",
+      "sha256": "a3b100a8357cfc20b160ac427bb3af0e4fd7ca20ccfdd805719989ee209aff47",
+      "date": "2026-10-02T21:58:39.173Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:58:36.127Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:58:39.173Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Which three Uniswap v4 pool IDs paired with token 0x4200000000000000000000000000000000000006 had the greatest swap volume in that token on chain 8453 during the last 24 hours? Return bytes32[] pool IDs.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use only PoolManager 0x498581ff718922c3f8e6a244956af099b2652b2b. Discover pool currency0/currency1 from its Initialize logs up to toBlock.\nmetric: For pools containing 0x4200000000000000000000000000000000000006, sum the absolute signed Swap amount for that currency over inclusive fromBlock..toBlock in raw token units. Count each canonical log once. Keep positive-volume pools only.\nordering: Sort by descending volume, ties by ascending numeric bytes32 pool ID. Return up to 3 unique IDs; return [] only for a complete scan with no eligible pools.",
+              "chainId": 8453,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bytes32[]",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400,
+              "head": 3
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address[]",
+                "confidence": 0.53
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 8453,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.62
+              },
+              "head": {
+                "value": 3,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 547,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/28-1-v4-volume-pools.json",
+      "sha256": "fa65e73404cd464afea384a01c87bf7142f6ee235c39e9cfe648a61e3ce83aa8",
+      "date": "2026-10-02T21:58:46.005Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:58:42.959Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:58:46.005Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Which three Uniswap v4 pool IDs paired with token 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 had the greatest swap volume in that token on chain 1 during the last 24 hours? Return bytes32[] pool IDs.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use only PoolManager 0x000000000004444c5dc75cb358380d2e3de08a90. Discover pool currency0/currency1 from its Initialize logs up to toBlock.\nmetric: For pools containing 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2, sum the absolute signed Swap amount for that currency over inclusive fromBlock..toBlock in raw token units. Count each canonical log once. Keep positive-volume pools only.\nordering: Sort by descending volume, ties by ascending numeric bytes32 pool ID. Return up to 3 unique IDs; return [] only for a complete scan with no eligible pools.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bytes32[]",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400,
+              "head": 3
+            },
+            "proposed": {
+              "answerType": {
+                "value": "address[]",
+                "confidence": 0.51
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 0.99
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.47
+              },
+              "head": {
+                "value": 3,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 547,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/29-1-usdc-weth-reserve-words.json",
+      "sha256": "c8849ce72bc52ce07362db4225e3af6c08534ba03cde56a8bbdbf2551eb7a345",
+      "date": "2026-10-02T21:58:52.777Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:58:49.715Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:58:52.777Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized Ethereum mainnet block when requested, what are reserve0 and reserve1 from getReserves() on Uniswap V2 pair 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc, returned in that order as bytes32[] unsigned integer words?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call getReserves() returning (uint112 reserve0,uint112 reserve1,uint32 blockTimestampLast) at toBlock. Return exactly two entries: reserve0, then reserve1. Omit blockTimestampLast. Amounts are raw units of token0 and token1 respectively.\nencoding: Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bytes32[]",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400,
+              "head": 2
+            },
+            "proposed": {
+              "answerType": {
+                "value": "bytes32[]",
+                "confidence": 0.73
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.48
+              },
+              "head": {
+                "value": 2,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 547,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    {
+      "file": "questions/30-1-dai-weth-reserve-words.json",
+      "sha256": "3ebee0f0e29a6a1d59c650662f26d214f7c85b2da507e6e6031106de82a7f09d",
+      "date": "2026-10-02T21:59:00.111Z",
+      "full": [
+        {
+          "date": "2026-10-02T21:58:57.065Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+          },
+          "verdict": "http_error"
+        }
+      ],
+      "draft": [
+        {
+          "date": "2026-10-02T21:59:00.111Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "At the latest finalized Ethereum mainnet block when requested, what are reserve0 and reserve1 from getReserves() on Uniswap V2 pair 0xa478c2975ab1ea89e8196811f51a7b7ade33eb11, returned in that order as bytes32[] unsigned integer words?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call getReserves() returning (uint112 reserve0,uint112 reserve1,uint32 blockTimestampLast) at toBlock. Return exactly two entries: reserve0, then reserve1. Omit blockTimestampLast. Amounts are raw units of token0 and token1 respectively.\nencoding: Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bytes32[]",
+              "evidence": "chain",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400,
+              "head": 2
+            },
+            "proposed": {
+              "answerType": {
+                "value": "bytes32[]",
+                "confidence": 0.69
+              },
+              "evidence": {
+                "value": "chain",
+                "confidence": 1
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 1
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.64
+              },
+              "head": {
+                "value": 2,
+                "confidence": 1
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [],
+            "online": 547,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    }
+  ]
+}

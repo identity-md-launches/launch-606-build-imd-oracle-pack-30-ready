@@ -1,0 +1,85 @@
+{
+  "input": {
+    "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release during [2024-09-01T00:00:00Z,2024-10-01T00:00:00Z)?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
+    "panelSize": 5,
+    "answerType": "bool",
+    "evidence": "panel",
+    "chainId": 1
+  },
+  "result": {
+    "date": "2026-10-02T21:53:28.181Z",
+    "verdict": "no_blockers",
+    "attempts": [
+      {
+        "date": "2026-10-02T21:53:28.181Z",
+        "number": 1,
+        "httpStatus": 200,
+        "response": {
+          "action": "oracle.request",
+          "request": {
+            "v": 1,
+            "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release during [2024-09-01T00:00:00Z,2024-10-01T00:00:00Z)?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
+            "chainId": 1,
+            "window": {
+              "hours": 24
+            },
+            "answerType": "bool",
+            "evidence": "panel",
+            "panelSize": 5,
+            "quorum": 4,
+            "validForSeconds": 86400
+          },
+          "proposed": {
+            "answerType": {
+              "value": "bool",
+              "confidence": 1
+            },
+            "evidence": {
+              "value": "panel",
+              "confidence": 1
+            },
+            "toleranceBps": {
+              "value": 0,
+              "confidence": 0.97
+            },
+            "head": {
+              "value": 1,
+              "confidence": 0.96
+            }
+          },
+          "judged": true,
+          "blockers": [],
+          "suggestions": [],
+          "online": 546,
+          "limits": {
+            "minPanelSize": 5,
+            "maxPanelSize": 100
+          },
+          "chains": [
+            {
+              "id": 1,
+              "name": "Ethereum mainnet"
+            },
+            {
+              "id": 56,
+              "name": "BNB Chain"
+            },
+            {
+              "id": 4663,
+              "name": "Robinhood Chain"
+            },
+            {
+              "id": 8453,
+              "name": "Base"
+            },
+            {
+              "id": 42161,
+              "name": "Arbitrum One"
+            }
+          ]
+        },
+        "verdict": "no_blockers"
+      }
+    ]
+  }
+}

@@ -3,11 +3,12 @@ import assert from 'node:assert/strict';
 import { mkdtemp, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { checkInput, checkPack, draftInput, ENDPOINT } from '../scripts/check.mjs';
+import { checkInput, checkPack, draftInput, isCleanScreen, ENDPOINT } from '../scripts/check.mjs';
 import { loadPack, validatePack, validateBody } from '../scripts/validate.mjs';
 
 const response = (status, data) => new Response(JSON.stringify(data), {status});
 const noWait = async ms => assert.ok(ms >= 3000);
+const live = JSON.parse(await readFile(new URL('./live/check-example.json', import.meta.url),'utf8'));
 
 test('all 30 bodies and their semantic draft inputs fit limits', async () => {
   const pack = await loadPack();
@@ -65,12 +66,14 @@ test('exact body rejection and draft verdict remain separate in persisted report
     const output = join(directory,'results.json');
     const report = await checkPack([entry], {output, wait:noWait, check:input => checkInput(input, {
       fetchFn:async () => ++calls === 1
-        ? response(400,{error:'invalid_request',detail:'request: Unrecognized keys: "window"'})
-        : response(200,{blockers:[],suggestions:[{code:'wording'},{code:'evidence'},{code:'wording'}],request:{window:{hours:24}}}),wait:noWait
+        ? response(live.full.httpStatus,live.full.response)
+        // Inject advice into the actual live success shape to test the quality gate.
+        : response(live.draft.httpStatus,{...live.draft.response,suggestions:[{code:'wording'},{code:'evidence'},{code:'wording'}]}),wait:noWait
     })});
     assert.equal(calls,2);
     assert.equal(report.results[0].full.verdict,'http_error');
     assert.equal(report.results[0].draft.verdict,'no_blockers');
+    assert.equal(isCleanScreen(report.results[0].draft),false);
     assert.deepEqual(report.results[0].suggestions,['wording','evidence']);
     assert.equal(report.results[0].verdict,'full_body_rejected; draft_no_blockers; suggestions: wording,evidence');
     assert.ok(report.results[0].draft.omittedFields.includes('window'));
@@ -95,5 +98,31 @@ test('recorded outcomes cover current file bytes, with dates and full responses'
     assert.ok(!Number.isNaN(Date.parse(record.date)));
     assert.ok(record.full.attempts.length >= 1 && record.full.attempts.length <= 4);
     assert.equal(typeof record.verdict,'string');
+    assert.deepEqual(record.draft.input,draftInput(JSON.parse(raw)));
+    assert.ok(isCleanScreen(record.draft), `${file}: unresolved draft screen`);
+  }
+});
+
+test('live success replays offline; advice or an unjudged response fails the quality gate', async () => {
+  const result = await checkInput(live.input, {
+    fetchFn:async () => response(live.draft.httpStatus,live.draft.response), wait:noWait
+  });
+  assert.ok(isCleanScreen(result));
+  for (const code of ['wording','not_answerable']) {
+    const flagged = structuredClone(result);
+    flagged.attempts.at(-1).response.suggestions = [{code}];
+    assert.equal(isCleanScreen(flagged),false);
+  }
+  result.attempts.at(-1).response.judged = false;
+  assert.equal(isCleanScreen(result),false);
+});
+
+test('chain data uses chain evidence and replacement questions avoid header trivia', async () => {
+  for (const {file,body} of await loadPack()) {
+    const id = Number(file.slice(0,2));
+    assert.equal(body.evidence,[4,5].includes(id) ? 'panel' : 'chain');
+    if ((id >= 11 && id <= 15) || id >= 20) {
+      assert.doesNotMatch(body.question,/parentHash|block hash|transaction hash|miner field|lowest-index/i);
+    }
   }
 });

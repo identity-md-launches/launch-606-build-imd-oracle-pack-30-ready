@@ -6,6 +6,12 @@ import { setTimeout as sleep } from 'node:timers/promises';
 import { ROOT, WARNING, loadPack, validatePack } from './validate.mjs';
 
 export const ENDPOINT = 'https://api.imd.fun/requests/check';
+export function isCleanScreen(result) {
+  const response = result.attempts.at(-1)?.response;
+  return result.verdict === 'no_blockers' && response?.judged === true &&
+    Array.isArray(response.suggestions) &&
+    !response.suggestions.some(s => ['wording','not_answerable'].includes(s?.code));
+}
 const draftKeys = ['question','panelSize','answerType','evidence','chainId','toleranceBps','head'];
 export function draftInput(body) {
   // The documented check route accepts a draft, not all quote input fields.
@@ -74,7 +80,7 @@ export async function checkPack(entries, {output = resolve(ROOT,'results.json'),
       result.verdict = `full_body_rejected; draft_${result.draft.verdict}`;
       result.date = result.draft.date;
     }
-    // Non-blocking advice (wording, evidence, not_answerable...) does not change the exit code but is surfaced.
+    // Preserve service advice; wording/not_answerable also fail the pack's quality gate.
     const codes = [...new Set(((result.draft ?? full).attempts.at(-1)?.response?.suggestions ?? []).map(s => s?.code).filter(Boolean))];
     if (codes.length) {
       result.suggestions = codes;
@@ -93,7 +99,7 @@ export async function checkPack(entries, {output = resolve(ROOT,'results.json'),
 async function main() {
   const args = process.argv.slice(2);
   if (args.includes('--help')) {
-    console.log(`${WARNING}\n\nUsage: node scripts/check.mjs [--output PATH]\nNode 20+, built-in fetch only. Sends all 30 exact bodies to the free check\nendpoint; on unknown-field rejection also checks the documented draft,\nwith definitions appended to question text. Records raw responses, UTC dates,\nbody hashes and non-blocking suggestion codes. Retries transport failures, 408/425/429/5xx and malformed\nresponses up to 3 times, at least 3 seconds apart. 30-second timeout per call.\nNo payment, quote, wallet or oracle submission.\n--output PATH  Save results elsewhere (default: repository results.json).\nExit 0: every exact body or fallback draft had no blockers.\nExit 1: blocked, network/HTTP failure, unclassified response, or local error.`);
+    console.log(`${WARNING}\n\nUsage: node scripts/check.mjs [--output PATH]\nNode 20+, built-in fetch only. Sends all 30 exact bodies to the free check\nendpoint; on unknown-field rejection also checks the documented draft,\nwith definitions appended to question text. Records raw responses, UTC dates,\nbody hashes and non-blocking suggestion codes. Retries transport failures, 408/425/429/5xx and malformed\nresponses up to 3 times, at least 3 seconds apart. 30-second timeout per call.\nNo payment, quote, wallet or oracle submission.\n--output PATH  Save results elsewhere (default: repository results.json).\nExit 0: every body or fallback draft was judged with no blockers, wording or not_answerable suggestions.\nExit 1: quality gate failed, network/HTTP failure, unclassified response, or local error.`);
     return;
   }
   let output = resolve(ROOT,'results.json');
@@ -106,7 +112,7 @@ async function main() {
   if (errors.length) throw new Error(errors.join('\n'));
   for (const {body} of entries) draftInput(body); // fail before starting any network calls
   const report = await checkPack(entries,{output});
-  if (report.results.some(r => (r.draft ?? r.full).verdict !== 'no_blockers')) process.exitCode = 1;
+  if (report.results.some(r => !isCleanScreen(r.draft ?? r.full))) process.exitCode = 1;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main().catch(e => { console.error(e.message); process.exitCode = 1; });

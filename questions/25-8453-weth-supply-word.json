@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "question": "At the latest finalized Base block (chain 8453) when requested, what is totalSupply() on WETH 0x4200000000000000000000000000000000000006, encoded as a bytes32 unsigned integer word?",
+  "chainId": 8453,
+  "window": {
+    "hours": 1
+  },
+  "answerType": "bytes32",
+  "evidence": "chain",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "call": "Call totalSupply() returning uint256 at toBlock. Units are raw wei of WETH (18 decimals).",
+    "encoding": "Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling."
+  }
+}

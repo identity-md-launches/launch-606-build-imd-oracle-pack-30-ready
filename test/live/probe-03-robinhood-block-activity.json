@@ -1,0 +1,89 @@
+{
+  "input": {
+    "question": "Does at least one block in the last 1 hours on chain 4663 contain at least one transaction whose type is not 0x6a (ArbOS internal)?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. \nmetric: Fetch every block with eth_getBlockByNumber(number,true). Ignore transactions with type 0x6a, which every block carries. Return true iff some block has a remaining transaction; false only after complete enumeration.",
+    "panelSize": 5,
+    "answerType": "bool",
+    "evidence": "chain",
+    "chainId": 4663
+  },
+  "result": {
+    "date": "2026-10-02T21:53:24.514Z",
+    "verdict": "no_blockers",
+    "attempts": [
+      {
+        "date": "2026-10-02T21:53:24.514Z",
+        "number": 1,
+        "httpStatus": 200,
+        "response": {
+          "action": "oracle.request",
+          "request": {
+            "v": 1,
+            "question": "Does at least one block in the last 1 hours on chain 4663 contain at least one transaction whose type is not 0x6a (ArbOS internal)?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. \nmetric: Fetch every block with eth_getBlockByNumber(number,true). Ignore transactions with type 0x6a, which every block carries. Return true iff some block has a remaining transaction; false only after complete enumeration.",
+            "chainId": 4663,
+            "window": {
+              "hours": 24
+            },
+            "answerType": "bool",
+            "evidence": "chain",
+            "panelSize": 5,
+            "quorum": 4,
+            "validForSeconds": 86400
+          },
+          "proposed": {
+            "answerType": {
+              "value": "bool",
+              "confidence": 1
+            },
+            "evidence": {
+              "value": "chain",
+              "confidence": 1
+            },
+            "chainId": {
+              "value": 4663,
+              "confidence": 0.97
+            },
+            "toleranceBps": {
+              "value": 0,
+              "confidence": 0.83
+            },
+            "head": {
+              "value": 1,
+              "confidence": 0.99
+            }
+          },
+          "judged": true,
+          "blockers": [],
+          "suggestions": [],
+          "online": 546,
+          "limits": {
+            "minPanelSize": 5,
+            "maxPanelSize": 100
+          },
+          "chains": [
+            {
+              "id": 1,
+              "name": "Ethereum mainnet"
+            },
+            {
+              "id": 56,
+              "name": "BNB Chain"
+            },
+            {
+              "id": 4663,
+              "name": "Robinhood Chain"
+            },
+            {
+              "id": 8453,
+              "name": "Base"
+            },
+            {
+              "id": 42161,
+              "name": "Arbitrum One"
+            }
+          ]
+        },
+        "verdict": "no_blockers"
+      }
+    ]
+  }
+}

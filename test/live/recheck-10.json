@@ -1,0 +1,132 @@
+{
+  "experimental": "Experimental, commissioned as a test of the IMD swarm. It may not work as described. Read the code, start with small amounts, no warranty.",
+  "endpoint": "https://api.imd.fun/requests/check",
+  "startedAt": "2026-10-02T21:59:31.520Z",
+  "completedAt": "2026-10-02T21:59:36.631Z",
+  "policy": {
+    "maxRetries": 3,
+    "retryDelayMs": 3000,
+    "mode": "exact body, then documented draft on unknown-field rejection"
+  },
+  "note": "A no_blockers draft is a wording/admission screen, not a check of omitted fields or a signed oracle result. Suggestions are non-blocking service advice; read them before spending.",
+  "results": [
+    {
+      "file": "questions/10-robinhood-transaction-count.json",
+      "sha256": "6d10b75d66e0f3bd898e9f6d3f75696585d90357ed67d2dc00f02288266db39c",
+      "date": "2026-10-02T21:59:34.760Z",
+      "verdict": "full_body_rejected; draft_no_blockers",
+      "full": {
+        "date": "2026-10-02T21:59:31.521Z",
+        "verdict": "http_error",
+        "attempts": [
+          {
+            "date": "2026-10-02T21:59:31.521Z",
+            "number": 1,
+            "httpStatus": 400,
+            "response": {
+              "error": "invalid_request",
+              "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+            },
+            "verdict": "http_error"
+          }
+        ]
+      },
+      "draft": {
+        "input": {
+          "question": "What is the total count of transactions included in canonical Robinhood Chain blocks (chain 4663) during the last one hour, counting both successful and reverted transactions and including system transactions?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId.\nmetric: Sum transactions.length from every eth_getBlockByNumber(number,false) result. Include reverted and system transactions if present in this array; count entries, not unique senders.",
+          "panelSize": 5,
+          "answerType": "uint256",
+          "evidence": "chain",
+          "chainId": 4663,
+          "toleranceBps": 0
+        },
+        "omittedFields": [
+          "v",
+          "window",
+          "quorum",
+          "validForSeconds",
+          "definitions",
+          "guards"
+        ],
+        "date": "2026-10-02T21:59:34.760Z",
+        "verdict": "no_blockers",
+        "attempts": [
+          {
+            "date": "2026-10-02T21:59:34.760Z",
+            "number": 1,
+            "httpStatus": 200,
+            "response": {
+              "action": "oracle.request",
+              "request": {
+                "v": 1,
+                "question": "What is the total count of transactions included in canonical Robinhood Chain blocks (chain 4663) during the last one hour, counting both successful and reverted transactions and including system transactions?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId.\nmetric: Sum transactions.length from every eth_getBlockByNumber(number,false) result. Include reverted and system transactions if present in this array; count entries, not unique senders.",
+                "chainId": 4663,
+                "window": {
+                  "hours": 24
+                },
+                "answerType": "uint256",
+                "evidence": "chain",
+                "panelSize": 5,
+                "quorum": 4,
+                "validForSeconds": 86400
+              },
+              "proposed": {
+                "answerType": {
+                  "value": "uint256",
+                  "confidence": 1
+                },
+                "evidence": {
+                  "value": "chain",
+                  "confidence": 1
+                },
+                "chainId": {
+                  "value": 4663,
+                  "confidence": 0.99
+                },
+                "toleranceBps": {
+                  "value": 100,
+                  "confidence": 0.18
+                },
+                "head": {
+                  "value": 1,
+                  "confidence": 1
+                }
+              },
+              "judged": true,
+              "blockers": [],
+              "suggestions": [],
+              "online": 547,
+              "limits": {
+                "minPanelSize": 5,
+                "maxPanelSize": 100
+              },
+              "chains": [
+                {
+                  "id": 1,
+                  "name": "Ethereum mainnet"
+                },
+                {
+                  "id": 56,
+                  "name": "BNB Chain"
+                },
+                {
+                  "id": 4663,
+                  "name": "Robinhood Chain"
+                },
+                {
+                  "id": 8453,
+                  "name": "Base"
+                },
+                {
+                  "id": 42161,
+                  "name": "Arbitrum One"
+                }
+              ]
+            },
+            "verdict": "no_blockers"
+          }
+        ]
+      }
+    }
+  ]
+}

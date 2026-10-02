@@ -1,0 +1,90 @@
+{
+  "input": {
+    "question": "How many Transfer(address,address,uint256) logs were emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 in the last 24 hours?\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nmetric: Count matching logs, including zero-value transfers; deduplicate by blockHash, transactionHash and logIndex. Do not count other emitting contracts.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)",
+    "panelSize": 5,
+    "answerType": "uint256",
+    "evidence": "chain",
+    "chainId": 1,
+    "toleranceBps": 0
+  },
+  "result": {
+    "date": "2026-10-02T21:53:31.914Z",
+    "verdict": "no_blockers",
+    "attempts": [
+      {
+        "date": "2026-10-02T21:53:31.914Z",
+        "number": 1,
+        "httpStatus": 200,
+        "response": {
+          "action": "oracle.request",
+          "request": {
+            "v": 1,
+            "question": "How many Transfer(address,address,uint256) logs were emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 in the last 24 hours?\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nmetric: Count matching logs, including zero-value transfers; deduplicate by blockHash, transactionHash and logIndex. Do not count other emitting contracts.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)",
+            "chainId": 1,
+            "window": {
+              "hours": 24
+            },
+            "answerType": "uint256",
+            "evidence": "chain",
+            "panelSize": 5,
+            "quorum": 4,
+            "validForSeconds": 86400
+          },
+          "proposed": {
+            "answerType": {
+              "value": "uint256",
+              "confidence": 1
+            },
+            "evidence": {
+              "value": "chain",
+              "confidence": 1
+            },
+            "chainId": {
+              "value": 1,
+              "confidence": 0.98
+            },
+            "toleranceBps": {
+              "value": 0,
+              "confidence": 0.49
+            },
+            "head": {
+              "value": 1,
+              "confidence": 1
+            }
+          },
+          "judged": true,
+          "blockers": [],
+          "suggestions": [],
+          "online": 546,
+          "limits": {
+            "minPanelSize": 5,
+            "maxPanelSize": 100
+          },
+          "chains": [
+            {
+              "id": 1,
+              "name": "Ethereum mainnet"
+            },
+            {
+              "id": 56,
+              "name": "BNB Chain"
+            },
+            {
+              "id": 4663,
+              "name": "Robinhood Chain"
+            },
+            {
+              "id": 8453,
+              "name": "Base"
+            },
+            {
+              "id": 42161,
+              "name": "Arbitrum One"
+            }
+          ]
+        },
+        "verdict": "no_blockers"
+      }
+    ]
+  }
+}

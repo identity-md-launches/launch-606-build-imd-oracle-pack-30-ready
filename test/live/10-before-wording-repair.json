@@ -1,0 +1,126 @@
+{
+  "file": "questions/10-robinhood-transaction-count.json",
+  "sha256": "78109613c57e6f460e7d13e7647161ad2a4f974089d375ad02387088d1fcea3f",
+  "date": "2026-10-02T21:56:43.488Z",
+  "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording",
+  "full": {
+    "date": "2026-10-02T21:56:40.345Z",
+    "verdict": "http_error",
+    "attempts": [
+      {
+        "date": "2026-10-02T21:56:40.345Z",
+        "number": 1,
+        "httpStatus": 400,
+        "response": {
+          "error": "invalid_request",
+          "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+        },
+        "verdict": "http_error"
+      }
+    ]
+  },
+  "draft": {
+    "input": {
+      "question": "How many transaction entries occur across all blocks in the last 1 hours on chain 4663?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId.\nmetric: Sum transactions.length from every eth_getBlockByNumber(number,false) result. Include reverted and system transactions if present in this array; count entries, not unique senders.",
+      "panelSize": 5,
+      "answerType": "uint256",
+      "evidence": "chain",
+      "chainId": 4663,
+      "toleranceBps": 0
+    },
+    "omittedFields": [
+      "v",
+      "window",
+      "quorum",
+      "validForSeconds",
+      "definitions",
+      "guards"
+    ],
+    "date": "2026-10-02T21:56:43.488Z",
+    "verdict": "no_blockers",
+    "attempts": [
+      {
+        "date": "2026-10-02T21:56:43.488Z",
+        "number": 1,
+        "httpStatus": 200,
+        "response": {
+          "action": "oracle.request",
+          "request": {
+            "v": 1,
+            "question": "How many transaction entries occur across all blocks in the last 1 hours on chain 4663?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId.\nmetric: Sum transactions.length from every eth_getBlockByNumber(number,false) result. Include reverted and system transactions if present in this array; count entries, not unique senders.",
+            "chainId": 4663,
+            "window": {
+              "hours": 24
+            },
+            "answerType": "uint256",
+            "evidence": "chain",
+            "panelSize": 5,
+            "quorum": 4,
+            "validForSeconds": 86400
+          },
+          "proposed": {
+            "answerType": {
+              "value": "uint256",
+              "confidence": 1
+            },
+            "evidence": {
+              "value": "chain",
+              "confidence": 1
+            },
+            "chainId": {
+              "value": 4663,
+              "confidence": 0.99
+            },
+            "toleranceBps": {
+              "value": 100,
+              "confidence": 0.17
+            },
+            "head": {
+              "value": 1,
+              "confidence": 1
+            }
+          },
+          "judged": true,
+          "blockers": [],
+          "suggestions": [
+            {
+              "code": "wording",
+              "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+            }
+          ],
+          "online": 545,
+          "limits": {
+            "minPanelSize": 5,
+            "maxPanelSize": 100
+          },
+          "chains": [
+            {
+              "id": 1,
+              "name": "Ethereum mainnet"
+            },
+            {
+              "id": 56,
+              "name": "BNB Chain"
+            },
+            {
+              "id": 4663,
+              "name": "Robinhood Chain"
+            },
+            {
+              "id": 8453,
+              "name": "Base"
+            },
+            {
+              "id": 42161,
+              "name": "Arbitrum One"
+            }
+          ]
+        },
+        "verdict": "no_blockers"
+      }
+    ]
+  },
+  "suggestions": [
+    "wording"
+  ]
+}

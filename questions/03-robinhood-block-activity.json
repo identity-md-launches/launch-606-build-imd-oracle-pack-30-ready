@@ -1,19 +1,19 @@
 {
   "v": 1,
-  "question": "Does at least one block in the pinned inclusive window on chain 4663 contain at least one transaction whose type is not 0x6a (ArbOS internal)?",
+  "question": "Does at least one block in the last 1 hours on chain 4663 contain at least one transaction whose type is not 0x6a (ArbOS internal)?",
   "chainId": 4663,
   "window": {
     "hours": 1
   },
   "answerType": "bool",
-  "evidence": "panel",
+  "evidence": "chain",
   "panelSize": 5,
   "quorum": 4,
   "validForSeconds": 3600,
   "definitions": {
-    "window": "Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.",
+    "window": "The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
-    "source": "Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.",
+    "source": "Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId.",
     "metric": "Fetch every block with eth_getBlockByNumber(number,true). Ignore transactions with type 0x6a, which every block carries. Return true iff some block has a remaining transaction; false only after complete enumeration."
   },
   "guards": {
