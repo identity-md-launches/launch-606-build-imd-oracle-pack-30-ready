@@ -1,0 +1,27 @@
+{
+  "v": 1,
+  "question": "Which three from addresses occur most often among transactions in the pinned inclusive window on chain 8453?",
+  "chainId": 8453,
+  "window": {
+    "hours": 1
+  },
+  "answerType": "address[]",
+  "evidence": "panel",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "source": "Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.",
+    "metric": "Enumerate eth_getBlockByNumber(number,true) for every block. Count each transaction once by its from field, including failed and system transactions. Do not infer beneficial ownership.",
+    "ordering": "Rank by descending count, tie by ascending numeric address. Return up to 3 unique addresses with positive counts. Empty only if the complete window contains no transactions."
+  },
+  "guards": {
+    "sources": [
+      "https://mainnet.base.org"
+    ],
+    "minSources": 1
+  },
+  "head": 3
+}

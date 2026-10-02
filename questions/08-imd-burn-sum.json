@@ -1,0 +1,24 @@
+{
+  "v": 1,
+  "question": "What is the sum of value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 to 0x0000000000000000000000000000000000000000 in the pinned inclusive window on chain 1, in raw token units?",
+  "chainId": 1,
+  "window": {
+    "hours": 168
+  },
+  "answerType": "uint256",
+  "evidence": "chain",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "event": "event Transfer(address indexed from,address indexed to,uint256 value)",
+    "metric": "log-sum over value; filter indexed to equal 0x0000000000000000000000000000000000000000. Sum each canonical log once. Empty complete log set returns 0; no decimal scaling."
+  },
+  "guards": {
+    "min": "0",
+    "max": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  },
+  "toleranceBps": 0
+}

@@ -1,0 +1,26 @@
+{
+  "v": 1,
+  "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release during [2026-09-01T00:00:00Z,2026-10-01T00:00:00Z)?",
+  "chainId": 4663,
+  "window": {
+    "hours": 720
+  },
+  "answerType": "bool",
+  "evidence": "panel",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "source": "Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.",
+    "calendar": "The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound."
+  },
+  "guards": {
+    "sources": [
+      "https://api.github.com/repos/nodejs/node/",
+      "https://github.com/nodejs/node/"
+    ],
+    "minSources": 1
+  }
+}

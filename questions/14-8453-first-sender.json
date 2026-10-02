@@ -1,0 +1,26 @@
+{
+  "v": 1,
+  "question": "What is the from address of the transaction at index 0 in the pinned closing block on chain 8453?",
+  "chainId": 8453,
+  "window": {
+    "hours": 1
+  },
+  "answerType": "address",
+  "evidence": "panel",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "source": "Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.",
+    "metric": "Fetch eth_getBlockByNumber(toBlock,true); return transactions[0].from. If the complete block has no transactions, return 0x0000000000000000000000000000000000000000. Missing data is inability, not the zero address."
+  },
+  "guards": {
+    "sources": [
+      "https://mainnet.base.org"
+    ],
+    "minSources": 1,
+    "mustHaveCode": false
+  }
+}

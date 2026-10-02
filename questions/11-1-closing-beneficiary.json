@@ -1,0 +1,26 @@
+{
+  "v": 1,
+  "question": "What address is the miner field in the eth_getBlockByNumber(toBlock,false) response for the pinned closing block on chain 1?",
+  "chainId": 1,
+  "window": {
+    "hours": 1
+  },
+  "answerType": "address",
+  "evidence": "panel",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "source": "Use JSON-RPC at https://ethereum-rpc.publicnode.com for chain 1; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.",
+    "metric": "Return the 20-byte miner field verbatim. It is an execution block beneficiary, not a validator withdrawal address or sequencer identity. The zero address is valid."
+  },
+  "guards": {
+    "sources": [
+      "https://ethereum-rpc.publicnode.com"
+    ],
+    "minSources": 1,
+    "mustHaveCode": false
+  }
+}

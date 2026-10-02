@@ -1,0 +1,28 @@
+{
+  "v": 1,
+  "question": "How many transaction entries occur across all blocks in the pinned inclusive window on chain 4663?",
+  "chainId": 4663,
+  "window": {
+    "hours": 1
+  },
+  "answerType": "uint256",
+  "evidence": "panel",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "source": "Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.",
+    "metric": "Sum transactions.length from every eth_getBlockByNumber(number,false) result. Include reverted and system transactions if present in this array; count entries, not unique senders."
+  },
+  "guards": {
+    "sources": [
+      "https://rpc.mainnet.chain.robinhood.com"
+    ],
+    "minSources": 1,
+    "min": "0",
+    "max": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  },
+  "toleranceBps": 0
+}

@@ -1,0 +1,24 @@
+{
+  "v": 1,
+  "question": "How many Transfer(address,address,uint256) logs were emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 in the pinned inclusive window?",
+  "chainId": 1,
+  "window": {
+    "hours": 24
+  },
+  "answerType": "uint256",
+  "evidence": "chain",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "metric": "Count matching logs, including zero-value transfers; deduplicate by blockHash, transactionHash and logIndex. Do not count other emitting contracts.",
+    "event": "event Transfer(address indexed from,address indexed to,uint256 value)"
+  },
+  "guards": {
+    "min": "0",
+    "max": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  },
+  "toleranceBps": 0
+}

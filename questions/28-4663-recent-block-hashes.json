@@ -1,0 +1,30 @@
+{
+  "v": 1,
+  "question": "What are the hashes of the last three blocks of the pinned inclusive window on chain 4663, newest first?",
+  "chainId": 4663,
+  "window": {
+    "hours": 1
+  },
+  "answerType": "bytes32[]",
+  "evidence": "panel",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "source": "Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.",
+    "metric": "Read the hash fields of toBlock, toBlock-1 and toBlock-2, only when within the pinned window. Return fewer entries if the window has fewer than 3 blocks.",
+    "ordering": "Strictly descending block number. Return block hashes, not parent hashes or transaction hashes."
+  },
+  "guards": {
+    "sources": [
+      "https://rpc.mainnet.chain.robinhood.com"
+    ],
+    "minSources": 1,
+    "deny": [
+      "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ]
+  },
+  "head": 3
+}
