@@ -57,7 +57,7 @@ export async function checkInput(input, {fetchFn = fetch, wait = sleep, timeoutM
 export async function checkPack(entries, {output = resolve(ROOT,'results.json'), check = checkInput, wait = sleep, now = () => new Date().toISOString()} = {}) {
   const report = {experimental:WARNING, endpoint:ENDPOINT, startedAt:now(), completedAt:null,
     policy:{maxRetries:3, retryDelayMs:3000, mode:'exact body, then documented draft on unknown-field rejection'},
-    note:'A no_blockers draft is a wording/admission screen, not a check of omitted fields or a signed oracle result.', results:[]};
+    note:'A no_blockers draft is a wording/admission screen, not a check of omitted fields or a signed oracle result. Suggestions are non-blocking service advice; read them before spending.', results:[]};
   const save = async () => {
     await writeFile(output + '.tmp', JSON.stringify(report,null,2) + '\n');
     await rename(output + '.tmp',output);
@@ -74,6 +74,12 @@ export async function checkPack(entries, {output = resolve(ROOT,'results.json'),
       result.verdict = `full_body_rejected; draft_${result.draft.verdict}`;
       result.date = result.draft.date;
     }
+    // Non-blocking advice (wording, evidence, not_answerable...) does not change the exit code but is surfaced.
+    const codes = [...new Set(((result.draft ?? full).attempts.at(-1)?.response?.suggestions ?? []).map(s => s?.code).filter(Boolean))];
+    if (codes.length) {
+      result.suggestions = codes;
+      result.verdict += `; suggestions: ${codes.join(',')}`;
+    }
     report.results.push(result);
     await save();
     console.log(`${file}: ${result.verdict}`);
@@ -87,7 +93,7 @@ export async function checkPack(entries, {output = resolve(ROOT,'results.json'),
 async function main() {
   const args = process.argv.slice(2);
   if (args.includes('--help')) {
-    console.log(`${WARNING}\n\nUsage: node scripts/check.mjs [--output PATH]\nNode 20+, built-in fetch only. Sends all 30 exact bodies to the free check\nendpoint; on unknown-field rejection also checks the documented draft,\nwith definitions appended to question text. Records raw responses, UTC dates\nand body hashes. Retries transport failures, 408/425/429/5xx and malformed\nresponses up to 3 times, at least 3 seconds apart. 30-second timeout per call.\nNo payment, quote, wallet or oracle submission.\n--output PATH  Save results elsewhere (default: repository results.json).\nExit 0: every exact body or fallback draft had no blockers.\nExit 1: blocked, network/HTTP failure, unclassified response, or local error.`);
+    console.log(`${WARNING}\n\nUsage: node scripts/check.mjs [--output PATH]\nNode 20+, built-in fetch only. Sends all 30 exact bodies to the free check\nendpoint; on unknown-field rejection also checks the documented draft,\nwith definitions appended to question text. Records raw responses, UTC dates,\nbody hashes and non-blocking suggestion codes. Retries transport failures, 408/425/429/5xx and malformed\nresponses up to 3 times, at least 3 seconds apart. 30-second timeout per call.\nNo payment, quote, wallet or oracle submission.\n--output PATH  Save results elsewhere (default: repository results.json).\nExit 0: every exact body or fallback draft had no blockers.\nExit 1: blocked, network/HTTP failure, unclassified response, or local error.`);
     return;
   }
   let output = resolve(ROOT,'results.json');

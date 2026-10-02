@@ -46,9 +46,9 @@ Use `toleranceBps` only after establishing identical units and rounding. It is n
 
 ## Choose evidence by reproducibility, not by subject matter
 
-The documented chain recipe set supports call comparisons, log sums/counts, rankings and v4-specific calculations. It does not list a scalar block-hash or scalar address recipe. This pack therefore labels block-field questions `panel`, even though their sources are RPC responses. Panel evidence has no documented deployer rerun. A source URL guard cannot turn it into one.
+The documented chain recipe set supports call comparisons, log sums/counts, rankings and v4-specific calculations. It does not list a scalar block-hash or scalar address recipe. This pack therefore labels block-field questions `panel`, even though their sources are RPC responses. Panel evidence has no documented deployer rerun. A source URL guard cannot turn it into one. Expect the free check to disagree: on 2 October 2026 it proposed `evidence: chain` for every one of these block-field bodies and flagged most of them `not_answerable` from public sources, without blocking them. Treat that as a signal to confirm seats can reach the named RPC, not as proof either way.
 
-For a chain recipe, make it possible to derive one ABI and one operation from the wording. Include the emitter address, complete event signature, indexed fields, decoded argument to aggregate and filter. A view comparison needs its call, return type, closing-block anchor and comparator. “Has this token been active?” supplies none of these.
+For a chain recipe, make it possible to derive one ABI and one operation from the wording. Include the emitter address, stated as the contract that *emits* the logs ("Transfer value from 0x…" reads as the indexed `from` argument), complete event signature, indexed fields, decoded argument to aggregate and filter. A view comparison needs its call, return type, closing-block anchor and comparator. “Has this token been active?” supplies none of these.
 
 For panel evidence, require sources that expose the necessary complete corpus. A source prefix and one host requirement restrict evidence provenance; they do not prove independence, completeness or historical accuracy. Two mirrors of the same endpoint are not two independent measurements. Guarded numeric bounds likewise restrict acceptable values without proving they are correct.
 
@@ -56,7 +56,9 @@ For panel evidence, require sources that expose the necessary complete corpus. A
 
 A complete event scan with no logs can establish zero. An RPC timeout cannot. A retrieved empty closing block can establish the empty transaction sample. Failure to retrieve it cannot. The pack's `missing` definition asks members to report inability rather than squeeze uncertainty into a typed sentinel.
 
-`14` and `15` deliberately reserve the zero address for a successfully retrieved block with no transactions. This sentinel is part of their consumer semantics, not a universal failure convention. Do not add a zero-address deny guard to those bodies. Similarly, demanding contract code for a block beneficiary or EOA sender would contradict the metric. This pack sets `mustHaveCode: false` on those scalar addresses; a protocol-selection question could legitimately require true.
+Also check that the answer is not a chain constant. On Base every block opens with a type `0x7e` deposit from `0xdead…0001`, and on Robinhood Chain with a type `0x6a` ArbOS internal transaction; "transaction at index 0" or "any transaction" is then fixed before the question is asked, so `03`, `14` and `15` exclude those types by name. `12` and `13` keep a constant `miner` field on purpose and say so in their use case.
+
+`14` and `15` deliberately reserve the zero address for a successfully retrieved block with no transactions of the eligible type. This sentinel is part of their consumer semantics, not a universal failure convention. Do not add a zero-address deny guard to those bodies. Similarly, demanding contract code for a block beneficiary or EOA sender would contradict the metric. This pack sets `mustHaveCode: false` on those scalar addresses; a protocol-selection question could legitimately require true.
 
 ## Review one seam at a time
 

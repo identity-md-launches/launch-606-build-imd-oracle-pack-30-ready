@@ -8,7 +8,7 @@ Each linked JSON is a plain oracle.request input body; use cases stay here to av
 |---|---|---|---|---|
 | [01-imd-supply-positive.json](01-imd-supply-positive.json) | `bool` | 1 | chain | Gate a dashboard on a positive IMD supply. |
 | [02-weth-supply-positive.json](02-weth-supply-positive.json) | `bool` | 8453 | chain | Gate a dashboard on a positive WETH supply. |
-| [03-robinhood-block-activity.json](03-robinhood-block-activity.json) | `bool` | 4663 | panel | Detect chain activity without assuming an empty block means an outage. |
+| [03-robinhood-block-activity.json](03-robinhood-block-activity.json) | `bool` | 4663 | panel | Detect user activity, ignoring the ArbOS internal transaction every block carries. |
 | [04-go-ethereum-release.json](04-go-ethereum-release.json) | `bool` | 1 | panel | Trigger a monthly release review from an explicit publication interval. |
 | [05-node-release.json](05-node-release.json) | `bool` | 4663 | panel | Trigger a monthly release review from an explicit publication interval. |
 | [06-imd-transfer-count.json](06-imd-transfer-count.json) | `uint256` | 1 | chain | Measure IMD transfer event activity without counting transactions. |
@@ -17,10 +17,10 @@ Each linked JSON is a plain oracle.request input body; use cases stay here to av
 | [09-robinhood-block-count.json](09-robinhood-block-count.json) | `uint256` | 4663 | panel | Size a Robinhood Chain backfill batch. |
 | [10-robinhood-transaction-count.json](10-robinhood-transaction-count.json) | `uint256` | 4663 | panel | Measure Robinhood Chain transaction throughput. |
 | [11-1-closing-beneficiary.json](11-1-closing-beneficiary.json) | `address` | 1 | panel | Record the execution block beneficiary without inferring operator identity. |
-| [12-8453-closing-beneficiary.json](12-8453-closing-beneficiary.json) | `address` | 8453 | panel | Record the execution block beneficiary without inferring operator identity. |
-| [13-4663-closing-beneficiary.json](13-4663-closing-beneficiary.json) | `address` | 4663 | panel | Record the execution block beneficiary without inferring operator identity. |
-| [14-8453-first-sender.json](14-8453-first-sender.json) | `address` | 8453 | panel | Select a deterministic transaction sender for a sample. |
-| [15-4663-first-sender.json](15-4663-first-sender.json) | `address` | 4663 | panel | Select a deterministic transaction sender for a sample. |
+| [12-8453-closing-beneficiary.json](12-8453-closing-beneficiary.json) | `address` | 8453 | panel | Confirm the miner field still holds the fee-vault predeploy constant (0x4200…0011). |
+| [13-4663-closing-beneficiary.json](13-4663-closing-beneficiary.json) | `address` | 4663 | panel | Confirm the miner field still holds the sequencer placeholder constant (0xa4b0…6572). |
+| [14-8453-first-sender.json](14-8453-first-sender.json) | `address` | 8453 | panel | Sample the first non-deposit (type ≠ 0x7e) transaction sender. |
+| [15-4663-first-sender.json](15-4663-first-sender.json) | `address` | 4663 | panel | Sample the first non-ArbOS-internal (type ≠ 0x6a) transaction sender. |
 | [16-imd-recipient-rank.json](16-imd-recipient-rank.json) | `address[]` | 1 | chain | Rank gross token inflows rather than wallet wealth. |
 | [17-weth-recipient-rank.json](17-weth-recipient-rank.json) | `address[]` | 8453 | chain | Rank gross token inflows rather than wallet wealth. |
 | [18-4663-sender-rank.json](18-4663-sender-rank.json) | `address[]` | 4663 | panel | Identify active senders from a complete, bounded transaction corpus. |

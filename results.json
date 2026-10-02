@@ -1,26 +1,26 @@
 {
   "experimental": "Experimental, commissioned as a test of the IMD swarm. It may not work as described. Read the code, start with small amounts, no warranty.",
   "endpoint": "https://api.imd.fun/requests/check",
-  "startedAt": "2026-10-02T18:24:39.131Z",
-  "completedAt": "2026-10-02T18:28:12.516Z",
+  "startedAt": "2026-10-02T18:36:09.798Z",
+  "completedAt": "2026-10-02T18:39:37.989Z",
   "policy": {
     "maxRetries": 3,
     "retryDelayMs": 3000,
     "mode": "exact body, then documented draft on unknown-field rejection"
   },
-  "note": "A no_blockers draft is a wording/admission screen, not a check of omitted fields or a signed oracle result. Body 21 was revised to an explicit historical block and checked again; individual attempt dates describe each observation.",
+  "note": "A no_blockers draft is a wording/admission screen, not a check of omitted fields or a signed oracle result. Suggestions are non-blocking service advice; read them before spending.",
   "results": [
     {
       "file": "questions/01-imd-supply-positive.json",
       "sha256": "3f4ba7d9c4551cf317e56d86af9001d791c306e10f96e5d04fe0d6da87c1be96",
-      "date": "2026-10-02T18:24:42.411Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:36:13.124Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording",
       "full": {
-        "date": "2026-10-02T18:24:39.133Z",
+        "date": "2026-10-02T18:36:09.801Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:24:39.133Z",
+            "date": "2026-10-02T18:36:09.801Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -46,11 +46,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T18:24:42.411Z",
+        "date": "2026-10-02T18:36:13.124Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:24:42.411Z",
+            "date": "2026-10-02T18:36:13.124Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -79,15 +79,15 @@
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 0.83
+                  "confidence": 0.87
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.88
+                  "confidence": 0.91
                 },
                 "head": {
                   "value": 1,
-                  "confidence": 0.99
+                  "confidence": 1
                 }
               },
               "judged": true,
@@ -98,7 +98,7 @@
                   "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
                 }
               ],
-              "online": 545,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -129,19 +129,22 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording"
+      ]
     },
     {
       "file": "questions/02-weth-supply-positive.json",
       "sha256": "da1590f72e442a0149bac3a41dfefeab0048f6bede9afa90676d9587c0d222b0",
-      "date": "2026-10-02T18:24:49.100Z",
+      "date": "2026-10-02T18:36:20.061Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T18:24:46.084Z",
+        "date": "2026-10-02T18:36:16.947Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:24:46.084Z",
+            "date": "2026-10-02T18:36:16.947Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -167,11 +170,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T18:24:49.100Z",
+        "date": "2026-10-02T18:36:20.061Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:24:49.100Z",
+            "date": "2026-10-02T18:36:20.061Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -204,17 +207,17 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.92
+                  "confidence": 0.93
                 },
                 "head": {
                   "value": 1,
-                  "confidence": 1
+                  "confidence": 0.99
                 }
               },
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 545,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -249,15 +252,15 @@
     },
     {
       "file": "questions/03-robinhood-block-activity.json",
-      "sha256": "49c4106caeebca650a5afe2c4a05694f90193e9e1d08aa2044b79831b2bc95fe",
-      "date": "2026-10-02T18:24:55.856Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "sha256": "9de126126e60469a5406aaa0e7087233056a132d750ad4bc69293adb3be5152d",
+      "date": "2026-10-02T18:36:27.045Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:24:52.802Z",
+        "date": "2026-10-02T18:36:23.856Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:24:52.802Z",
+            "date": "2026-10-02T18:36:23.856Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -270,7 +273,7 @@
       },
       "draft": {
         "input": {
-          "question": "Does at least one block in the pinned inclusive window on chain 4663 contain at least one transaction?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch every block with eth_getBlockByNumber(number,false). Return true iff some transactions array has length greater than zero; false only after complete enumeration.",
+          "question": "Does at least one block in the pinned inclusive window on chain 4663 contain at least one transaction whose type is not 0x6a (ArbOS internal)?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch every block with eth_getBlockByNumber(number,true). Ignore transactions with type 0x6a, which every block carries. Return true iff some block has a remaining transaction; false only after complete enumeration.",
           "panelSize": 5,
           "answerType": "bool",
           "evidence": "panel",
@@ -284,18 +287,18 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:24:55.856Z",
+        "date": "2026-10-02T18:36:27.045Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:24:55.856Z",
+            "date": "2026-10-02T18:36:27.045Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "Does at least one block in the pinned inclusive window on chain 4663 contain at least one transaction?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch every block with eth_getBlockByNumber(number,false). Return true iff some transactions array has length greater than zero; false only after complete enumeration.",
+                "question": "Does at least one block in the pinned inclusive window on chain 4663 contain at least one transaction whose type is not 0x6a (ArbOS internal)?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch every block with eth_getBlockByNumber(number,true). Ignore transactions with type 0x6a, which every block carries. Return true iff some block has a remaining transaction; false only after complete enumeration.",
                 "chainId": 4663,
                 "window": {
                   "hours": 24
@@ -325,7 +328,7 @@
                 },
                 "head": {
                   "value": 1,
-                  "confidence": 0.97
+                  "confidence": 0.98
                 }
               },
               "judged": true,
@@ -344,7 +347,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -375,19 +378,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/04-go-ethereum-release.json",
-      "sha256": "8d717416d3e538c528f1824aba415bb2c8be1a9e66c19ecf80e4e27f053b0f24",
-      "date": "2026-10-02T18:25:03.197Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "sha256": "1dd79bbb8c74dddb39142c54b4e947fdba2935870c43f302b579f6377faf5e96",
+      "date": "2026-10-02T18:36:34.393Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: not_answerable",
       "full": {
-        "date": "2026-10-02T18:25:00.166Z",
+        "date": "2026-10-02T18:36:31.288Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:00.166Z",
+            "date": "2026-10-02T18:36:31.288Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -400,7 +408,7 @@
       },
       "draft": {
         "input": {
-          "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release during [2026-09-01T00:00:00Z,2026-10-01T00:00:00Z)?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
+          "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release during [2026-09-01T00:00:00Z,2026-10-01T00:00:00Z)?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
           "panelSize": 5,
           "answerType": "bool",
           "evidence": "panel",
@@ -414,18 +422,18 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:25:03.197Z",
+        "date": "2026-10-02T18:36:34.393Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:03.197Z",
+            "date": "2026-10-02T18:36:34.393Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release during [2026-09-01T00:00:00Z,2026-10-01T00:00:00Z)?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
+                "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release during [2026-09-01T00:00:00Z,2026-10-01T00:00:00Z)?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
                 "chainId": 1,
                 "window": {
                   "hours": 24
@@ -443,7 +451,7 @@
                 },
                 "evidence": {
                   "value": "panel",
-                  "confidence": 0.99
+                  "confidence": 1
                 },
                 "toleranceBps": {
                   "value": 0,
@@ -493,19 +501,22 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "not_answerable"
+      ]
     },
     {
       "file": "questions/05-node-release.json",
-      "sha256": "5836b471d0386cbe039321226b8f231fd859c2ce518a168ea7c78f77018d1c97",
-      "date": "2026-10-02T18:25:10.168Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "sha256": "43bc0fbcdfc8ba846889e9685871ad30f9bc63b53a04cff9353606af257b9198",
+      "date": "2026-10-02T18:36:41.299Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: not_answerable",
       "full": {
-        "date": "2026-10-02T18:25:07.150Z",
+        "date": "2026-10-02T18:36:38.192Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:07.150Z",
+            "date": "2026-10-02T18:36:38.192Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -518,7 +529,7 @@
       },
       "draft": {
         "input": {
-          "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release during [2026-09-01T00:00:00Z,2026-10-01T00:00:00Z)?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
+          "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release during [2026-09-01T00:00:00Z,2026-10-01T00:00:00Z)?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
           "panelSize": 5,
           "answerType": "bool",
           "evidence": "panel",
@@ -532,18 +543,18 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:25:10.168Z",
+        "date": "2026-10-02T18:36:41.299Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:10.168Z",
+            "date": "2026-10-02T18:36:41.299Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release during [2026-09-01T00:00:00Z,2026-10-01T00:00:00Z)?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
+                "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release during [2026-09-01T00:00:00Z,2026-10-01T00:00:00Z)?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound.",
                 "chainId": 4663,
                 "window": {
                   "hours": 24
@@ -561,15 +572,15 @@
                 },
                 "evidence": {
                   "value": "panel",
-                  "confidence": 0.99
+                  "confidence": 1
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.94
+                  "confidence": 0.93
                 },
                 "head": {
                   "value": 1,
-                  "confidence": 0.96
+                  "confidence": 0.95
                 }
               },
               "judged": true,
@@ -580,7 +591,7 @@
                   "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
                 }
               ],
-              "online": 548,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -611,19 +622,22 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "not_answerable"
+      ]
     },
     {
       "file": "questions/06-imd-transfer-count.json",
       "sha256": "f426133f85a1c094363fc96db8c77d4d0b0cb967bccc3198c8d7abd9b20f1fbe",
-      "date": "2026-10-02T18:25:16.854Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:36:48.193Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording",
       "full": {
-        "date": "2026-10-02T18:25:13.836Z",
+        "date": "2026-10-02T18:36:45.087Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:13.836Z",
+            "date": "2026-10-02T18:36:45.087Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -651,11 +665,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:25:16.854Z",
+        "date": "2026-10-02T18:36:48.193Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:16.854Z",
+            "date": "2026-10-02T18:36:48.193Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -688,7 +702,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.89
+                  "confidence": 0.87
                 },
                 "head": {
                   "value": 1,
@@ -703,7 +717,7 @@
                   "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
                 }
               ],
-              "online": 548,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -734,19 +748,22 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording"
+      ]
     },
     {
       "file": "questions/07-weth-transfer-count.json",
       "sha256": "c52d0a1035627a561031266c7ec5b2cf6338b1d5505c917f7689b4970e6651c7",
-      "date": "2026-10-02T18:25:24.218Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:36:55.245Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording",
       "full": {
-        "date": "2026-10-02T18:25:21.203Z",
+        "date": "2026-10-02T18:36:52.138Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:21.203Z",
+            "date": "2026-10-02T18:36:52.138Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -774,11 +791,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:25:24.218Z",
+        "date": "2026-10-02T18:36:55.245Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:24.218Z",
+            "date": "2026-10-02T18:36:55.245Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -811,7 +828,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.81
+                  "confidence": 0.79
                 },
                 "head": {
                   "value": 1,
@@ -826,7 +843,7 @@
                   "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
                 }
               ],
-              "online": 548,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -857,19 +874,22 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording"
+      ]
     },
     {
       "file": "questions/08-imd-burn-sum.json",
       "sha256": "031c9111d856764a3ea596b1856c7cf278721386e11dc6d51d3a933c89174696",
-      "date": "2026-10-02T18:25:30.952Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:37:02.110Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording",
       "full": {
-        "date": "2026-10-02T18:25:27.937Z",
+        "date": "2026-10-02T18:36:59.004Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:27.937Z",
+            "date": "2026-10-02T18:36:59.004Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -897,11 +917,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:25:30.952Z",
+        "date": "2026-10-02T18:37:02.110Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:30.952Z",
+            "date": "2026-10-02T18:37:02.110Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -930,11 +950,11 @@
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 0.97
+                  "confidence": 0.98
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.82
+                  "confidence": 0.85
                 },
                 "head": {
                   "value": 1,
@@ -949,7 +969,7 @@
                   "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
                 }
               ],
-              "online": 548,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -980,19 +1000,22 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording"
+      ]
     },
     {
       "file": "questions/09-robinhood-block-count.json",
       "sha256": "c3d63b3da509b4b8e3e2015bf9e0c9c59b1669356066f15082b02c63fe400a59",
-      "date": "2026-10-02T18:25:37.875Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:37:09.084Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:25:34.786Z",
+        "date": "2026-10-02T18:37:05.972Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:34.786Z",
+            "date": "2026-10-02T18:37:05.972Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1020,11 +1043,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:25:37.875Z",
+        "date": "2026-10-02T18:37:09.084Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:37.875Z",
+            "date": "2026-10-02T18:37:09.084Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -1057,7 +1080,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.91
+                  "confidence": 0.87
                 },
                 "head": {
                   "value": 1,
@@ -1080,7 +1103,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 548,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1111,19 +1134,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/10-robinhood-transaction-count.json",
       "sha256": "5d09e70dd68397cb71694f027d3a5fd6858ab918309910ff9a753c3069ebf396",
-      "date": "2026-10-02T18:25:44.617Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:37:17.185Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:25:41.601Z",
+        "date": "2026-10-02T18:37:14.079Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:41.601Z",
+            "date": "2026-10-02T18:37:14.079Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1151,11 +1179,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:25:44.617Z",
+        "date": "2026-10-02T18:37:17.185Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:44.617Z",
+            "date": "2026-10-02T18:37:17.185Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -1188,11 +1216,11 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.75
+                  "confidence": 0.8
                 },
                 "head": {
                   "value": 1,
-                  "confidence": 0.99
+                  "confidence": 1
                 }
               },
               "judged": true,
@@ -1211,7 +1239,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 548,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1242,19 +1270,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/11-1-closing-beneficiary.json",
       "sha256": "3f6c8e7ebf0d9201b9c13edc522445a4316c75d8d9bb7933d4123878b25e8170",
-      "date": "2026-10-02T18:25:52.586Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:37:24.230Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:25:49.571Z",
+        "date": "2026-10-02T18:37:21.120Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:49.571Z",
+            "date": "2026-10-02T18:37:21.120Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1281,11 +1314,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:25:52.586Z",
+        "date": "2026-10-02T18:37:24.230Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:52.586Z",
+            "date": "2026-10-02T18:37:24.230Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -1341,7 +1374,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 548,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1372,19 +1405,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/12-8453-closing-beneficiary.json",
-      "sha256": "abdf71b691df4d85fc3c2eb626a6a22755ac4581f6abc95e4a950eabbbd17ce3",
-      "date": "2026-10-02T18:25:59.287Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "sha256": "6d90111f30b448d1d3282c88d7fe10c9ccea1719503f2e3ab72fc87d4d648e1b",
+      "date": "2026-10-02T18:37:31.138Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:25:56.272Z",
+        "date": "2026-10-02T18:37:28.035Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:56.272Z",
+            "date": "2026-10-02T18:37:28.035Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1397,7 +1435,7 @@
       },
       "draft": {
         "input": {
-          "question": "What address is the miner field in the eth_getBlockByNumber(toBlock,false) response for the pinned closing block on chain 8453?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Return the 20-byte miner field verbatim. It is an execution block beneficiary, not a validator withdrawal address or sequencer identity. The zero address is valid.",
+          "question": "What address is the miner field in the eth_getBlockByNumber(toBlock,false) response for the pinned closing block on chain 8453?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Return the 20-byte miner field verbatim, even if it is a protocol constant such as a fee vault or sequencer placeholder address. Do not substitute a validator, operator or fee recipient from another source. The zero address is valid.",
           "panelSize": 5,
           "answerType": "address",
           "evidence": "panel",
@@ -1411,18 +1449,18 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:25:59.287Z",
+        "date": "2026-10-02T18:37:31.138Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:25:59.287Z",
+            "date": "2026-10-02T18:37:31.138Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "What address is the miner field in the eth_getBlockByNumber(toBlock,false) response for the pinned closing block on chain 8453?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Return the 20-byte miner field verbatim. It is an execution block beneficiary, not a validator withdrawal address or sequencer identity. The zero address is valid.",
+                "question": "What address is the miner field in the eth_getBlockByNumber(toBlock,false) response for the pinned closing block on chain 8453?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Return the 20-byte miner field verbatim, even if it is a protocol constant such as a fee vault or sequencer placeholder address. Do not substitute a validator, operator or fee recipient from another source. The zero address is valid.",
                 "chainId": 8453,
                 "window": {
                   "hours": 24
@@ -1440,7 +1478,7 @@
                 },
                 "evidence": {
                   "value": "chain",
-                  "confidence": 1
+                  "confidence": 0.99
                 },
                 "chainId": {
                   "value": 8453,
@@ -1471,7 +1509,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 548,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1502,19 +1540,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/13-4663-closing-beneficiary.json",
-      "sha256": "6eb1250cdd5241a1fe2e4791aa0d6c37427c74da6b98c6cdf2296019ea547a4a",
-      "date": "2026-10-02T18:26:05.977Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "sha256": "0b758abb1b12520c6b62594f4e2931dc1ff2f416006414a6e7638fbebcac3cea",
+      "date": "2026-10-02T18:37:38.323Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:26:02.957Z",
+        "date": "2026-10-02T18:37:35.217Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:02.957Z",
+            "date": "2026-10-02T18:37:35.217Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1527,7 +1570,7 @@
       },
       "draft": {
         "input": {
-          "question": "What address is the miner field in the eth_getBlockByNumber(toBlock,false) response for the pinned closing block on chain 4663?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Return the 20-byte miner field verbatim. It is an execution block beneficiary, not a validator withdrawal address or sequencer identity. The zero address is valid.",
+          "question": "What address is the miner field in the eth_getBlockByNumber(toBlock,false) response for the pinned closing block on chain 4663?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Return the 20-byte miner field verbatim, even if it is a protocol constant such as a fee vault or sequencer placeholder address. Do not substitute a validator, operator or fee recipient from another source. The zero address is valid.",
           "panelSize": 5,
           "answerType": "address",
           "evidence": "panel",
@@ -1541,18 +1584,288 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:26:05.977Z",
+        "date": "2026-10-02T18:37:38.323Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:05.977Z",
+            "date": "2026-10-02T18:37:38.323Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "What address is the miner field in the eth_getBlockByNumber(toBlock,false) response for the pinned closing block on chain 4663?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Return the 20-byte miner field verbatim. It is an execution block beneficiary, not a validator withdrawal address or sequencer identity. The zero address is valid.",
+                "question": "What address is the miner field in the eth_getBlockByNumber(toBlock,false) response for the pinned closing block on chain 4663?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Return the 20-byte miner field verbatim, even if it is a protocol constant such as a fee vault or sequencer placeholder address. Do not substitute a validator, operator or fee recipient from another source. The zero address is valid.",
+                "chainId": 4663,
+                "window": {
+                  "hours": 24
+                },
+                "answerType": "address",
+                "evidence": "panel",
+                "panelSize": 5,
+                "quorum": 4,
+                "validForSeconds": 86400
+              },
+              "proposed": {
+                "answerType": {
+                  "value": "address",
+                  "confidence": 1
+                },
+                "evidence": {
+                  "value": "chain",
+                  "confidence": 1
+                },
+                "chainId": {
+                  "value": 4663,
+                  "confidence": 1
+                },
+                "toleranceBps": {
+                  "value": 0,
+                  "confidence": 0.94
+                },
+                "head": {
+                  "value": 1,
+                  "confidence": 1
+                }
+              },
+              "judged": true,
+              "blockers": [],
+              "suggestions": [
+                {
+                  "code": "wording",
+                  "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+                },
+                {
+                  "code": "not_answerable",
+                  "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+                },
+                {
+                  "code": "evidence",
+                  "detail": "This reads as answered from blockchain data; you chose public sources."
+                }
+              ],
+              "online": 547,
+              "limits": {
+                "minPanelSize": 5,
+                "maxPanelSize": 100
+              },
+              "chains": [
+                {
+                  "id": 1,
+                  "name": "Ethereum mainnet"
+                },
+                {
+                  "id": 56,
+                  "name": "BNB Chain"
+                },
+                {
+                  "id": 4663,
+                  "name": "Robinhood Chain"
+                },
+                {
+                  "id": 8453,
+                  "name": "Base"
+                },
+                {
+                  "id": 42161,
+                  "name": "Arbitrum One"
+                }
+              ]
+            },
+            "verdict": "no_blockers"
+          }
+        ]
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
+    },
+    {
+      "file": "questions/14-8453-first-sender.json",
+      "sha256": "1e730a7e52df6405f9aeac9be0b35d01c8b775101539ee24dd71029a0f67e14c",
+      "date": "2026-10-02T18:37:45.179Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
+      "full": {
+        "date": "2026-10-02T18:37:42.080Z",
+        "verdict": "http_error",
+        "attempts": [
+          {
+            "date": "2026-10-02T18:37:42.080Z",
+            "number": 1,
+            "httpStatus": 400,
+            "response": {
+              "error": "invalid_request",
+              "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+            },
+            "verdict": "http_error"
+          }
+        ]
+      },
+      "draft": {
+        "input": {
+          "question": "What is the from address of the lowest-index transaction whose type is not 0x7e in the pinned closing block on chain 8453?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch eth_getBlockByNumber(toBlock,true); skip every transaction with type 0x7e (OP Stack deposit transactions, including the system entry at index 0); return from of the first remaining one in index order. If none remain, return 0x0000000000000000000000000000000000000000. Missing data is inability, not the zero address.",
+          "panelSize": 5,
+          "answerType": "address",
+          "evidence": "panel",
+          "chainId": 8453
+        },
+        "omittedFields": [
+          "v",
+          "window",
+          "quorum",
+          "validForSeconds",
+          "definitions",
+          "guards"
+        ],
+        "date": "2026-10-02T18:37:45.179Z",
+        "verdict": "no_blockers",
+        "attempts": [
+          {
+            "date": "2026-10-02T18:37:45.179Z",
+            "number": 1,
+            "httpStatus": 200,
+            "response": {
+              "action": "oracle.request",
+              "request": {
+                "v": 1,
+                "question": "What is the from address of the lowest-index transaction whose type is not 0x7e in the pinned closing block on chain 8453?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch eth_getBlockByNumber(toBlock,true); skip every transaction with type 0x7e (OP Stack deposit transactions, including the system entry at index 0); return from of the first remaining one in index order. If none remain, return 0x0000000000000000000000000000000000000000. Missing data is inability, not the zero address.",
+                "chainId": 8453,
+                "window": {
+                  "hours": 24
+                },
+                "answerType": "address",
+                "evidence": "panel",
+                "panelSize": 5,
+                "quorum": 4,
+                "validForSeconds": 86400
+              },
+              "proposed": {
+                "answerType": {
+                  "value": "address",
+                  "confidence": 1
+                },
+                "evidence": {
+                  "value": "chain",
+                  "confidence": 1
+                },
+                "chainId": {
+                  "value": 8453,
+                  "confidence": 1
+                },
+                "toleranceBps": {
+                  "value": 0,
+                  "confidence": 0.92
+                },
+                "head": {
+                  "value": 1,
+                  "confidence": 1
+                }
+              },
+              "judged": true,
+              "blockers": [],
+              "suggestions": [
+                {
+                  "code": "wording",
+                  "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+                },
+                {
+                  "code": "not_answerable",
+                  "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+                },
+                {
+                  "code": "evidence",
+                  "detail": "This reads as answered from blockchain data; you chose public sources."
+                }
+              ],
+              "online": 546,
+              "limits": {
+                "minPanelSize": 5,
+                "maxPanelSize": 100
+              },
+              "chains": [
+                {
+                  "id": 1,
+                  "name": "Ethereum mainnet"
+                },
+                {
+                  "id": 56,
+                  "name": "BNB Chain"
+                },
+                {
+                  "id": 4663,
+                  "name": "Robinhood Chain"
+                },
+                {
+                  "id": 8453,
+                  "name": "Base"
+                },
+                {
+                  "id": 42161,
+                  "name": "Arbitrum One"
+                }
+              ]
+            },
+            "verdict": "no_blockers"
+          }
+        ]
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
+    },
+    {
+      "file": "questions/15-4663-first-sender.json",
+      "sha256": "e7993eb0ca73f3671ac966d6f660808e2e0412bd6cca5a243083c79dc4a80ca1",
+      "date": "2026-10-02T18:37:52.368Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
+      "full": {
+        "date": "2026-10-02T18:37:49.009Z",
+        "verdict": "http_error",
+        "attempts": [
+          {
+            "date": "2026-10-02T18:37:49.009Z",
+            "number": 1,
+            "httpStatus": 400,
+            "response": {
+              "error": "invalid_request",
+              "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+            },
+            "verdict": "http_error"
+          }
+        ]
+      },
+      "draft": {
+        "input": {
+          "question": "What is the from address of the lowest-index transaction whose type is not 0x6a in the pinned closing block on chain 4663?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch eth_getBlockByNumber(toBlock,true); skip every transaction with type 0x6a (ArbOS internal transactions, including the system entry at index 0); return from of the first remaining one in index order. If none remain, return 0x0000000000000000000000000000000000000000. Missing data is inability, not the zero address.",
+          "panelSize": 5,
+          "answerType": "address",
+          "evidence": "panel",
+          "chainId": 4663
+        },
+        "omittedFields": [
+          "v",
+          "window",
+          "quorum",
+          "validForSeconds",
+          "definitions",
+          "guards"
+        ],
+        "date": "2026-10-02T18:37:52.368Z",
+        "verdict": "no_blockers",
+        "attempts": [
+          {
+            "date": "2026-10-02T18:37:52.368Z",
+            "number": 1,
+            "httpStatus": 200,
+            "response": {
+              "action": "oracle.request",
+              "request": {
+                "v": 1,
+                "question": "What is the from address of the lowest-index transaction whose type is not 0x6a in the pinned closing block on chain 4663?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch eth_getBlockByNumber(toBlock,true); skip every transaction with type 0x6a (ArbOS internal transactions, including the system entry at index 0); return from of the first remaining one in index order. If none remain, return 0x0000000000000000000000000000000000000000. Missing data is inability, not the zero address.",
                 "chainId": 4663,
                 "window": {
                   "hours": 24
@@ -1578,7 +1891,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.91
+                  "confidence": 0.93
                 },
                 "head": {
                   "value": 1,
@@ -1601,7 +1914,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 548,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1630,281 +1943,26 @@
               ]
             },
             "verdict": "no_blockers"
-          }
-        ]
-      }
-    },
-    {
-      "file": "questions/14-8453-first-sender.json",
-      "sha256": "48ce6fdbc750e38075331562c60d06bdc1d21d510ced47d038672e4848e6ab74",
-      "date": "2026-10-02T18:26:12.619Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
-      "full": {
-        "date": "2026-10-02T18:26:09.603Z",
-        "verdict": "http_error",
-        "attempts": [
-          {
-            "date": "2026-10-02T18:26:09.603Z",
-            "number": 1,
-            "httpStatus": 400,
-            "response": {
-              "error": "invalid_request",
-              "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
-            },
-            "verdict": "http_error"
           }
         ]
       },
-      "draft": {
-        "input": {
-          "question": "What is the from address of the transaction at index 0 in the pinned closing block on chain 8453?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch eth_getBlockByNumber(toBlock,true); return transactions[0].from. If the complete block has no transactions, return 0x0000000000000000000000000000000000000000. Missing data is inability, not the zero address.",
-          "panelSize": 5,
-          "answerType": "address",
-          "evidence": "panel",
-          "chainId": 8453
-        },
-        "omittedFields": [
-          "v",
-          "window",
-          "quorum",
-          "validForSeconds",
-          "definitions",
-          "guards"
-        ],
-        "date": "2026-10-02T18:26:12.619Z",
-        "verdict": "no_blockers",
-        "attempts": [
-          {
-            "date": "2026-10-02T18:26:12.619Z",
-            "number": 1,
-            "httpStatus": 200,
-            "response": {
-              "action": "oracle.request",
-              "request": {
-                "v": 1,
-                "question": "What is the from address of the transaction at index 0 in the pinned closing block on chain 8453?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch eth_getBlockByNumber(toBlock,true); return transactions[0].from. If the complete block has no transactions, return 0x0000000000000000000000000000000000000000. Missing data is inability, not the zero address.",
-                "chainId": 8453,
-                "window": {
-                  "hours": 24
-                },
-                "answerType": "address",
-                "evidence": "panel",
-                "panelSize": 5,
-                "quorum": 4,
-                "validForSeconds": 86400
-              },
-              "proposed": {
-                "answerType": {
-                  "value": "address",
-                  "confidence": 1
-                },
-                "evidence": {
-                  "value": "chain",
-                  "confidence": 1
-                },
-                "chainId": {
-                  "value": 8453,
-                  "confidence": 1
-                },
-                "toleranceBps": {
-                  "value": 0,
-                  "confidence": 0.91
-                },
-                "head": {
-                  "value": 1,
-                  "confidence": 1
-                }
-              },
-              "judged": true,
-              "blockers": [],
-              "suggestions": [
-                {
-                  "code": "wording",
-                  "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
-                },
-                {
-                  "code": "not_answerable",
-                  "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
-                },
-                {
-                  "code": "evidence",
-                  "detail": "This reads as answered from blockchain data; you chose public sources."
-                }
-              ],
-              "online": 548,
-              "limits": {
-                "minPanelSize": 5,
-                "maxPanelSize": 100
-              },
-              "chains": [
-                {
-                  "id": 1,
-                  "name": "Ethereum mainnet"
-                },
-                {
-                  "id": 56,
-                  "name": "BNB Chain"
-                },
-                {
-                  "id": 4663,
-                  "name": "Robinhood Chain"
-                },
-                {
-                  "id": 8453,
-                  "name": "Base"
-                },
-                {
-                  "id": 42161,
-                  "name": "Arbitrum One"
-                }
-              ]
-            },
-            "verdict": "no_blockers"
-          }
-        ]
-      }
-    },
-    {
-      "file": "questions/15-4663-first-sender.json",
-      "sha256": "413298e7a936f567ab3840a1880b817b611623c1b4f463d288e28e2b2c5ee71d",
-      "date": "2026-10-02T18:26:19.726Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
-      "full": {
-        "date": "2026-10-02T18:26:16.494Z",
-        "verdict": "http_error",
-        "attempts": [
-          {
-            "date": "2026-10-02T18:26:16.494Z",
-            "number": 1,
-            "httpStatus": 400,
-            "response": {
-              "error": "invalid_request",
-              "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
-            },
-            "verdict": "http_error"
-          }
-        ]
-      },
-      "draft": {
-        "input": {
-          "question": "What is the from address of the transaction at index 0 in the pinned closing block on chain 4663?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch eth_getBlockByNumber(toBlock,true); return transactions[0].from. If the complete block has no transactions, return 0x0000000000000000000000000000000000000000. Missing data is inability, not the zero address.",
-          "panelSize": 5,
-          "answerType": "address",
-          "evidence": "panel",
-          "chainId": 4663
-        },
-        "omittedFields": [
-          "v",
-          "window",
-          "quorum",
-          "validForSeconds",
-          "definitions",
-          "guards"
-        ],
-        "date": "2026-10-02T18:26:19.726Z",
-        "verdict": "no_blockers",
-        "attempts": [
-          {
-            "date": "2026-10-02T18:26:19.726Z",
-            "number": 1,
-            "httpStatus": 200,
-            "response": {
-              "action": "oracle.request",
-              "request": {
-                "v": 1,
-                "question": "What is the from address of the transaction at index 0 in the pinned closing block on chain 4663?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use JSON-RPC at https://rpc.mainnet.chain.robinhood.com for chain 4663; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.\nmetric: Fetch eth_getBlockByNumber(toBlock,true); return transactions[0].from. If the complete block has no transactions, return 0x0000000000000000000000000000000000000000. Missing data is inability, not the zero address.",
-                "chainId": 4663,
-                "window": {
-                  "hours": 24
-                },
-                "answerType": "address",
-                "evidence": "panel",
-                "panelSize": 5,
-                "quorum": 4,
-                "validForSeconds": 86400
-              },
-              "proposed": {
-                "answerType": {
-                  "value": "address",
-                  "confidence": 1
-                },
-                "evidence": {
-                  "value": "chain",
-                  "confidence": 1
-                },
-                "chainId": {
-                  "value": 4663,
-                  "confidence": 1
-                },
-                "toleranceBps": {
-                  "value": 0,
-                  "confidence": 0.95
-                },
-                "head": {
-                  "value": 1,
-                  "confidence": 1
-                }
-              },
-              "judged": true,
-              "blockers": [],
-              "suggestions": [
-                {
-                  "code": "wording",
-                  "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
-                },
-                {
-                  "code": "not_answerable",
-                  "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
-                },
-                {
-                  "code": "evidence",
-                  "detail": "This reads as answered from blockchain data; you chose public sources."
-                }
-              ],
-              "online": 548,
-              "limits": {
-                "minPanelSize": 5,
-                "maxPanelSize": 100
-              },
-              "chains": [
-                {
-                  "id": 1,
-                  "name": "Ethereum mainnet"
-                },
-                {
-                  "id": 56,
-                  "name": "BNB Chain"
-                },
-                {
-                  "id": 4663,
-                  "name": "Robinhood Chain"
-                },
-                {
-                  "id": 8453,
-                  "name": "Base"
-                },
-                {
-                  "id": 42161,
-                  "name": "Arbitrum One"
-                }
-              ]
-            },
-            "verdict": "no_blockers"
-          }
-        ]
-      }
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/16-imd-recipient-rank.json",
-      "sha256": "5421ff3f078c21898c57d027a6a936ce13f23940e2a3979be377a26aa4a245f1",
-      "date": "2026-10-02T18:26:26.533Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "sha256": "6f1258e034bc792ea79dc4c773b6740d9469c02db70641e2a351bfecf863ae06",
+      "date": "2026-10-02T18:37:59.205Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording",
       "full": {
-        "date": "2026-10-02T18:26:23.516Z",
+        "date": "2026-10-02T18:37:56.096Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:23.516Z",
+            "date": "2026-10-02T18:37:56.096Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1917,7 +1975,7 @@
       },
       "draft": {
         "input": {
-          "question": "Which three recipient addresses received the largest summed Transfer value from 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 in the pinned inclusive window?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank: key to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include transfers regardless of sender. Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
+          "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 (the token contract) on chain 1 in the pinned inclusive window?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank over Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 only: key indexed to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include every indexed from (sender). Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
           "panelSize": 5,
           "answerType": "address[]",
           "evidence": "chain",
@@ -1932,18 +1990,18 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:26:26.533Z",
+        "date": "2026-10-02T18:37:59.205Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:26.533Z",
+            "date": "2026-10-02T18:37:59.205Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "Which three recipient addresses received the largest summed Transfer value from 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 in the pinned inclusive window?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank: key to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include transfers regardless of sender. Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
+                "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 (the token contract) on chain 1 in the pinned inclusive window?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank over Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 only: key indexed to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include every indexed from (sender). Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
                 "chainId": 1,
                 "window": {
                   "hours": 24
@@ -1966,7 +2024,7 @@
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 0.97
+                  "confidence": 0.99
                 },
                 "toleranceBps": {
                   "value": 0,
@@ -1985,7 +2043,7 @@
                   "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
                 }
               ],
-              "online": 548,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2016,19 +2074,22 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording"
+      ]
     },
     {
       "file": "questions/17-weth-recipient-rank.json",
-      "sha256": "e118280996f70166326ca0120159f3d70a12656ba7431163f593930603f99d80",
-      "date": "2026-10-02T18:26:33.182Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "sha256": "19a4e4be85a18a775e22a01db02ce02f4ccc69711b6c4dbfef0d3ba313197123",
+      "date": "2026-10-02T18:38:06.079Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording",
       "full": {
-        "date": "2026-10-02T18:26:30.164Z",
+        "date": "2026-10-02T18:38:02.974Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:30.164Z",
+            "date": "2026-10-02T18:38:02.974Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2041,7 +2102,7 @@
       },
       "draft": {
         "input": {
-          "question": "Which three recipient addresses received the largest summed Transfer value from 0x4200000000000000000000000000000000000006 on chain 8453 in the pinned inclusive window?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank: key to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include transfers regardless of sender. Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
+          "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0x4200000000000000000000000000000000000006 (the token contract) on chain 8453 in the pinned inclusive window?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank over Transfer logs emitted by 0x4200000000000000000000000000000000000006 only: key indexed to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include every indexed from (sender). Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
           "panelSize": 5,
           "answerType": "address[]",
           "evidence": "chain",
@@ -2056,18 +2117,18 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:26:33.182Z",
+        "date": "2026-10-02T18:38:06.079Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:33.182Z",
+            "date": "2026-10-02T18:38:06.079Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "Which three recipient addresses received the largest summed Transfer value from 0x4200000000000000000000000000000000000006 on chain 8453 in the pinned inclusive window?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank: key to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include transfers regardless of sender. Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
+                "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0x4200000000000000000000000000000000000006 (the token contract) on chain 8453 in the pinned inclusive window?\nwindow: Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: log-rank over Transfer logs emitted by 0x4200000000000000000000000000000000000006 only: key indexed to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include every indexed from (sender). Keep only positive totals.\nordering: Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set.",
                 "chainId": 8453,
                 "window": {
                   "hours": 24
@@ -2094,7 +2155,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.86
+                  "confidence": 0.88
                 },
                 "head": {
                   "value": 3,
@@ -2109,7 +2170,7 @@
                   "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
                 }
               ],
-              "online": 548,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2140,19 +2201,22 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording"
+      ]
     },
     {
       "file": "questions/18-4663-sender-rank.json",
       "sha256": "881c5dd9cf25fb82153717fe39bb0bc3c7eacfa82628e01869c2b9db18c47aa1",
-      "date": "2026-10-02T18:26:40.021Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:38:13.091Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:26:37.007Z",
+        "date": "2026-10-02T18:38:09.980Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:37.007Z",
+            "date": "2026-10-02T18:38:09.980Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2180,11 +2244,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:26:40.021Z",
+        "date": "2026-10-02T18:38:13.091Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:40.021Z",
+            "date": "2026-10-02T18:38:13.091Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2218,7 +2282,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.85
+                  "confidence": 0.86
                 },
                 "head": {
                   "value": 3,
@@ -2241,7 +2305,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 548,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2272,19 +2336,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/19-8453-sender-rank.json",
       "sha256": "2b639d33c486efb625113256a9c4000c84be989e90f9e15add332e8d6bbe2e1a",
-      "date": "2026-10-02T18:26:46.733Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:38:19.946Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:26:43.718Z",
+        "date": "2026-10-02T18:38:16.843Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:43.718Z",
+            "date": "2026-10-02T18:38:16.843Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2312,11 +2381,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:26:46.733Z",
+        "date": "2026-10-02T18:38:19.946Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:46.733Z",
+            "date": "2026-10-02T18:38:19.946Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2350,7 +2419,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.82
+                  "confidence": 0.85
                 },
                 "head": {
                   "value": 3,
@@ -2373,7 +2442,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 548,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2404,19 +2473,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/20-ethereum-beneficiary-rank.json",
       "sha256": "a8629751b86ee72dabfca051a28ec101d753655fc5b502fbe13778ce8041482b",
-      "date": "2026-10-02T18:26:53.460Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:38:26.873Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:26:50.443Z",
+        "date": "2026-10-02T18:38:23.773Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:50.443Z",
+            "date": "2026-10-02T18:38:23.773Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2444,11 +2518,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:26:53.460Z",
+        "date": "2026-10-02T18:38:26.873Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:26:53.460Z",
+            "date": "2026-10-02T18:38:26.873Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2505,7 +2579,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 547,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2536,19 +2610,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/21-1-closing-hash.json",
       "sha256": "b0f114cb67d8a9569c1987c7814e8407a9ba4819e5659be5320016a1b8d5a5a2",
-      "date": "2026-10-02T18:28:11.839Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:38:33.811Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: evidence",
       "full": {
-        "date": "2026-10-02T18:28:08.664Z",
+        "date": "2026-10-02T18:38:30.708Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:28:08.664Z",
+            "date": "2026-10-02T18:38:30.708Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2575,11 +2654,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:28:11.839Z",
+        "date": "2026-10-02T18:38:33.811Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:28:11.839Z",
+            "date": "2026-10-02T18:38:33.811Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2604,7 +2683,7 @@
                 },
                 "evidence": {
                   "value": "chain",
-                  "confidence": 0.97
+                  "confidence": 0.98
                 },
                 "chainId": {
                   "value": 1,
@@ -2627,7 +2706,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 547,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2658,19 +2737,22 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "evidence"
+      ]
     },
     {
       "file": "questions/22-8453-closing-hash.json",
       "sha256": "1fbd7247c116b6958a468ad173ffca5507af7929198af1814bc9c832fdef3d12",
-      "date": "2026-10-02T18:27:08.138Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:38:40.646Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:27:05.121Z",
+        "date": "2026-10-02T18:38:37.540Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:05.121Z",
+            "date": "2026-10-02T18:38:37.540Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2697,11 +2779,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:27:08.138Z",
+        "date": "2026-10-02T18:38:40.646Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:08.138Z",
+            "date": "2026-10-02T18:38:40.646Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2734,7 +2816,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.93
+                  "confidence": 0.94
                 },
                 "head": {
                   "value": 1,
@@ -2757,7 +2839,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 547,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2788,19 +2870,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/23-4663-closing-hash.json",
       "sha256": "3108b2f0f02ea93dd811f92c5455591b0e6647601096a6dc579ffd307b9ab7e2",
-      "date": "2026-10-02T18:27:14.830Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:38:47.670Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:27:11.815Z",
+        "date": "2026-10-02T18:38:44.562Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:11.815Z",
+            "date": "2026-10-02T18:38:44.562Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2827,11 +2914,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:27:14.830Z",
+        "date": "2026-10-02T18:38:47.670Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:14.830Z",
+            "date": "2026-10-02T18:38:47.670Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2852,11 +2939,11 @@
               "proposed": {
                 "answerType": {
                   "value": "bytes32",
-                  "confidence": 0.62
+                  "confidence": 0.61
                 },
                 "evidence": {
                   "value": "chain",
-                  "confidence": 1
+                  "confidence": 0.99
                 },
                 "chainId": {
                   "value": 4663,
@@ -2887,7 +2974,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 547,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2918,19 +3005,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/24-8453-closing-parent.json",
       "sha256": "f35bcaa397e30b1bbe201981664df580f4f8217afd736c549fa74fa90c9e71f5",
-      "date": "2026-10-02T18:27:21.493Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:38:54.539Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:27:18.476Z",
+        "date": "2026-10-02T18:38:51.441Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:18.476Z",
+            "date": "2026-10-02T18:38:51.441Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2957,11 +3049,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:27:21.493Z",
+        "date": "2026-10-02T18:38:54.539Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:21.493Z",
+            "date": "2026-10-02T18:38:54.539Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2982,7 +3074,7 @@
               "proposed": {
                 "answerType": {
                   "value": "bytes32",
-                  "confidence": 0.62
+                  "confidence": 0.63
                 },
                 "evidence": {
                   "value": "chain",
@@ -2994,7 +3086,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.91
+                  "confidence": 0.9
                 },
                 "head": {
                   "value": 1,
@@ -3017,7 +3109,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 547,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3048,19 +3140,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/25-4663-closing-parent.json",
       "sha256": "a75be65b69d7f536e8498bb8a2a3cbee27521cfa2339d1280872a4ddd38125c6",
-      "date": "2026-10-02T18:27:28.236Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:39:01.490Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:27:25.217Z",
+        "date": "2026-10-02T18:38:58.380Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:25.217Z",
+            "date": "2026-10-02T18:38:58.380Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -3087,11 +3184,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:27:28.236Z",
+        "date": "2026-10-02T18:39:01.490Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:28.236Z",
+            "date": "2026-10-02T18:39:01.490Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -3112,7 +3209,7 @@
               "proposed": {
                 "answerType": {
                   "value": "bytes32",
-                  "confidence": 0.61
+                  "confidence": 0.56
                 },
                 "evidence": {
                   "value": "chain",
@@ -3124,7 +3221,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.92
+                  "confidence": 0.93
                 },
                 "head": {
                   "value": 1,
@@ -3147,7 +3244,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 547,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3178,19 +3275,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/26-1-recent-block-hashes.json",
       "sha256": "a077b8a783b5938e641bcc67990ce50d3e471bc7426cb28346f60182ae9a08f0",
-      "date": "2026-10-02T18:27:35.058Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:39:08.382Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:27:32.041Z",
+        "date": "2026-10-02T18:39:05.274Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:32.041Z",
+            "date": "2026-10-02T18:39:05.274Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -3218,11 +3320,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:27:35.058Z",
+        "date": "2026-10-02T18:39:08.382Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:35.058Z",
+            "date": "2026-10-02T18:39:08.382Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -3244,7 +3346,7 @@
               "proposed": {
                 "answerType": {
                   "value": "bytes32[]",
-                  "confidence": 0.59
+                  "confidence": 0.53
                 },
                 "evidence": {
                   "value": "chain",
@@ -3256,7 +3358,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.86
+                  "confidence": 0.87
                 },
                 "head": {
                   "value": 3,
@@ -3279,7 +3381,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 547,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3310,19 +3412,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/27-8453-recent-block-hashes.json",
       "sha256": "21df4b1b968a2bda3c0218f133bf5be78b9d53e0975feafc66f42b81bcd87690",
-      "date": "2026-10-02T18:27:41.821Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:39:16.092Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:27:38.807Z",
+        "date": "2026-10-02T18:39:12.989Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:38.807Z",
+            "date": "2026-10-02T18:39:12.989Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -3350,11 +3457,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:27:41.821Z",
+        "date": "2026-10-02T18:39:16.092Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:41.821Z",
+            "date": "2026-10-02T18:39:16.092Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -3376,7 +3483,7 @@
               "proposed": {
                 "answerType": {
                   "value": "bytes32[]",
-                  "confidence": 0.55
+                  "confidence": 0.61
                 },
                 "evidence": {
                   "value": "chain",
@@ -3411,7 +3518,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 547,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3442,19 +3549,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/28-4663-recent-block-hashes.json",
       "sha256": "51876f9f475a6166ad591364671e892b57bec181fc8490228212b5779e03bad9",
-      "date": "2026-10-02T18:27:49.232Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:39:23.152Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:27:45.920Z",
+        "date": "2026-10-02T18:39:19.923Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:45.920Z",
+            "date": "2026-10-02T18:39:19.923Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -3482,11 +3594,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:27:49.232Z",
+        "date": "2026-10-02T18:39:23.152Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:49.232Z",
+            "date": "2026-10-02T18:39:23.152Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -3508,7 +3620,7 @@
               "proposed": {
                 "answerType": {
                   "value": "bytes32[]",
-                  "confidence": 0.53
+                  "confidence": 0.56
                 },
                 "evidence": {
                   "value": "chain",
@@ -3520,7 +3632,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.95
+                  "confidence": 0.94
                 },
                 "head": {
                   "value": 3,
@@ -3543,7 +3655,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 547,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3574,19 +3686,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/29-8453-closing-transaction-hashes.json",
       "sha256": "2a658d48b3a9d0d132e583955d86629f051e2b82db0a76950f6363f22064758c",
-      "date": "2026-10-02T18:27:55.893Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:39:30.180Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:27:52.879Z",
+        "date": "2026-10-02T18:39:27.069Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:52.879Z",
+            "date": "2026-10-02T18:39:27.069Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -3614,11 +3731,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:27:55.893Z",
+        "date": "2026-10-02T18:39:30.180Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:55.893Z",
+            "date": "2026-10-02T18:39:30.180Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -3640,7 +3757,7 @@
               "proposed": {
                 "answerType": {
                   "value": "bytes32[]",
-                  "confidence": 0.43
+                  "confidence": 0.44
                 },
                 "evidence": {
                   "value": "chain",
@@ -3652,7 +3769,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.86
+                  "confidence": 0.87
                 },
                 "head": {
                   "value": 3,
@@ -3675,7 +3792,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 547,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3706,19 +3823,24 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     },
     {
       "file": "questions/30-4663-closing-transaction-hashes.json",
       "sha256": "4afcfb751e033f70245a51ad1344602c932a3beeb0143602ee24833140ab5c1d",
-      "date": "2026-10-02T18:28:02.610Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "date": "2026-10-02T18:39:37.150Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable,evidence",
       "full": {
-        "date": "2026-10-02T18:27:59.586Z",
+        "date": "2026-10-02T18:39:34.038Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T18:27:59.586Z",
+            "date": "2026-10-02T18:39:34.038Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -3746,11 +3868,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T18:28:02.610Z",
+        "date": "2026-10-02T18:39:37.150Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T18:28:02.610Z",
+            "date": "2026-10-02T18:39:37.150Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -3772,11 +3894,11 @@
               "proposed": {
                 "answerType": {
                   "value": "bytes32[]",
-                  "confidence": 0.4
+                  "confidence": 0.41
                 },
                 "evidence": {
                   "value": "chain",
-                  "confidence": 0.99
+                  "confidence": 1
                 },
                 "chainId": {
                   "value": 4663,
@@ -3807,7 +3929,7 @@
                   "detail": "This reads as answered from blockchain data; you chose public sources."
                 }
               ],
-              "online": 547,
+              "online": 546,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3838,7 +3960,12 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable",
+        "evidence"
+      ]
     }
   ]
 }

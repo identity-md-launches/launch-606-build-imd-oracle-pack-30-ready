@@ -66,11 +66,13 @@ test('exact body rejection and draft verdict remain separate in persisted report
     const report = await checkPack([entry], {output, wait:noWait, check:input => checkInput(input, {
       fetchFn:async () => ++calls === 1
         ? response(400,{error:'invalid_request',detail:'request: Unrecognized keys: "window"'})
-        : response(200,{blockers:[],request:{window:{hours:24}}}),wait:noWait
+        : response(200,{blockers:[],suggestions:[{code:'wording'},{code:'evidence'},{code:'wording'}],request:{window:{hours:24}}}),wait:noWait
     })});
     assert.equal(calls,2);
     assert.equal(report.results[0].full.verdict,'http_error');
     assert.equal(report.results[0].draft.verdict,'no_blockers');
+    assert.deepEqual(report.results[0].suggestions,['wording','evidence']);
+    assert.equal(report.results[0].verdict,'full_body_rejected; draft_no_blockers; suggestions: wording,evidence');
     assert.ok(report.results[0].draft.omittedFields.includes('window'));
     assert.equal(report.results[0].sha256.length,64);
     assert.ok(report.results[0].draft.input.question.includes('missing:'));

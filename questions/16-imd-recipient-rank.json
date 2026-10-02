@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "Which three recipient addresses received the largest summed Transfer value from 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 in the pinned inclusive window?",
+  "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 (the token contract) on chain 1 in the pinned inclusive window?",
   "chainId": 1,
   "window": {
     "hours": 24
@@ -14,7 +14,7 @@
     "window": "Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.",
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
     "event": "event Transfer(address indexed from,address indexed to,uint256 value)",
-    "metric": "log-rank: key to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include transfers regardless of sender. Keep only positive totals.",
+    "metric": "log-rank over Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 only: key indexed to, sum value in raw token units. Exclude recipient 0x0000000000000000000000000000000000000000. Include every indexed from (sender). Keep only positive totals.",
     "ordering": "Descending summed value; ties by ascending numeric 20-byte address. Return up to 3 unique entries; fewer when fewer eligible recipients; empty only for a complete zero-activity set."
   },
   "guards": {

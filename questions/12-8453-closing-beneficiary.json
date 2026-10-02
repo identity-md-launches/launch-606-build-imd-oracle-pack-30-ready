@@ -14,7 +14,7 @@
     "window": "Use the exact quoted fromBlock through toBlock, both inclusive. Do not substitute a moving latest block.",
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
     "source": "Use JSON-RPC at https://mainnet.base.org for chain 8453; verify eth_chainId. Chain evidence here is read by panel members, not a deployer recipe.",
-    "metric": "Return the 20-byte miner field verbatim. It is an execution block beneficiary, not a validator withdrawal address or sequencer identity. The zero address is valid."
+    "metric": "Return the 20-byte miner field verbatim, even if it is a protocol constant such as a fee vault or sequencer placeholder address. Do not substitute a validator, operator or fee recipient from another source. The zero address is valid."
   },
   "guards": {
     "sources": [
