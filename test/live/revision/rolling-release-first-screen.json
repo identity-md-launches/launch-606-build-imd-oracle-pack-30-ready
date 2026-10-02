@@ -1,0 +1,262 @@
+[
+  {
+    "file": "questions/04-go-ethereum-release.json",
+    "sha256": "c22670a7cc9f37778591f7e74b330e3384d00e60ba04f6785264df6b747d250d",
+    "date": "2026-10-02T22:09:41.378Z",
+    "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable",
+    "full": {
+      "date": "2026-10-02T22:09:38.358Z",
+      "verdict": "http_error",
+      "attempts": [
+        {
+          "date": "2026-10-02T22:09:38.358Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ]
+    },
+    "draft": {
+      "input": {
+        "question": "Did ethereum/go-ethereum publish at least one non-draft, non-prerelease GitHub release in the 30 days ending at the timestamp of the pinned toBlock on chain 1?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: Resolve the 720-hour window once at request time to pinned blocks. Let T be the UTC timestamp of toBlock; count published_at in [T minus 2592000 seconds,T). Include the lower bound, exclude T. Never use a moving wall-clock endpoint.",
+        "panelSize": 5,
+        "answerType": "bool",
+        "evidence": "panel",
+        "chainId": 1
+      },
+      "omittedFields": [
+        "v",
+        "window",
+        "quorum",
+        "validForSeconds",
+        "definitions",
+        "guards"
+      ],
+      "date": "2026-10-02T22:09:41.378Z",
+      "verdict": "no_blockers",
+      "attempts": [
+        {
+          "date": "2026-10-02T22:09:41.378Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Did ethereum/go-ethereum publish at least one non-draft, non-prerelease GitHub release in the 30 days ending at the timestamp of the pinned toBlock on chain 1?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: Resolve the 720-hour window once at request time to pinned blocks. Let T be the UTC timestamp of toBlock; count published_at in [T minus 2592000 seconds,T). Include the lower bound, exclude T. Never use a moving wall-clock endpoint.",
+              "chainId": 1,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bool",
+              "evidence": "panel",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "bool",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "panel",
+                "confidence": 0.9
+              },
+              "chainId": {
+                "value": 1,
+                "confidence": 0.99
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.81
+              },
+              "head": {
+                "value": 1,
+                "confidence": 0.91
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [
+              {
+                "code": "wording",
+                "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+              },
+              {
+                "code": "not_answerable",
+                "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+              }
+            ],
+            "online": 547,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    "suggestions": [
+      "wording",
+      "not_answerable"
+    ]
+  },
+  {
+    "file": "questions/05-node-release.json",
+    "sha256": "78a9e1ed97cd6b224fe2444ef232d736023138d6bd4923a5ff7c76643f9248fb",
+    "date": "2026-10-02T22:09:48.095Z",
+    "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable",
+    "full": {
+      "date": "2026-10-02T22:09:45.076Z",
+      "verdict": "http_error",
+      "attempts": [
+        {
+          "date": "2026-10-02T22:09:45.076Z",
+          "number": 1,
+          "httpStatus": 400,
+          "response": {
+            "error": "invalid_request",
+            "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\", \"guards\""
+          },
+          "verdict": "http_error"
+        }
+      ]
+    },
+    "draft": {
+      "input": {
+        "question": "Did nodejs/node publish at least one non-draft, non-prerelease GitHub release in the 30 days ending at the timestamp of the pinned toBlock on chain 4663?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: Resolve the 720-hour window once at request time to pinned blocks. Let T be the UTC timestamp of toBlock; count published_at in [T minus 2592000 seconds,T). Include the lower bound, exclude T. Never use a moving wall-clock endpoint.",
+        "panelSize": 5,
+        "answerType": "bool",
+        "evidence": "panel",
+        "chainId": 4663
+      },
+      "omittedFields": [
+        "v",
+        "window",
+        "quorum",
+        "validForSeconds",
+        "definitions",
+        "guards"
+      ],
+      "date": "2026-10-02T22:09:48.095Z",
+      "verdict": "no_blockers",
+      "attempts": [
+        {
+          "date": "2026-10-02T22:09:48.095Z",
+          "number": 1,
+          "httpStatus": 200,
+          "response": {
+            "action": "oracle.request",
+            "request": {
+              "v": 1,
+              "question": "Did nodejs/node publish at least one non-draft, non-prerelease GitHub release in the 30 days ending at the timestamp of the pinned toBlock on chain 4663?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: Resolve the 720-hour window once at request time to pinned blocks. Let T be the UTC timestamp of toBlock; count published_at in [T minus 2592000 seconds,T). Include the lower bound, exclude T. Never use a moving wall-clock endpoint.",
+              "chainId": 4663,
+              "window": {
+                "hours": 24
+              },
+              "answerType": "bool",
+              "evidence": "panel",
+              "panelSize": 5,
+              "quorum": 4,
+              "validForSeconds": 86400
+            },
+            "proposed": {
+              "answerType": {
+                "value": "bool",
+                "confidence": 1
+              },
+              "evidence": {
+                "value": "panel",
+                "confidence": 0.9
+              },
+              "chainId": {
+                "value": 4663,
+                "confidence": 0.94
+              },
+              "toleranceBps": {
+                "value": 0,
+                "confidence": 0.82
+              },
+              "head": {
+                "value": 1,
+                "confidence": 0.93
+              }
+            },
+            "judged": true,
+            "blockers": [],
+            "suggestions": [
+              {
+                "code": "wording",
+                "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+              },
+              {
+                "code": "not_answerable",
+                "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+              }
+            ],
+            "online": 547,
+            "limits": {
+              "minPanelSize": 5,
+              "maxPanelSize": 100
+            },
+            "chains": [
+              {
+                "id": 1,
+                "name": "Ethereum mainnet"
+              },
+              {
+                "id": 56,
+                "name": "BNB Chain"
+              },
+              {
+                "id": 4663,
+                "name": "Robinhood Chain"
+              },
+              {
+                "id": 8453,
+                "name": "Base"
+              },
+              {
+                "id": 42161,
+                "name": "Arbitrum One"
+              }
+            ]
+          },
+          "verdict": "no_blockers"
+        }
+      ]
+    },
+    "suggestions": [
+      "wording",
+      "not_answerable"
+    ]
+  }
+]

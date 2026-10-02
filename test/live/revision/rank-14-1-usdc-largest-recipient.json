@@ -1,0 +1,87 @@
+{
+  "input": {
+    "question": "Which single recipient address has the largest summed value in Transfer logs emitted by token contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: Sum raw value grouped by indexed to. Include every opposite field; exclude the zero recipient address. Deduplicate by (blockHash,transactionHash,logIndex). Keep positive totals only.\nordering: Select the greatest total; ties choose the lowest numeric 20-byte address. A complete scan with no positive eligible total returns 0x0000000000000000000000000000000000000000. An incomplete scan is inability, not this sentinel.",
+    "panelSize": 5,
+    "answerType": "address",
+    "evidence": "chain",
+    "chainId": 1
+  },
+  "date": "2026-10-02T22:14:19.949Z",
+  "verdict": "no_blockers",
+  "attempts": [
+    {
+      "date": "2026-10-02T22:14:19.949Z",
+      "number": 1,
+      "httpStatus": 200,
+      "response": {
+        "action": "oracle.request",
+        "request": {
+          "v": 1,
+          "question": "Which single recipient address has the largest summed value in Transfer logs emitted by token contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: Sum raw value grouped by indexed to. Include every opposite field; exclude the zero recipient address. Deduplicate by (blockHash,transactionHash,logIndex). Keep positive totals only.\nordering: Select the greatest total; ties choose the lowest numeric 20-byte address. A complete scan with no positive eligible total returns 0x0000000000000000000000000000000000000000. An incomplete scan is inability, not this sentinel.",
+          "chainId": 1,
+          "window": {
+            "hours": 24
+          },
+          "answerType": "address",
+          "evidence": "chain",
+          "panelSize": 5,
+          "quorum": 4,
+          "validForSeconds": 86400
+        },
+        "proposed": {
+          "answerType": {
+            "value": "address",
+            "confidence": 1
+          },
+          "evidence": {
+            "value": "chain",
+            "confidence": 1
+          },
+          "chainId": {
+            "value": 1,
+            "confidence": 1
+          },
+          "toleranceBps": {
+            "value": 0,
+            "confidence": 0.59
+          },
+          "head": {
+            "value": 1,
+            "confidence": 1
+          }
+        },
+        "judged": true,
+        "blockers": [],
+        "suggestions": [],
+        "online": 546,
+        "limits": {
+          "minPanelSize": 5,
+          "maxPanelSize": 100
+        },
+        "chains": [
+          {
+            "id": 1,
+            "name": "Ethereum mainnet"
+          },
+          {
+            "id": 56,
+            "name": "BNB Chain"
+          },
+          {
+            "id": 4663,
+            "name": "Robinhood Chain"
+          },
+          {
+            "id": 8453,
+            "name": "Base"
+          },
+          {
+            "id": 42161,
+            "name": "Arbitrum One"
+          }
+        ]
+      },
+      "verdict": "no_blockers"
+    }
+  ]
+}

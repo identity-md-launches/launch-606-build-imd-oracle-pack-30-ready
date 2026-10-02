@@ -1,0 +1,34 @@
+{
+  "responses": [
+    {
+      "finding": "48371a1ad7c33753f7f964a46c954eb279a03e42432f0425f6203473cb961ee1",
+      "verdict": "fixed",
+      "detail": "Confirmed the reported spender has 41 hex digits. Replaced body 23 with the most recent WETH-paired v4 Initialize pool ID over pinned 24 hours, removing both the malformed argument and the constant pair allowance. The local validator now checks question/definition hex literals; a regression rejects that exact malformed address. The replacement remains explicitly unsupported for paid scalar bytes32 attestation."
+    },
+    {
+      "finding": "b3c3b21d3ef78a7249bec9bdf225e535a0ce40a091d9a721e8887ed0ff9d1da6",
+      "verdict": "fixed",
+      "detail": "Reproduced both live GETs: status mismatch and failure \"recipe yields bool, request asks for uint256\". Saved exact response bodies in test/live/revision/. README, GUIDE, question catalog and index now explicitly say do not pay for 11\u201315, 21\u201325 or 29\u201330 on the current service. Required answer types and chain evidence remain; scalar address selections and latest scalar pool ID also have no listed compatible recipe. No paid requests were made; this fixes the false readiness claim, not the external service."
+    },
+    {
+      "finding": "e729f1ffd404e4b755ee276eab7ebb06d040abf09e895356040f5ccf241f7782",
+      "verdict": "fixed",
+      "detail": "Body 22 named the L2StandardBridge as a reserve holder; replaced it with Uniswap Base USDC/WETH pool 0xd0b53d9277642d899df5c87a3966a349a798f224 and described pool liquidity rather than custody. Saved the official Uniswap page. Both attempted RPC endpoints returned HTTP 403, recorded in test/live/revision/base-*-calls.json, so the reported dust amount and current replacement balance were not independently measured here. Exact bytes32 ABI-return wording replaces the numerical question."
+    },
+    {
+      "finding": "6b52e79c92c0340fe2e48703b50e9ad6cb41456874e7a065aac9c926ef7f867e",
+      "verdict": "fixed",
+      "detail": "The original bodies directly asked for fixed token0/token1 and an already-known pair. Replaced 13 with mutable USDC pauser governance, 14 with the largest USDC recipient by summed Transfer value, and 15 with the largest WETH sender by summed Transfer value in pinned trailing 24-hour windows. Removed asset code guards. Conservative pattern audit counts administrative roles 11/12/13 together (3), recipient-value ranking 14/16/17 together (3), and sender-value ranking 15/20 together (2), independent of output encoding. Existing mutable owner checks and pool liquidity interfaces are retained with explicit paid-use limitations."
+    },
+    {
+      "finding": "33b624c0747fd0a018e8740857f3e4a76171d953c155e184358a47dda1e4da31",
+      "verdict": "fixed",
+      "detail": "Reproduced identical-input body-21 answer_type advice (uint256, confidence 0.86), saved with the original input; body 22 had no advice in this sample. Revised 21/22/25 to explicitly request exact bytes32 hexadecimal ABI-return data, removed numeric allowance 23, and made answer_type fail the quality gate. Proposed types and all advice remain recorded. README, GUIDE, CHANGELOG and live-evidence README describe captures as dated stochastic samples, not guaranteed properties. Final current body hashes have live full/draft response records."
+    },
+    {
+      "finding": "d2b6a6141f9bb6ea313b59d27520d4855830245ed0c3833519d6f8ab22938ffd",
+      "verdict": "fixed",
+      "detail": "The fixed September 2024 interval was independent of the request window. Revised 04/05 to trailing 30-day publication observations ending at the latest already-finalized block timestamp, pinned once, with exact half-open UTC boundaries and an upgrade-review use case. First rolling probes received wording/not_answerable advice; clarified already-finalized wording screened clean. Both probe sets are retained and examples now match."
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "url": "https://mainnet.base.org",
+    "input": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_call",
+      "params": [
+        {
+          "to": "0x4200000000000000000000000000000000000006",
+          "data": "0x70a082310000000000000000000000004200000000000000000000000000000000000010"
+        },
+        "finalized"
+      ]
+    },
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://mainnet.base.org",
+    "input": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_call",
+      "params": [
+        {
+          "to": "0x4200000000000000000000000000000000000006",
+          "data": "0x70a08231000000000000000000000000d0b53d9277642d899df5c87a3966a349a798f224"
+        },
+        "finalized"
+      ]
+    },
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://mainnet.base.org",
+    "input": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_call",
+      "params": [
+        {
+          "to": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+          "data": "0x0dfe1681"
+        },
+        "finalized"
+      ]
+    },
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://mainnet.base.org",
+    "input": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_call",
+      "params": [
+        {
+          "to": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+          "data": "0xd21220a7"
+        },
+        "finalized"
+      ]
+    },
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

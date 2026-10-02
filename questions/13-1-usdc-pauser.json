@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "At the latest finalized Ethereum mainnet block when requested, what address does getPair(0x6b175474e89094c44da98b954eedeac495271d0f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2) return on Uniswap V2 factory 0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f?",
+  "question": "At the latest finalized Ethereum mainnet block available when requested, return the address decoded from the ABI result of pauser() on USDC contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.",
   "chainId": 1,
   "window": {
     "hours": 1
@@ -13,6 +13,6 @@
   "definitions": {
     "window": "The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
-    "call": "Call getPair(address,address) returning address at toBlock with the two addresses in the question in that order. Zero means no pair exists."
+    "call": "Use function pauser() view returns (address), with no arguments, at the fixed toBlock. Return the lowercase 20-byte role-holder address with 0x prefix. It is the current mutable pauser role, not the token contract, caller, proxy admin or owner."
   }
 }

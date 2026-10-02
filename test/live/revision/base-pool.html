@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html translate="no">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Uniswap Interface</title>
+
+    <!-- Vite uses / for public assets instead of %PUBLIC_URL% -->
+    <link rel="shortcut icon" type="image/png" href="https://cdn.app.uniswap.org/favicon.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="https://cdn.app.uniswap.org/images/192x192_App_Icon.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="https://cdn.app.uniswap.org/images/512x512_App_Icon.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#fff" />
+    <meta name="format-detection" content="telephone=no">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39; &#39;wasm-unsafe-eval&#39; https://challenges.cloudflare.com https://cdn.app.uniswap.org; style-src &#39;self&#39; &#39;unsafe-inline&#39; https://fonts.googleapis.com https://fonts.gstatic.com https://fonts.gstatic.com/s/inter/v18/* https://cdn.app.uniswap.org; font-src &#39;self&#39; https://fonts.googleapis.com https://fonts.gstatic.com https://fonts.gstatic.com/s/inter/v18/* https://cdn.app.uniswap.org; img-src * blob: data: https://cdn.app.uniswap.org; frame-src &#39;self&#39; https://buy.moonpay.com/ https://challenges.cloudflare.com https://verify.walletconnect.com/ https://verify.walletconnect.org/ https://auth.privy.io https://privy.dev.ew.unihq.org https://privy.app.corn-staging.com https://privy.app.uniswap.org; media-src &#39;self&#39; * https://cdn.app.uniswap.org; form-action &#39;none&#39;; connect-src &#39;self&#39; blob: data: https://*.alchemy.com https://*.arc.io https://*.arbitrum.io https://*.base.org/ https://*.coinbase.com https://*.coingecko.com/ https://*.coinmarketcap.com/ https://*.drpc.org/ https://*.googleapis.com https://*.infura.io https://*.metamask.io https://*.nodereal.io https://*.optimism.io https://*.quiknode.pro https://*.uniswap.org https://*.walletconnect.com https://*.walletconnect.org https://api.avax.network/ext/bc/C/rpc https://api.moonpay.com/ https://api.opensea.io https://uploads.pinata.cloud https://bsc-dataseed.bnbchain.org https://bsc-dataseed1.bnbchain.org https://bsc-dataseed2.bnbchain.org https://bsc-dataseed3.bnbchain.org https://bsc-dataseed4.bnbchain.org https://bsc-dataseed-public.bnbchain.org https://opbnb-mainnet-rpc.bnbchain.org https://bsc-dataseed1.ninicoin.io https://bsc-dataseed2.ninicoin.io https://bscrpc.com https://buy.moonpay.com/ https://forno.celo.org/ https://images-country.meld.io https://lh3.googleusercontent.com/ https://mainnet.megaeth.com/rpc https://mainnet.base.org/ https://browser-intake-datadoghq.com https://polygon-rpc.com/ https://raw.githubusercontent.com https://rpc.ankr.com https://eth-mainnet.public.blastapi.io https://rpc.blast.io/ https://rpc.mevblocker.io/ https://rpc.scroll.io/ https://rpc.sepolia.org/ https://rpc-gel.inkonchain.com https://rpc.linea.build https://rpc.mainnet.chain.robinhood.com https://rpc.monad.xyz https://rpc.soneium.org https://rpc.tempo.xyz https://sepolia.gateway.tenderly.co https://mainnet.gateway.tenderly.co https://ethereum-sepolia-rpc.publicnode.com https://ethereum-rpc.publicnode.com https://rpc.zora.energy/ https://sockjs-us3.pusher.com/ https://sparrow.cloudflare.com/ https://statsigapi.net https://trustwallet.com https://uniswap.org https://valid.rpki.cloudflare.com https://vercel.com https://vercel.live/ https://mainnet.era.zksync.io/ https://mainnet.unichain.org/ https://api.web3modal.org https://api.statsig.com https://featuregates.org https://events.statsigapi.net https://api.statsigcdn.com https://featureassets.org https://assetsconfigcdn.org https://prodregistryv2.org https://cloudflare-dns.com https://beyondwickedmapping.org https://auth.privy.io https://privy.dev.ew.unihq.org https://privy.app.corn-staging.com https://privy.app.uniswap.org https://ipv4-check-perf.radar.cloudflare.com https://ipv6-check-perf.radar.cloudflare.com/ https://performance.radar.cloudflare.com/ https://invalid.rpki.cloudflare.com/ https://dnssec-oracle.ens.domains/ https://ccip-v3.ens.xyz wss://*.uniswap.org wss://mm-sdk-relay.api.cx.metamask.io wss://relay.walletconnect.com wss://relay.walletconnect.org wss://ws-us3.pusher.com/ wss://nbstream.binance.com wss://nbstream.binance.info wss://nbstream.binance.click wss://nbstream.yshyqxx.com https://cdn.app.uniswap.org; worker-src &#39;self&#39; blob: https://cdn.app.uniswap.org">
+
+    <link rel="preconnect" href="https://interface.gateway.uniswap.org/" crossorigin/>
+    <link rel="preconnect" href="https://mainnet.infura.io/" crossorigin/>
+
+    <link rel="preload" href="https://cdn.app.uniswap.org/fonts/Basel-Grotesk-Book.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://cdn.app.uniswap.org/fonts/Basel-Grotesk-Medium.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <!-- Cloudflare Turnstile script - loaded early for CSP compliance -->
+    <link rel="preconnect" href="https://challenges.cloudflare.com" crossorigin />
+    <script id="cf-turnstile-script" src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+
+    <style>
+      * {
+        font-family: 'Basel', sans-serif;
+        box-sizing: border-box;
+      }
+
+      /**
+        Explicitly load Basel var from public/ so it does not block LCP's critical path.
+      */
+      @font-face {
+        font-family: 'Basel';
+        font-weight: 535;
+        font-style: normal;
+        font-display: block;
+        src: 
+          url('https://cdn.app.uniswap.org/fonts/Basel-Grotesk-Medium.woff2') format('woff2'),
+          url('https://cdn.app.uniswap.org/fonts/Basel-Grotesk-Medium.woff') format('woff');
+      }
+
+      @font-face {
+        font-family: 'Basel';
+        font-weight: 485;
+        font-style: normal;
+        font-display: block;
+        src: 
+          url('https://cdn.app.uniswap.org/fonts/Basel-Grotesk-Book.woff2') format('woff2'),
+          url('https://cdn.app.uniswap.org/fonts/Basel-Grotesk-Book.woff') format('woff');
+      }
+
+      /* Subsetted Inter Regular, fetched lazily only when the Privy watermark renders (PrivyWatermark.tsx). */
+      @font-face {
+        font-family: 'Inter';
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+        unicode-range: U+0020-007E, U+00A0-024F, U+1E00-1EFF;
+        src: url('https://cdn.app.uniswap.org/fonts/Inter-Regular-Latin.woff2') format('woff2');
+      }
+
+      @supports (font-variation-settings: normal) {
+        * {
+          font-family: 'Basel', sans-serif;
+        }
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Only apply overflow-x: hidden on desktop */
+      @media (min-width: 768px) {
+        html {
+          overflow-x: hidden;
+        }
+      }
+
+      button {
+        user-select: none;
+      }
+
+      html {
+        font-size: 16px;
+        font-weight: 485;
+        font-variant: none;
+        font-smooth: always;
+        text-rendering: optimizeLegibility !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+
+      html,
+      body,
+      #root {
+        min-height: 100%;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        html {
+          background: linear-gradient(rgb(19, 19, 19) 0%, rgb(19, 19, 19) 100%);
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        html {
+          background: radial-gradient(100% 100% at 50% 0%, rgba(255, 184, 226, 0) 0%, rgba(255, 255, 255, 0) 100%), rgb(255, 255, 255);
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="https://cdn.app.uniswap.org/assets/index-ddn5sE97.js"></script>
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/rolldown-runtime-Bpprpzce.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dist-BeEXv2Nx.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/coerce-B46BSzgG.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/env.web-DyqvN08U.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dist-COlqVmP8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/proto3-CZsCbJxx.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/timestamp_pb-C0LRQrzF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/to-plain-message-9laDNu02.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/connect-error-BrhVh-ns.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/connect-transport-DAxrK19r.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/promise-client-BYYCPz5y.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/provideSessionStorage-BokMuGI5.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/query-DVyDm-nE.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hashKey-BfxtVoED.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/cache-BIPVTHfg.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/time-DRugyzC6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/provideSession-BZHpL-Lf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/esm-YLUarnFf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/replayStats-B17svr5s.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/preload-helper-CZTyufbU.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/logger-BQo5PHry.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getVersionHeader.web-C-OLhfHe.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/provideSessionService.web-Bjr_kOLF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/react-D7hXOYnT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/jsx-runtime-DXSXxcGM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useQuery-rcmdX6_n.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useMutation-UsTLeEEz.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useQueries-glmZJv-_.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/timing-B2NiXxzg.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-D4giHDj5.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getEntryGatewayUrl-D6GQ8egx.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dist-DzwoQ24k.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/svm-CjcVH7BK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/addresses-DK4A_9kW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/urls-B-3cEYgK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/element-14IUaLlF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-BiTjT_b4.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getCallError-CZhyThxO.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/sha2-KSBN9is1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/defineChain-BZUi60Ug.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/account-k15l90C6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/polygon-kVHxE4QI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/configs-CnQl1qq9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/assets-C3iD9jmn.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/config-DB6Io8A-.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/chainInfo-CNTZpIe6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-DfBwvjf9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/misc-CEC0sWsF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-2oRW8_o5.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/tokens-DNH3zMFd.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/percent-Dh3gS1ti.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/price-D5LDHuau.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/constants-lrxzqeL4.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-CM88_70G.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/experiments-B_xTXbUV.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-U1KWeJ-_.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/lib.esm-Oq-qzl3i.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getCurrencyAmount-DnYGf9lL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/currencyId-BS5UI6aT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/createUniswapFetchClient-BGeHYILK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/currency-CN5VsqzR.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TradingApiClient-BOPyGQsB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hash-CSpxKqQG.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/lib.esm-Bw_DBYcX.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/lib.esm-Bl89UzcU.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/lib.esm-CLzbYMD1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/lib.esm-B7TMdVRI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/rpcObserver-BThdKH_J.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/resolveRpcConfig.web-Vcv60LVr.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-C0bqy9YO.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TradeType-BOLx6cev.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/JupiterFetchClient-Dbk_vCYj.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/PlanStepStatus-vr2tkkM4.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/objectSpread2-DkWGZLeg.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/redux-toolkit.esm-DcrLnit6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/extends-69on7N6B.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/transactionDetails-DVaFdeh0.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-Dljhbhzh.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/slice-spENbl9U.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/with-selector-DWYybr29.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/react-dom-DDmuhpYt.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/es-BrXHyZ0h.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/saga-GMimka-Q.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/currency-_U4SXva0.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-BWN70XcC.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/approve-C8uLTrSP.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/plan_pb-Bv98e3j7.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/createWithSessionRetry-Ch04RD97.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/middleware-Dkarb61v.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/vanilla-BOxBh-Fu.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/assets-CPhI2AzT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/extractPlanResponseDetails-BGPDbowD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/react-Cc4Fs2iW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/permit2Signature-B6X_dMQz.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/swap-BAGbqwnC.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/planSagaUtils-BlLj3hLy.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/api_pb-D0lIVArE.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ForApiClient-BxnOlFGF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useFiatOnRampQueries-C4mG8HOi.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/modal-Bpa7fhxa.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/persistableQueryOptions-C304PPYt.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types_pb-BPmH1kki.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/transport-CegM3vc8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-BUkQW4O2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useTranslation-DVNP8y3L.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/navigatorLocale-xg30WvRh.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/selectors-BMXACNvF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/__vite-browser-external-D1nPdqVr.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/lib-DzrWArIC.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/chunk-KS7C4IRE-DXnnZhL7.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-u3o-Ay6Q.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/LocalizationContext-CgS0I8zM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/features-D4p8vVd4.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/analytics.web-ByAt99QD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/send.web-BdzpXvun.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-Dnc5ZIRP.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/UniswapContext-BM8EUfS_.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/priceKeys-b3kyatoL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getDisplayedPriceSource-CYd1xt_P.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/isRemotePriceServiceSupportedChain-Bsy8VTKx.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TraceContext-BYKdXeoI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/usePollingIntervalByChain-B34F5S3r.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useUSDCPrice-BnYhY6Sl.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/shallow-C4_guPHW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/wallets-COVsRDf8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-opZnj9kf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useFeatureFlaggedChainIds-DODPTaPe.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useEnabledChains-DI9cZg2e.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Trans-B_8lduXC.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-NHEdf3wT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/token-constants-CX59bPT1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/primitive-marker-DKef8-j4.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TextCompat.web-CJCs0FjB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/curves-FbJ7tOUQ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TouchableAreaCompat.web-COHIoLEZ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/compile-CXDJGPAf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/AnimatedFlex.web-CoHWTn54.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/I18nManager-CaFiE76j.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Button-CUyWtkzp.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/objectWithoutPropertiesLoose-n_NXDTZ5.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/breakpoints-xjAHpMJn.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/borderRadii-Bmb-V-QH.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/themeState-93S6o1MF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useSporeColors.web-Ce4svDd9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/iconSizes-BmuMAOz2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/createIcon-C9E7xHWd.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/fonts-BeKg_euq.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/imageSizes-eHN9fHhR.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/tokens-DSkzHbsW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/with-selector-DmWxSFnd.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Trace-DblmkGeU.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/AlertTriangleFilled-CTLewV-B.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/uniswap-BgrKspzS.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/section-D-h5YUlp.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getAlertColor-q5qMHa_2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useBooleanState-sAM74d9j.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/theme-colors.generated-BVQw_wd_.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/opacify.web-Cmq3U-42.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/theme-state-93S6o1MF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useIsDarkMode.web-CSaPeqTI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useShadowProps-CGxzpR7_.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/X-C1NmGmaz.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useMedia.web-Bqm7amBE.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ScrollbarStyles-CEtE6Z5y.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useInjectSingleStylesheet.web-CTnfyZXp.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/z-index-BiMuNuum.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/AdaptiveWebModalShared-GLCCWkpt.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useIsDarkMode.web-CfR9bXdX.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/shadows-YqHT9UNv.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Modal.web-yLz13gLM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/testIds-DIJggWMH.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useSporeColors.web-BGqpk4Q8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useMatchMedia-CWkFz1Lh.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/SeparatorCompat.web-CYb0EeCP.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ContextMenuContent-CTbJZtqN.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/floating-ui.react-dom-BMj10Uvj.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/usePositioner-DkiELVbP.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/PopoverPopup-vxgTf-It.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Popover.web-BIuEjztI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ContextMenu.web-DOZhHPAZ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/font-tokens.web-Bv6RbR3U.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TextInputState-BPQp5yKp.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Input.web-D0ZlaiQ7.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/input.web-B9J7T-P-.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/WarningModal-DqzExaQZ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/position-Db6LCG3V.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TooltipCompat.web-n-Rw7jUJ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/InfoTooltip.web-rcEP0a5J.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/WarningInfo-CybkofpZ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/colors-CdbSPOoK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/uuid-ioo-V99e.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useIsShortMobileDevice.web-jKwvndo3.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/api-fYgxhJqE.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useChainGasToken-D2muHXJ-.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/objects-DdphlW2-.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/restV2TokenToCurrencyInfo-BHSS4pzv.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useCurrencyInfo-6pJzDG4E.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dataApiMultichainToken-DLXs26yG.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useMultichainCurrencyInfos-3LX28Pp3.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/urls-DNQh48ry.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/UniversalImage-B4fLTxP-.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Platform-CJah76ns.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Image-Dgua9cD0.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Separator.web-BYy95t4N.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Loader-ClMx0y7L.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/NetworkLogo-BejKyIR1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TokenLogo-DGGH03k4.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/CurrencyLogo-BCkZCqc0.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TouchableTextLinkCompat.web-Cul0yLU7.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/EventEmitter-D0XFb8om.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/linking-C2mCFxml.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/LearnMoreLink-CXLmrOcB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/module-9dSPIVHK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/module-BYY35JeK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/reanimated-YAR_8e0p.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/api_pb-BI7DEIAp.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/DataApiClient-CHyTEfi0.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-BqIjbCNY.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/selectors-CWqo0YRI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-CdXOUJ_T.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getWalletBalances-Bbu4Zr43.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getPortfolioQueryUtils-B854hxJD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/usePlatformBasedFetchPolicy-BXcuVsRv.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getPortfolio-fAY4TnJE.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/_baseIsEqual-BTTg225J.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/isEqual-BLkp4Jrj.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-COyZpRWc.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-BrCliidg.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/usePortfolioBalancesForAddressById-C3arx6EH.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-CVPajQGe.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useNetworkSelectorOptions-BJVG3-aC.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/config-Ds30DFJr.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useGasFeeQuery-BTfdnLq2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/config-tVcuWZZ1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ccip-CuBSQ00y.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/secp256k1-gk4sBZXw.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/_esm-4Wf01rIq.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/prepareAuthorization-Bo9iPNOe.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getCapabilities-B-vUPiVL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/createWalletClient-WCi5FDM0.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/custom-CeqaX6qN.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/fallback-DPLmbvvA.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/assume0xAddress-CkqyJsMc.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useConfig-D1VYOsWX.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/config-JjBbC8pT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/walletConnect-DSQJqjh8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/store-DSSmaV-A.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/eventemitter3-BCW7Rt9s.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/eventemitter3-BAY6ZAPE.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dist-6BIMt7jj.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/deviceSession-BOXwHrTG.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/passkeySession-DW-5njGH.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/signing-CLb4CfhD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/embeddedWalletStore.web--KIKcFZH.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/userOperation-BJQoWOJB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/esm-DTQ_G9Xx.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-_93V_9Xv.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/constants-B4qGdW9B.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/wagmiConfig-BJOdD3kF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/base-BimdPEaF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/use-transport-JjSfRR02.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ms-CaPIdRu3.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useConversionTracking-BLZGsha9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/slice-CZXiSf5D.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/wallet-B0AqoXrv.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/interface-C-t8ShNW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/user-C8PCCo4R.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/misc-DEKrPkiR.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/constants-CcZUB-hD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/V2DutchOrder-B4ZBl-a9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/orders-B9RKRvDd.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/parseUnits-B4F4ddFg.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/parseEther-D8D_WMRj.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/chains-C9dcNZS9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-D8sw98BB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/actions-DfbupHHY.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ether-CEUmnbCD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/slice-B8i0KH0B.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-JkJ-B6uj.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-C_Mb_JWM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getConnectorClient-EJQ39LHV.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getCapabilities-C1a7Q0xK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useConnection-C_AxpEPk.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getAction-dhFBENND.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useChainId-DI2i7VHO.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/query-C2L90Fl8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useEthersProvider-eMD-TZPx.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-BtY_LxCn.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/noop-BeMKbXHu.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/walletMeta-xGbFG4D6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/index.web-app-XJFnDP_T.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/swapErrorToUserReadableMessage-m-_6jJmQ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-CPeDUACH.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/5792-C973_-f5.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/reducer-CXmO5i1q.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/pair-BodTyppJ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/usePortfolioBalancePart-38jZC8AO.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/resolveRwaIssuerDisplay-Cows7Fu6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/use-query-CRofjcVk.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/api-DataApiService_connectquery-DO1HiJ9n.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/listRwas-B9YdAxf1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useRWAWhitelist-D-Zy7gjh.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/safetyUtils-Clybi5jW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/rwaCandidates-DJEZc8z-.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/rwaMatch-lM5EC3dU.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/planPollingUtils-BSUXkAeN.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/tokens-B8T4NWoO.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/uniswapx-BFQyhgs1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useAccount-0tWvJHwE.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useSelectChain-B3MgsDpq.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getPublicClient-DcZ5Y8A5.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/submitAuctionLaunchSaga-BIK5bmYu.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types_pb-WfwVxvba.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/base-CTiDyte9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/LiquidityServiceClient-BjBjNrdM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/liquiditySaga-D7P_0l_N.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/lpIncentivesSaga-C3FcrEDc.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/permitMethod-oRoqhyx-.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useWallet-C3PmSMME.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/slice-B6hInr_7.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/slice-DP50VBud.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/slice-BKqm_-oW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/reducer-DsULJWsD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/reducer-DhIZKdwi.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/state-CHDfRJYd.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/typeGuards-DXU3jmZX.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useRWAIssuerLogoUrl-GgNQCJ6Q.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/RWAIssuerTag-DstH_8jy.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/addresses-7iYsgKG1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ViewCompat.web-1qWYf5Bj.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Eye-DOxYpC0o.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/UnitagsApiClient-yYaDvGJK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useUnitagsAddressQuery-Dv64yjHb.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/api-Dc2g6F1M.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/AccountIcon-7czzPGJF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/svg-elements-BkqzSGRB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/X-KE0Iz1bl.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useScrollbarStyles-CqscI37A.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ModalCloseIconCompat.web-DIFqsfKH.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ScrollViewCompat.web-vNZ5Auai.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/CheckmarkCircle-CgbOhkaq.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/RotatableChevron-D4ljxAP7.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useNewChainIds-DY7fQuyW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/WebBottomSheet.web-jxpH9oQr.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/AdaptiveWebPopoverContentCompat-DZt-ADGl.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useAnimatedStyle-kEg_NW_3.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/AnimatedNumber.web-B7jRkHw9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getDeltaTextColor-BAzMHX28.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/expandableAssetLayout-Bau6tP_R.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Rocket-DVk73odD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/listRankedRwas-CJYyx54Y.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Portal.web-DpVUIvor.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Presence.web-BU6RcqQs.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/RotatableChevron-BqBOTDGN.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dismissNativeKeyboard.web-C5DEP-pU.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/appState.web-nDqt3KLY.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/NetworkFilter-gL7liAiW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/EnvelopeHeart-BF8K__KV.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useColorsFromTokenColor-BzHmiqu4.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/constants-CjfpBa8W.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useColorSchemeFromSeed-MiNnV7_i.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/module.web-DN9xBKCN.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/index.m-Z4uuA0iV.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/passesContrast-Cf-ThPha.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useExtractedTokenColor-U3oBFTo3.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getContrastPassingTextColor-BmCR-fGZ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-qNXanUyp.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/BridgedAssetModal-DQpe_wQ4.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Heart-CDfUeYkT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Check-DKuAlIng.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ShareArrow-DARC0csX.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/InfoCircleFilled-CHfNbG_Y.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Blocked-nE6qgQMB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/WarningIcon-D5n3E7xv.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/HeightAnimator.web-BTerfO_X.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/InputCompat.web-Cj92c6hW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ArrowRight-BJzTtKf1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/WifiError-Tj6TWR4-.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/NetworkFilterDropdownContent-Soz9mH_p.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Shuffle-C0Uieobu.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Sparkle-B7k69JD6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/api_pb-Bwc9Nfqi.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useComplianceClient-BZ3fAb6P.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/devComplianceOverride-BUl1CHGO.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/gatedFeaturesQuery-DVmJTfG_.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/selectors-C7raV4ml.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/CheckmarkCircle-BVY32Lxw.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/CopySheets-BZtkuJQh.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/AnimatePresencePager.web-DdrNpoAH.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useOrderedMultichainEntries-By6_ThAp.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Tooltip.web-o_J_Afzd.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/chainedActions-BiP5mkXd.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useMultichainAddressViewState-DvDOhOZj.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/parseChainFromTokenSearchQuery-656SJZHe.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/clipboard.web-DnARldwK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Shuffle-BBdmNAal.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/InfoCircleFilled-CsLJbwcy.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Person-DekWqRFj.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/inheritsLoose-CHooaGnM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TrendUp-D4IMdVUk.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useCommonTokensOptionsWithFallback-qBBmBzpd.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/reports-D93yCBZW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Check-DWmM5pcA.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/CheckboxCompat.web-Uii08eYZ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/LabeledCheckboxCompat.web-CLBbS3h2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Clock-Dd0de4nT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Search-nnj8k9X2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/service-ExploreStatsService_connectquery-BUwvwtmJ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useTokenCategoryOrder-CMfvuH1w.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ChevronsOut-B7sOlLnf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ExpandoRow-RYeIr6MO.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TokenSelector-BZR6wZ7Q.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/page-CrsBTKqm.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/pool-aXDaZ5g8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/get-token-value-C-Brb8cP.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ButtonCompat.web-C8ZIphav.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/SpinningLoaderCompat.web-cfrDfyZA.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ExternalLink-Du0i0s_0.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ArrowDownToLine-D9lQt529.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ArrowDown-3UliC6xh.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/UniswapX-B_Ggrm8W.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ChartBarCrossed-Sw-jA2gr.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/EyeOff-BB1y1iDI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Flag-SJT7pgpr.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Person-KfXmXhU3.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/UniswapX-wMyd5Q_3.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/InlineCard-C7nC4RDa.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/VerticalDottedLineSeparator-Bqabf88I.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/UniswapXText-Digo5piF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useWallet-QoxfgnRw.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/AlertTriangleFilled-CTSQsfdw.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-DZ08hNqZ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/CopyHelper-Dp38tUob.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Unitag-DBbLY5EV.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/constants-kvXAxM1U.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/AddressDisplay-ZNZOUr-Q.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/CheckCircleFilled-VL3Sb44u.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ExternalLink-0O8Hzahh.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-DkyTWfeO.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getEarnPlanDisplayInfo-NOoZH1f5.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ChevronsOut-Bnw0Njok.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-By-85soo.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/constants-C2m27S6w.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/walletBalancesVisibility-B3GMuG36.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ArrowDown-C7vAJJIv.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/InfoCircle-t5dtoo4Z.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Arrow-CmFifMc6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/SplitLogo-BG0xxSyB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/localizedDayjs-BWuHM8_i.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useIsSmartContractAddress-DEL4nOaW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-B6moTKad.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/uniswapX.utils-DKOBRCsu.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useCancellationGasFeeInfo-CWT5iPUW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TransactionDetailsModal-h8QEp2Br.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/OptionRow-qCyuTptY.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useDisconnect-DxxPXcAf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/isIFramed-BIsrGRK7.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/embeddedWallet-CcKvFLl2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useGetPasskeyAuthStatus-4ims_nZ6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/clickable-BpM4tjDV.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Tokens-DRvLOnQS.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useColor-DXZk_Yc7.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/SwitchCompat.web-DMvt_lhQ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/IconButtonCompat.web-CIL0965_.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TokenWarningCard-C_wyWQey.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Passkey-BJ8W7yUb.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ArrowLeft-D3HXZLnG.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ArrowRight-Bp6_fTzv.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/BackArrow-D_R3ficC.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Buy-DQM2a8Di.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Minus-5yOPiJEM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Plus-ULT2htJP.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Pools-OfpkDQoh.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Switch.web-ChP4rwV-.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/OneClickSwap-BEM6Ayw1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-CcosHbCk.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useInterval-BAYMmqUm.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Tooltip-DgSoCIaq.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useIsTouchDevice.web-BBJPUO_G.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useOnClickOutside-B9N-sYiB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ChartBarCrossed-ZhVkgnN3.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-CYEdLGwL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/LiveDotRenderer-C0VgJEFk.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ChartModel-DTFsYktP.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/chainParams-Bg-fbkEN.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/polished.es-B-7EnWU8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ErrorBox-C5FxRSzg.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/LoadingState-CGHGAOTd.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/AlertTriangle-DX7CCcQT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-CJRiNTml.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/utils-C6jXtrDL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/chainQueryParam-CZxtS0_D.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/util-554TYMTN.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useTokenDetailsData-VKE8EOr2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useTokenPriceHistoryRest-BL0pnP6Y.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/tdpTokenQueryOptions-B5XhlXHn.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/chainUtils-C1fNXfc2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/TokenHoverCard-BZB09LZB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useIsPage-CA3Uwt9d.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-D68o-J1F.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/onRampRedirectUrl-ByelGhhK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useEarnPosition-iIMnAa2Q.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useEarnVaults-DRoTjiG9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Unitag-C_QOTVo7.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/readContract-D1JO8tAV.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useReadContracts-D1GMCscg.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/currencyKey-BAthPC6z.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useTokenBalances-DpeEb6xA.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useCurrencyBalance-DxUNjoUf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/StatusIcon-DUsKlOca.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ellipsis-BSGZBUV2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-BiEm1nYh.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-CA-hux3Z.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-CkDn0nDG.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useCexTransferProviderPress-C9cEfSjP.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/CrossChainCurrencyRow-pIBkbBGx.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useENS-wodjakc8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useMergeLocalAndRemoteTransactions-DQXj5pHZ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useInfiniteQuery-CsYl_lyg.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/listTransactions-PFK18iv2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Wiggle-DtSvq3iE.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ArrowChange-Dp5N8Iou.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/DeltaArrow-C4TGg7OS.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useChartAnimatedColor-DkINPN06.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ArrowLeft-CA08M9tV.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/AnchorCompat.web-qw2oHgDf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/PulseRipple.web-DJ4N0JG1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Badge-Bo4OZ3Wv.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-DMMXHBj0.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/StepRowSkeleton-nr_Pv3-g.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ProgressIndicator-DJft27q9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/SpinningLoader.web-D8sXfHor.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Clock-DcBJfAlH.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/QrCode-VWa5td93.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Settings-D0ctFyJe.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useShakeAnimation.web-Dkndb2T0.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/contextEnhancer.web-ZNTZCyoZ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useSwapFormStore-D6ilkFVA.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Deadline.web-DeksBtoI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/authenticatorManagement-DW2MMeEF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-DGoxjTC1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useOnCompleteEmbeddedWalletLogin-v7P3s3eY.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useSignInWithPasskey-94LxrlAV.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useTotalBalancesUsdForAnalytics-CZBn1nu2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/UserCheck-9DoPJDpP.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/screenAddressQuery-D6srMFSe.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/IconButton.web-3xIrGEkQ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useMaxAmountSpend-DWVRvTCq.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useDynamicFontSizing-COQ2QxN1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useCurrencyInputFontSize-DvW9piIW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useContainerWidth--P4r-z_z.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/CurrencyInputPanel-B1cfAo_9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Gas-BFhmZAnM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/NetworkFeeWarning-D1a5-0mo.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useCheckPermissionsQuery-BbcSOBsB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/usePermissionedSwapPair-Cl2py9IO.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/interface-DpEdQift.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/clickable-CaSFSk39.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Envelope-CcM55dIY.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/GoogleLogoGradient-Dd-pNcLR.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Passkey-CeF9bzZl.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useListAuthenticatorsQuery-C5e_NseT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/MoreHorizontal-V73zITi3.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/OverflowMenu-CHMM6f1_.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/PasskeyMenu-h_wp2ySK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Wrench-DpQ_xBeO.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/slide-fade-presence-DjOJTHLw.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/menuState-BkVK11bL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks.module-JbJlXql9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/events-BGkcvgqp.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/basics-Df73T8pA.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dist--Re5ltOC.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dist-3dHpKRFv.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/browser-ponyfill-gqL82SBh.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dist-WEUN6ohQ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dist-DTEimqnT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/shallowequal-D9U7VRD6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useActiveWallet-DMrO7evY-Dfghkr1F.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/usePrivy-DDB15S8o-CHEB79YC.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/use-sign-with-user-signer-Do5Oi_rb-sXODZXtl.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/trigger-nKzpcb7I.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dist-Z-wzohgC.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dist-B5R8T62i.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/esm-Dmg7O6bR.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/construct-url-B0mR0eKW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/PrivyPluginContext-2QN2dVUw-vl06e1Ng.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/index-DQp_5KKJ-BMD7bcaf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useOAuthRedirectRouter-DFIcpBiV.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/GetHelpHeader.web-DPNkkMWT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useModalState-Bvbo4dkq.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/WalletAlertBadge-mOjC5u6M.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Blocked-DxcmdD9r.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Dialog.web-D_Z6nEgu.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useOnchainDisplayName-BlZbghJD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useIsMobile-rwR-O6Vf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/DelegationMismatchModal-D6W7akv6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getContract-Dn1VKMgq.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useContract-ChCU1AhF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useReadContract-DDEbfGL_.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/web3reactShim-DmymnxV6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-DkKh8ye3.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-CF6PZ1Xt.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/urlRoutes-B0pS3oTd.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useConnectWallet-DV3CvRHt.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/anonymizeLink-DHYxmGZm.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Links-BefQxCW2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/WalletFilled-CHDktT3y.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/UniswapLogo-qTQD3Ggn.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/styles--lzEeN7N.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/openDownloadApp-duOC6yNY.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Eye-dm_oeSXr.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/FileListLock-BXqTNMlg.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/GraduationCap-DZ8iKW_j.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Lock-eXBBE1ny.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/DocumentList-BgGf2EuP.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ShieldCheck-DJ-lSv0q.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/SegmentedControl.web-DWvL5xx3.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/LayerGroup-adf1v80b.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/QuestionInCircleFilled-CK9qF5Lm.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/InfoLinkModal-2CapWLzC.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/appResetter-t6VDAanG.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/usePrevious-C1fl9nZ1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Portal-C3Mbchij.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useAppHeaderHeight-PdV0E4JL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Dropdown-CDvVpbcK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useSwapContext-T4OkReCS.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/types-Bgv8QgcX.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useMultichainContext-DwWL1dSn.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/styled-n81-4fMi.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useNavigateToTokenDetails-D7Ue3o8D.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/currencyParams-CAosyka-.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/tradeQueryParams-DUT4ioMr.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/LowNativeBalanceModal-CaPY8cXl.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/PermissionedTokenInfoBottomSheet-BgeE2Fiq.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/integer-DWImqrbH.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useIsOffline.web-xDBcZY7h.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useIsMissingPlatformWallet-EfBm0Eal.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/pools-gX8_lYdK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Pill-DoiklbLB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/tsafe-CwY_ipa2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/VerifyIdentityBottomSheet-CmE7DRcp.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/providers-DfdceEwb.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useIsWindowVisible.web-bNGR60h2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useBlockNumber-Ccta8qpL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/MultichainContext-BtoczA53.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Swap-Dl1xQtuG.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/queries-CoBO9-uW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/analyticsDebugStore-DgoEW8lJ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/client-CL6IFKdT.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/metatags-EU-c1QeY.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/connect-multichain-2ZEaZKnM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/GridView-QNml1ZaR.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/CategoryDefinitionTooltip.web-BUgOFOol.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/dijkstra-DjMCE_Ku.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/mitt-JN6JL586.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-aNTP4_LU.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/explore-C2CzUzle.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/constants-CevA6hcL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/approvedTokens-BRlY6hzg.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/scrollStore-4fQCjxW8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Landing-DYVdPyDy.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/lazyWithRetry-xS2RC5Wa.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/QuestionInCircleFilled-B6nqJJlw.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/BookOpen-B6xPCkkk.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/HelpModal-CC9d8i04.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Footer-eBJBJi0A.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/CoinConvert-tve8-DkI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/Rocket-fmZ5Q7-u.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/poolLinkParams-fQ3Jz2oI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/createPositionEntryPoint-Czre2k1s.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/isInAppBrowser-DaifDwCv.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getIssuerTokenPrimaryName-DiGdOU7n.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/resolvePrimaryChain-DwCQ5hl9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/auction_pb-C3Ftka7r.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/auctionMetadata-Di6Aekul.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/getCategoryDetailsURL-BJoCsoFY.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/GroupHoverTransition-s9RIZ_uN.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/OverlapIconWrapper.web-DthBUfrk.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/NetworkIconList-BDAEDrlm.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ExpandableIssuerPanel-9OeXTSAi.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/liquidityQueries-CLXiSkRD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useUniswapHookProvenance-7IPMg37v.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/UnitagName-BopWRGd2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ExpandableParentAssetIdentity-BCywylJ-.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useTokenDetailsVaultShareData-DEhwV00x.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useUnitagsUsernameQuery-ARHRvOnE.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/queryTypes-Dgh2MgjR.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/constants-DKWzLWVr.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/auctionDetailsUrl-CHz3cCaI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useNavigateToAuctionDetails-CIVO1c6L.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/hooks-Cs2pwGY7.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useScroll-C0_IwRJR.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/theme-J719a2-p.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/ErrorBoundary-DMXSc1OD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useNavigateToNftExplorerLink-4xaSRswn.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useEthersSigner-D3NBDyU2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/showSwitchNetworkNotification-BeBuvAd2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useStateRehydrated-72XCTftK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useCurrentBlockTimestamp-z4c6th5F.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.app.uniswap.org/assets/useMachineTime-CgF9OW20.js">
+    <link rel="stylesheet" crossorigin href="https://cdn.app.uniswap.org/assets/Tooltip-DQrxO94g.css">
+    <link rel="stylesheet" crossorigin href="https://cdn.app.uniswap.org/assets/Landing-0_w-4iEK.css">
+    <link rel="stylesheet" crossorigin href="https://cdn.app.uniswap.org/assets/index-BQ85J8zo.css">
+  <meta property="og:title" content="WETH/USDC on Uniswap" data-rh="true">
+<meta property="og:image" content="https://app.uniswap.org/api/image/pools/base/0xd0b53D9277642d899DF5C87A3966A349A798F224" data-rh="true">
+<meta property="og:image:width" content="1200" data-rh="true">
+<meta property="og:image:height" content="630" data-rh="true">
+<meta property="og:image:alt" content="WETH/USDC on Uniswap" data-rh="true">
+<meta property="og:type" content="website" data-rh="true">
+<meta property="og:url" content="https://app.uniswap.org/explore/pools/base/0xd0b53D9277642d899DF5C87A3966A349A798F224" data-rh="true">
+<meta property="twitter:card" content="summary_large_image" data-rh="true">
+<meta property="twitter:title" content="WETH/USDC on Uniswap" data-rh="true">
+<meta property="twitter:image" content="https://app.uniswap.org/api/image/pools/base/0xd0b53D9277642d899DF5C87A3966A349A798F224" data-rh="true">
+<meta property="twitter:image:alt" content="WETH/USDC on Uniswap" data-rh="true">
+</head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <div id="root"></div>
+    <div id="background-radial-gradient"></div>
+
+    <script type="module" src="https://cdn.app.uniswap.org/zone-events.js"></script>
+    <!-- Vite entry point -->
+  </body>
+</html>

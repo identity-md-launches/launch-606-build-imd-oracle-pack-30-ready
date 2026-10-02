@@ -108,7 +108,7 @@ test('live success replays offline; advice or an unjudged response fails the qua
     fetchFn:async () => response(live.draft.httpStatus,live.draft.response), wait:noWait
   });
   assert.ok(isCleanScreen(result));
-  for (const code of ['wording','not_answerable']) {
+  for (const code of ['wording','not_answerable','answer_type']) {
     const flagged = structuredClone(result);
     flagged.attempts.at(-1).response.suggestions = [{code}];
     assert.equal(isCleanScreen(flagged),false);
@@ -124,5 +124,26 @@ test('chain data uses chain evidence and replacement questions avoid header triv
     if ((id >= 11 && id <= 15) || id >= 20) {
       assert.doesNotMatch(body.question,/parentHash|block hash|transaction hash|miner field|lowest-index/i);
     }
+  }
+});
+
+// This invalid argument passed the live screen; reject it before networking.
+test('question and definition hex arguments reject the reported malformed address', async () => {
+  const {body} = (await loadPack())[0];
+  const bad = structuredClone(body);
+  bad.question = 'Call allowance(0x7a250d5630b4cf539739df2c5dacab4c659f2488d)';
+  assert.ok(validateBody(bad).some(e => e.includes('malformed hex literal')));
+  bad.question = body.question;
+  bad.definitions.call = 'spender 0x7a250d5630b4cf539739df2c5dacab4c659f2488d';
+  assert.ok(validateBody(bad).some(e => e.includes('malformed hex literal')));
+});
+
+test('captured paid scalar calls ended in recipe mismatch', async () => {
+  for (const id of ['b23e854e-6ead-4ff8-8ba4-3b6bfdcb0fb9','01a65559-803f-4e36-9a0a-1f8e1988dcb6']) {
+    const r = JSON.parse(await readFile(new URL(`./live/revision/${id}.json`, import.meta.url),'utf8'));
+    assert.equal(r.status,'mismatch');
+    assert.equal(r.evidence,'chain');
+    assert.equal(r.agreement.recipe.kind,'call-compare');
+    assert.equal(r.failure,'recipe yields bool, request asks for uint256');
   }
 });

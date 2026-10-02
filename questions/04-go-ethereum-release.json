@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release during [2024-09-01T00:00:00Z,2024-10-01T00:00:00Z)?",
+  "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 1 available when requested?",
   "chainId": 1,
   "window": {
     "hours": 720
@@ -13,7 +13,7 @@
   "definitions": {
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
     "source": "Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.",
-    "calendar": "The stated UTC interval controls this off-chain fact; the blockchain window is context only. Include the lower bound and exclude the upper bound."
+    "calendar": "At request time, resolve the latest already-finalized block once as toBlock. Its UTC timestamp T is the fixed end of the observation; count published_at in [T minus 2592000 seconds,T). Include the lower bound and exclude T. This is a completed historical interval, never a future block or a moving wall-clock endpoint."
   },
   "guards": {
     "sources": [

@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "At the latest finalized block on chain 1 when requested, what is balanceOf(0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc) on WETH at 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2, encoded as a bytes32 unsigned integer word?",
+  "question": "At the closing block of the last 1 hour on chain 1, return the exact 32-byte hexadecimal ABI return data of balanceOf(0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc) on WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2. The answer is one bytes32 word (0x and 64 hex digits), not a decimal number.",
   "chainId": 1,
   "window": {
     "hours": 1
@@ -14,6 +14,6 @@
     "window": "The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
     "call": "Call balanceOf(address) returning uint256 at toBlock. The argument is the holder named in the question. Units are raw wei of WETH (18 decimals).",
-    "encoding": "Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling."
+    "encoding": "Return the unmodified single ABI word as bytes32. A consumer decodes it as uint256 to compare a liquidity or supply threshold. No hashing, decimal formatting or scaling."
   }
 }

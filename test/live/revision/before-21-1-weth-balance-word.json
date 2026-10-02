@@ -1,0 +1,92 @@
+{
+  "input": {
+    "question": "At the latest finalized block on chain 1 when requested, what is balanceOf(0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc) on WETH at 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2, encoded as a bytes32 unsigned integer word?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call balanceOf(address) returning uint256 at toBlock. The argument is the holder named in the question. Units are raw wei of WETH (18 decimals).\nencoding: Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling.",
+    "panelSize": 5,
+    "answerType": "bytes32",
+    "evidence": "chain",
+    "chainId": 1
+  },
+  "date": "2026-10-02T22:07:58.042Z",
+  "verdict": "no_blockers",
+  "attempts": [
+    {
+      "date": "2026-10-02T22:07:58.042Z",
+      "number": 1,
+      "httpStatus": 200,
+      "response": {
+        "action": "oracle.request",
+        "request": {
+          "v": 1,
+          "question": "At the latest finalized block on chain 1 when requested, what is balanceOf(0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc) on WETH at 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2, encoded as a bytes32 unsigned integer word?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call balanceOf(address) returning uint256 at toBlock. The argument is the holder named in the question. Units are raw wei of WETH (18 decimals).\nencoding: Encode the unsigned integer as one bytes32: big-endian hexadecimal, 0x followed by exactly 64 hex digits, left-padded with zeros. Do not hash it or apply decimal scaling.",
+          "chainId": 1,
+          "window": {
+            "hours": 24
+          },
+          "answerType": "bytes32",
+          "evidence": "chain",
+          "panelSize": 5,
+          "quorum": 4,
+          "validForSeconds": 86400
+        },
+        "proposed": {
+          "answerType": {
+            "value": "uint256",
+            "confidence": 0.86
+          },
+          "evidence": {
+            "value": "chain",
+            "confidence": 1
+          },
+          "chainId": {
+            "value": 1,
+            "confidence": 0.97
+          },
+          "toleranceBps": {
+            "value": 0,
+            "confidence": 0.73
+          },
+          "head": {
+            "value": 1,
+            "confidence": 0.99
+          }
+        },
+        "judged": true,
+        "blockers": [],
+        "suggestions": [
+          {
+            "code": "answer_type",
+            "detail": "This reads as a number; you chose a written answer."
+          }
+        ],
+        "online": 527,
+        "limits": {
+          "minPanelSize": 5,
+          "maxPanelSize": 100
+        },
+        "chains": [
+          {
+            "id": 1,
+            "name": "Ethereum mainnet"
+          },
+          {
+            "id": 56,
+            "name": "BNB Chain"
+          },
+          {
+            "id": 4663,
+            "name": "Robinhood Chain"
+          },
+          {
+            "id": 8453,
+            "name": "Base"
+          },
+          {
+            "id": 42161,
+            "name": "Arbitrum One"
+          }
+        ]
+      },
+      "verdict": "no_blockers"
+    }
+  ]
+}

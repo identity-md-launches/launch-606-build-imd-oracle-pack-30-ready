@@ -10,7 +10,7 @@ export function isCleanScreen(result) {
   const response = result.attempts.at(-1)?.response;
   return result.verdict === 'no_blockers' && response?.judged === true &&
     Array.isArray(response.suggestions) &&
-    !response.suggestions.some(s => ['wording','not_answerable'].includes(s?.code));
+    !response.suggestions.some(s => ['wording','not_answerable','answer_type'].includes(s?.code));
 }
 const draftKeys = ['question','panelSize','answerType','evidence','chainId','toleranceBps','head'];
 export function draftInput(body) {
@@ -80,7 +80,7 @@ export async function checkPack(entries, {output = resolve(ROOT,'results.json'),
       result.verdict = `full_body_rejected; draft_${result.draft.verdict}`;
       result.date = result.draft.date;
     }
-    // Preserve service advice; wording/not_answerable also fail the pack's quality gate.
+    // Preserve service advice; wording/not_answerable/answer_type also fail the pack's quality gate.
     const codes = [...new Set(((result.draft ?? full).attempts.at(-1)?.response?.suggestions ?? []).map(s => s?.code).filter(Boolean))];
     if (codes.length) {
       result.suggestions = codes;
@@ -99,7 +99,7 @@ export async function checkPack(entries, {output = resolve(ROOT,'results.json'),
 async function main() {
   const args = process.argv.slice(2);
   if (args.includes('--help')) {
-    console.log(`${WARNING}\n\nUsage: node scripts/check.mjs [--output PATH]\nNode 20+, built-in fetch only. Sends all 30 exact bodies to the free check\nendpoint; on unknown-field rejection also checks the documented draft,\nwith definitions appended to question text. Records raw responses, UTC dates,\nbody hashes and non-blocking suggestion codes. Retries transport failures, 408/425/429/5xx and malformed\nresponses up to 3 times, at least 3 seconds apart. 30-second timeout per call.\nNo payment, quote, wallet or oracle submission.\n--output PATH  Save results elsewhere (default: repository results.json).\nExit 0: every body or fallback draft was judged with no blockers, wording or not_answerable suggestions.\nExit 1: quality gate failed, network/HTTP failure, unclassified response, or local error.`);
+    console.log(`${WARNING}\n\nUsage: node scripts/check.mjs [--output PATH]\nNode 20+, built-in fetch only. Sends all 30 exact bodies to the free check\nendpoint; on unknown-field rejection also checks the documented draft,\nwith definitions appended to question text. Records raw responses, UTC dates,\nbody hashes and non-blocking suggestion codes. Retries transport failures, 408/425/429/5xx and malformed\nresponses up to 3 times, at least 3 seconds apart. 30-second timeout per call.\nNo payment, quote, wallet or oracle submission.\n--output PATH  Save results elsewhere (default: repository results.json).\nExit 0: every body or fallback draft was judged with no blockers, wording, not_answerable or answer_type suggestions.\nExit 1: quality gate failed, network/HTTP failure, unclassified response, or local error.`);
     return;
   }
   let output = resolve(ROOT,'results.json');

@@ -26,6 +26,13 @@ export function validateBody(body) {
   keys(body, ['v','question','chainId','window','answerType','evidence','panelSize','quorum','validForSeconds','head','definitions','guards','toleranceBps','consumer','allowAmbiguous'], 'body');
   need(body.v === 1, 'v must be 1');
   need(length(body.question, 1, 2000), 'question must be 1..2000 characters');
+  // Text arguments need the same literal checks as guards; the free screen missed a 41-digit address.
+  for (const text of [body.question, ...Object.values(body.definitions ?? {})]) {
+    if (typeof text !== 'string') continue;
+    for (const literal of text.match(/0x[0-9a-fA-F]+/g) ?? []) {
+      need([4, 10, 42, 66].includes(literal.length), `question/definitions: malformed hex literal ${literal}`);
+    }
+  }
   need(integer(body.chainId, 1, Number.MAX_SAFE_INTEGER), 'chainId must be a positive safe integer');
   need(TYPES.includes(body.answerType), 'unsupported answerType');
   need(integer(body.panelSize, 5, 100), 'panelSize must be 5..100 (observed capability limits)');

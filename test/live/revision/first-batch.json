@@ -1,26 +1,26 @@
 {
   "experimental": "Experimental, commissioned as a test of the IMD swarm. It may not work as described. Read the code, start with small amounts, no warranty.",
   "endpoint": "https://api.imd.fun/requests/check",
-  "startedAt": "2026-10-02T22:13:03.029Z",
-  "completedAt": "2026-10-02T22:16:53.335Z",
+  "startedAt": "2026-10-02T22:09:17.811Z",
+  "completedAt": "2026-10-02T22:12:47.020Z",
   "policy": {
     "maxRetries": 3,
     "retryDelayMs": 3000,
     "mode": "exact body, then documented draft on unknown-field rejection"
   },
-  "note": "A no_blockers draft is a wording/admission screen, not a check of omitted fields or a signed oracle result. Suggestions are non-blocking service advice; read them before spending. All screening outcomes are dated samples, not guaranteed properties. Bodies 11–15,21–25,29–30 remain unsupported for paid chain attestation on the observed service.",
+  "note": "A no_blockers draft is a wording/admission screen, not a check of omitted fields or a signed oracle result. Suggestions are non-blocking service advice; read them before spending.",
   "results": [
     {
       "file": "questions/01-imd-supply-positive.json",
       "sha256": "accc5b16a3c91147cde36a76259504ee4dfe9401a6af4bc41954fc2124129b90",
-      "date": "2026-10-02T22:13:06.201Z",
+      "date": "2026-10-02T22:09:21.244Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:13:03.031Z",
+        "date": "2026-10-02T22:09:17.813Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:03.031Z",
+            "date": "2026-10-02T22:09:17.813Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -46,11 +46,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:13:06.201Z",
+        "date": "2026-10-02T22:09:21.244Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:06.201Z",
+            "date": "2026-10-02T22:09:21.244Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -79,11 +79,11 @@
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 0.83
+                  "confidence": 0.86
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.83
+                  "confidence": 0.88
                 },
                 "head": {
                   "value": 1,
@@ -93,7 +93,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 545,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -129,14 +129,14 @@
     {
       "file": "questions/02-weth-supply-positive.json",
       "sha256": "da1590f72e442a0149bac3a41dfefeab0048f6bede9afa90676d9587c0d222b0",
-      "date": "2026-10-02T22:13:12.974Z",
+      "date": "2026-10-02T22:09:27.990Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:13:09.946Z",
+        "date": "2026-10-02T22:09:24.964Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:09.946Z",
+            "date": "2026-10-02T22:09:24.964Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -162,11 +162,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:13:12.974Z",
+        "date": "2026-10-02T22:09:27.990Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:12.974Z",
+            "date": "2026-10-02T22:09:27.990Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -199,17 +199,17 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.91
+                  "confidence": 0.92
                 },
                 "head": {
                   "value": 1,
-                  "confidence": 0.99
+                  "confidence": 1
                 }
               },
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 545,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -245,14 +245,14 @@
     {
       "file": "questions/03-robinhood-block-activity.json",
       "sha256": "146d8e21dc753a3d7f8d137c51c1065338469b291596212606c08ac117ebf7de",
-      "date": "2026-10-02T22:13:19.695Z",
+      "date": "2026-10-02T22:09:34.700Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:13:16.679Z",
+        "date": "2026-10-02T22:09:31.684Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:16.679Z",
+            "date": "2026-10-02T22:09:31.684Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -279,11 +279,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:13:19.695Z",
+        "date": "2026-10-02T22:09:34.700Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:19.695Z",
+            "date": "2026-10-02T22:09:34.700Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -316,7 +316,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.85
+                  "confidence": 0.84
                 },
                 "head": {
                   "value": 1,
@@ -361,15 +361,15 @@
     },
     {
       "file": "questions/04-go-ethereum-release.json",
-      "sha256": "52dfd9a114280a84befb80c1db0f351d30dff941f9aad0bfbf1328951870c6b0",
-      "date": "2026-10-02T22:13:26.393Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "sha256": "c22670a7cc9f37778591f7e74b330e3384d00e60ba04f6785264df6b747d250d",
+      "date": "2026-10-02T22:09:41.378Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable",
       "full": {
-        "date": "2026-10-02T22:13:23.374Z",
+        "date": "2026-10-02T22:09:38.358Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:23.374Z",
+            "date": "2026-10-02T22:09:38.358Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -382,7 +382,7 @@
       },
       "draft": {
         "input": {
-          "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 1 available when requested?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: At request time, resolve the latest already-finalized block once as toBlock. Its UTC timestamp T is the fixed end of the observation; count published_at in [T minus 2592000 seconds,T). Include the lower bound and exclude T. This is a completed historical interval, never a future block or a moving wall-clock endpoint.",
+          "question": "Did ethereum/go-ethereum publish at least one non-draft, non-prerelease GitHub release in the 30 days ending at the timestamp of the pinned toBlock on chain 1?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: Resolve the 720-hour window once at request time to pinned blocks. Let T be the UTC timestamp of toBlock; count published_at in [T minus 2592000 seconds,T). Include the lower bound, exclude T. Never use a moving wall-clock endpoint.",
           "panelSize": 5,
           "answerType": "bool",
           "evidence": "panel",
@@ -396,18 +396,18 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:13:26.393Z",
+        "date": "2026-10-02T22:09:41.378Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:26.393Z",
+            "date": "2026-10-02T22:09:41.378Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 1 available when requested?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: At request time, resolve the latest already-finalized block once as toBlock. Its UTC timestamp T is the fixed end of the observation; count published_at in [T minus 2592000 seconds,T). Include the lower bound and exclude T. This is a completed historical interval, never a future block or a moving wall-clock endpoint.",
+                "question": "Did ethereum/go-ethereum publish at least one non-draft, non-prerelease GitHub release in the 30 days ending at the timestamp of the pinned toBlock on chain 1?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/ethereum/go-ethereum/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: Resolve the 720-hour window once at request time to pinned blocks. Let T be the UTC timestamp of toBlock; count published_at in [T minus 2592000 seconds,T). Include the lower bound, exclude T. Never use a moving wall-clock endpoint.",
                 "chainId": 1,
                 "window": {
                   "hours": 24
@@ -425,25 +425,34 @@
                 },
                 "evidence": {
                   "value": "panel",
-                  "confidence": 0.94
+                  "confidence": 0.9
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 0.98
+                  "confidence": 0.99
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.82
+                  "confidence": 0.81
                 },
                 "head": {
                   "value": 1,
-                  "confidence": 0.97
+                  "confidence": 0.91
                 }
               },
               "judged": true,
               "blockers": [],
-              "suggestions": [],
-              "online": 546,
+              "suggestions": [
+                {
+                  "code": "wording",
+                  "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+                },
+                {
+                  "code": "not_answerable",
+                  "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+                }
+              ],
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -474,19 +483,23 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable"
+      ]
     },
     {
       "file": "questions/05-node-release.json",
-      "sha256": "67358b114bde5b9831ee41145dc654d7fb342752da9117b039ce30da8469ce11",
-      "date": "2026-10-02T22:13:34.017Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "sha256": "78a9e1ed97cd6b224fe2444ef232d736023138d6bd4923a5ff7c76643f9248fb",
+      "date": "2026-10-02T22:09:48.095Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording,not_answerable",
       "full": {
-        "date": "2026-10-02T22:13:30.960Z",
+        "date": "2026-10-02T22:09:45.076Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:30.960Z",
+            "date": "2026-10-02T22:09:45.076Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -499,7 +512,7 @@
       },
       "draft": {
         "input": {
-          "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 4663 available when requested?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: At request time, resolve the latest already-finalized block once as toBlock. Its UTC timestamp T is the fixed end of the observation; count published_at in [T minus 2592000 seconds,T). Include the lower bound and exclude T. This is a completed historical interval, never a future block or a moving wall-clock endpoint.",
+          "question": "Did nodejs/node publish at least one non-draft, non-prerelease GitHub release in the 30 days ending at the timestamp of the pinned toBlock on chain 4663?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: Resolve the 720-hour window once at request time to pinned blocks. Let T be the UTC timestamp of toBlock; count published_at in [T minus 2592000 seconds,T). Include the lower bound, exclude T. Never use a moving wall-clock endpoint.",
           "panelSize": 5,
           "answerType": "bool",
           "evidence": "panel",
@@ -513,18 +526,18 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:13:34.017Z",
+        "date": "2026-10-02T22:09:48.095Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:34.017Z",
+            "date": "2026-10-02T22:09:48.095Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 4663 available when requested?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: At request time, resolve the latest already-finalized block once as toBlock. Its UTC timestamp T is the fixed end of the observation; count published_at in [T minus 2592000 seconds,T). Include the lower bound and exclude T. This is a completed historical interval, never a future block or a moving wall-clock endpoint.",
+                "question": "Did nodejs/node publish at least one non-draft, non-prerelease GitHub release in the 30 days ending at the timestamp of the pinned toBlock on chain 4663?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: Resolve the 720-hour window once at request time to pinned blocks. Let T be the UTC timestamp of toBlock; count published_at in [T minus 2592000 seconds,T). Include the lower bound, exclude T. Never use a moving wall-clock endpoint.",
                 "chainId": 4663,
                 "window": {
                   "hours": 24
@@ -542,25 +555,34 @@
                 },
                 "evidence": {
                   "value": "panel",
-                  "confidence": 0.86
+                  "confidence": 0.9
                 },
                 "chainId": {
                   "value": 4663,
-                  "confidence": 0.98
+                  "confidence": 0.94
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.84
+                  "confidence": 0.82
                 },
                 "head": {
                   "value": 1,
-                  "confidence": 0.94
+                  "confidence": 0.93
                 }
               },
               "judged": true,
               "blockers": [],
-              "suggestions": [],
-              "online": 546,
+              "suggestions": [
+                {
+                  "code": "wording",
+                  "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+                },
+                {
+                  "code": "not_answerable",
+                  "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+                }
+              ],
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -591,19 +613,23 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording",
+        "not_answerable"
+      ]
     },
     {
       "file": "questions/06-imd-transfer-count.json",
       "sha256": "416ca244968dab5c0a58f128b3bab9170e7e47291dee6191c910c48252d84614",
-      "date": "2026-10-02T22:13:41.770Z",
+      "date": "2026-10-02T22:09:55.224Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:13:38.752Z",
+        "date": "2026-10-02T22:09:52.207Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:38.752Z",
+            "date": "2026-10-02T22:09:52.207Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -631,11 +657,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:13:41.770Z",
+        "date": "2026-10-02T22:09:55.224Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:41.770Z",
+            "date": "2026-10-02T22:09:55.224Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -664,11 +690,11 @@
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 0.99
+                  "confidence": 0.98
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.49
+                  "confidence": 0.5
                 },
                 "head": {
                   "value": 1,
@@ -678,7 +704,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -714,14 +740,14 @@
     {
       "file": "questions/07-weth-transfer-count.json",
       "sha256": "81ddb6fb595144febeb3111f1d72f63636448b4cab4e601bc60c2758ffa713d7",
-      "date": "2026-10-02T22:13:48.492Z",
+      "date": "2026-10-02T22:10:02.867Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:13:45.475Z",
+        "date": "2026-10-02T22:09:59.849Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:45.475Z",
+            "date": "2026-10-02T22:09:59.849Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -749,11 +775,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:13:48.492Z",
+        "date": "2026-10-02T22:10:02.867Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:48.492Z",
+            "date": "2026-10-02T22:10:02.867Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -786,7 +812,7 @@
                 },
                 "toleranceBps": {
                   "value": 100,
-                  "confidence": 0.17
+                  "confidence": 0.22
                 },
                 "head": {
                   "value": 1,
@@ -796,7 +822,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -832,14 +858,14 @@
     {
       "file": "questions/08-imd-burn-sum.json",
       "sha256": "37a2d24303b8b3162236903f92969f9aa73b3bf7d1b0c140ef518fca374f9bd6",
-      "date": "2026-10-02T22:13:55.140Z",
+      "date": "2026-10-02T22:10:10.116Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:13:52.121Z",
+        "date": "2026-10-02T22:10:07.088Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:52.121Z",
+            "date": "2026-10-02T22:10:07.088Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -867,11 +893,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:13:55.140Z",
+        "date": "2026-10-02T22:10:10.116Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:55.140Z",
+            "date": "2026-10-02T22:10:10.116Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -904,7 +930,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.57
+                  "confidence": 0.5
                 },
                 "head": {
                   "value": 1,
@@ -914,7 +940,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -950,14 +976,14 @@
     {
       "file": "questions/09-robinhood-block-count.json",
       "sha256": "0eb199adf46f6e6bcabffcb9e13a4708a16e38291caacf9a96d5c6671cdfee2e",
-      "date": "2026-10-02T22:14:01.821Z",
+      "date": "2026-10-02T22:10:16.812Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:13:58.806Z",
+        "date": "2026-10-02T22:10:13.793Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:13:58.806Z",
+            "date": "2026-10-02T22:10:13.793Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -985,11 +1011,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:14:01.821Z",
+        "date": "2026-10-02T22:10:16.812Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:01.821Z",
+            "date": "2026-10-02T22:10:16.812Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -1014,7 +1040,7 @@
                 },
                 "evidence": {
                   "value": "chain",
-                  "confidence": 0.98
+                  "confidence": 0.99
                 },
                 "chainId": {
                   "value": 4663,
@@ -1022,7 +1048,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.24
+                  "confidence": 0.22
                 },
                 "head": {
                   "value": 1,
@@ -1032,7 +1058,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1068,14 +1094,14 @@
     {
       "file": "questions/10-robinhood-transaction-count.json",
       "sha256": "6d10b75d66e0f3bd898e9f6d3f75696585d90357ed67d2dc00f02288266db39c",
-      "date": "2026-10-02T22:14:08.583Z",
+      "date": "2026-10-02T22:10:23.548Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:14:05.568Z",
+        "date": "2026-10-02T22:10:20.532Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:05.568Z",
+            "date": "2026-10-02T22:10:20.532Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1103,11 +1129,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:14:08.583Z",
+        "date": "2026-10-02T22:10:23.548Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:08.583Z",
+            "date": "2026-10-02T22:10:23.548Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -1136,11 +1162,11 @@
                 },
                 "chainId": {
                   "value": 4663,
-                  "confidence": 0.99
+                  "confidence": 1
                 },
                 "toleranceBps": {
-                  "value": 100,
-                  "confidence": 0.15
+                  "value": 0,
+                  "confidence": 0.17
                 },
                 "head": {
                   "value": 1,
@@ -1150,7 +1176,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1186,14 +1212,14 @@
     {
       "file": "questions/11-1-usdc-owner.json",
       "sha256": "ab8741eb46381b1866d7f5c3de913f2750cd49440582ef873abd14082b420891",
-      "date": "2026-10-02T22:14:16.429Z",
+      "date": "2026-10-02T22:10:30.340Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:14:13.414Z",
+        "date": "2026-10-02T22:10:27.311Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:13.414Z",
+            "date": "2026-10-02T22:10:27.311Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1219,11 +1245,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:14:16.429Z",
+        "date": "2026-10-02T22:10:30.340Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:16.429Z",
+            "date": "2026-10-02T22:10:30.340Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -1252,11 +1278,11 @@
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 0.95
+                  "confidence": 0.91
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.91
+                  "confidence": 0.92
                 },
                 "head": {
                   "value": 1,
@@ -1266,7 +1292,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1302,14 +1328,14 @@
     {
       "file": "questions/12-8453-usdc-owner.json",
       "sha256": "5890a5677a8247f5d8766ee1d7720438fd8f6fe58e8640510effdacb46fd01db",
-      "date": "2026-10-02T22:14:24.059Z",
+      "date": "2026-10-02T22:10:37.492Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:14:21.020Z",
+        "date": "2026-10-02T22:10:34.075Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:21.020Z",
+            "date": "2026-10-02T22:10:34.075Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1335,11 +1361,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:14:24.059Z",
+        "date": "2026-10-02T22:10:37.492Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:24.059Z",
+            "date": "2026-10-02T22:10:37.492Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -1372,7 +1398,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.87
+                  "confidence": 0.91
                 },
                 "head": {
                   "value": 1,
@@ -1382,7 +1408,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1417,15 +1443,15 @@
     },
     {
       "file": "questions/13-1-usdc-pauser.json",
-      "sha256": "4211db55fd28ad8c2be1388da0b6c77affcade286429f5b74b44fbfaa213f9d6",
-      "date": "2026-10-02T22:14:30.818Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "sha256": "14a52473549c8946e0c83330d0a7b953aa32ce2130380803a680953180cf8533",
+      "date": "2026-10-02T22:10:45.968Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording",
       "full": {
-        "date": "2026-10-02T22:14:27.802Z",
+        "date": "2026-10-02T22:10:42.952Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:27.802Z",
+            "date": "2026-10-02T22:10:42.952Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1438,7 +1464,7 @@
       },
       "draft": {
         "input": {
-          "question": "At the latest finalized Ethereum mainnet block available when requested, return the address decoded from the ABI result of pauser() on USDC contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Use function pauser() view returns (address), with no arguments, at the fixed toBlock. Return the lowercase 20-byte role-holder address with 0x prefix. It is the current mutable pauser role, not the token contract, caller, proxy admin or owner.",
+          "question": "At the closing block of the last 1 hour on chain 1, what address does pauser() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call pauser() returning address at pinned toBlock. This mutable governance role identifies the account authorized to pause token operations; return the role holder, not the token address. Zero means the role is unset.",
           "panelSize": 5,
           "answerType": "address",
           "evidence": "chain",
@@ -1451,18 +1477,18 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:14:30.818Z",
+        "date": "2026-10-02T22:10:45.968Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:30.818Z",
+            "date": "2026-10-02T22:10:45.968Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "At the latest finalized Ethereum mainnet block available when requested, return the address decoded from the ABI result of pauser() on USDC contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Use function pauser() view returns (address), with no arguments, at the fixed toBlock. Return the lowercase 20-byte role-holder address with 0x prefix. It is the current mutable pauser role, not the token contract, caller, proxy admin or owner.",
+                "question": "At the closing block of the last 1 hour on chain 1, what address does pauser() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call pauser() returning address at pinned toBlock. This mutable governance role identifies the account authorized to pause token operations; return the role holder, not the token address. Zero means the role is unset.",
                 "chainId": 1,
                 "window": {
                   "hours": 24
@@ -1484,12 +1510,136 @@
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 1
+                  "confidence": 0.96
                 },
                 "toleranceBps": {
                   "value": 0,
+                  "confidence": 0.77
+                },
+                "head": {
+                  "value": 1,
+                  "confidence": 1
+                }
+              },
+              "judged": true,
+              "blockers": [],
+              "suggestions": [
+                {
+                  "code": "wording",
+                  "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+                }
+              ],
+              "online": 547,
+              "limits": {
+                "minPanelSize": 5,
+                "maxPanelSize": 100
+              },
+              "chains": [
+                {
+                  "id": 1,
+                  "name": "Ethereum mainnet"
+                },
+                {
+                  "id": 56,
+                  "name": "BNB Chain"
+                },
+                {
+                  "id": 4663,
+                  "name": "Robinhood Chain"
+                },
+                {
+                  "id": 8453,
+                  "name": "Base"
+                },
+                {
+                  "id": 42161,
+                  "name": "Arbitrum One"
+                }
+              ]
+            },
+            "verdict": "no_blockers"
+          }
+        ]
+      },
+      "suggestions": [
+        "wording"
+      ]
+    },
+    {
+      "file": "questions/14-1-usdc-blacklister.json",
+      "sha256": "5d57a6f485a84af57d2334ff05fe44080edeac30573bfa7b069f1e341bacc573",
+      "date": "2026-10-02T22:10:52.677Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording",
+      "full": {
+        "date": "2026-10-02T22:10:49.659Z",
+        "verdict": "http_error",
+        "attempts": [
+          {
+            "date": "2026-10-02T22:10:49.659Z",
+            "number": 1,
+            "httpStatus": 400,
+            "response": {
+              "error": "invalid_request",
+              "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
+            },
+            "verdict": "http_error"
+          }
+        ]
+      },
+      "draft": {
+        "input": {
+          "question": "At the closing block of the last 1 hour on chain 1, what address does blacklister() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call blacklister() returning address at pinned toBlock. This mutable governance role identifies the account authorized to manage blocked accounts; return the role holder, not the token address. Zero means the role is unset.",
+          "panelSize": 5,
+          "answerType": "address",
+          "evidence": "chain",
+          "chainId": 1
+        },
+        "omittedFields": [
+          "v",
+          "window",
+          "quorum",
+          "validForSeconds",
+          "definitions"
+        ],
+        "date": "2026-10-02T22:10:52.677Z",
+        "verdict": "no_blockers",
+        "attempts": [
+          {
+            "date": "2026-10-02T22:10:52.677Z",
+            "number": 1,
+            "httpStatus": 200,
+            "response": {
+              "action": "oracle.request",
+              "request": {
+                "v": 1,
+                "question": "At the closing block of the last 1 hour on chain 1, what address does blacklister() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call blacklister() returning address at pinned toBlock. This mutable governance role identifies the account authorized to manage blocked accounts; return the role holder, not the token address. Zero means the role is unset.",
+                "chainId": 1,
+                "window": {
+                  "hours": 24
+                },
+                "answerType": "address",
+                "evidence": "chain",
+                "panelSize": 5,
+                "quorum": 4,
+                "validForSeconds": 86400
+              },
+              "proposed": {
+                "answerType": {
+                  "value": "address",
+                  "confidence": 1
+                },
+                "evidence": {
+                  "value": "chain",
+                  "confidence": 1
+                },
+                "chainId": {
+                  "value": 1,
                   "confidence": 0.92
                 },
+                "toleranceBps": {
+                  "value": 0,
+                  "confidence": 0.8
+                },
                 "head": {
                   "value": 1,
                   "confidence": 1
@@ -1497,8 +1647,13 @@
               },
               "judged": true,
               "blockers": [],
-              "suggestions": [],
-              "online": 546,
+              "suggestions": [
+                {
+                  "code": "wording",
+                  "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+                }
+              ],
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1529,19 +1684,22 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording"
+      ]
     },
     {
-      "file": "questions/14-1-usdc-largest-recipient.json",
-      "sha256": "dd7e8ed0d373dc409d85e88a220781188120e1f2d4801c074110111149f001de",
-      "date": "2026-10-02T22:15:49.206Z",
+      "file": "questions/15-1-usdc-masterminter.json",
+      "sha256": "a0f5fd6b7c1fc8eb65d0e07669576735dfd4e70015e2634a963e8005d1b5d4b0",
+      "date": "2026-10-02T22:10:59.395Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:15:46.043Z",
+        "date": "2026-10-02T22:10:56.377Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:46.043Z",
+            "date": "2026-10-02T22:10:56.377Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1554,7 +1712,7 @@
       },
       "draft": {
         "input": {
-          "question": "Which single recipient address has the largest summed value in Transfer logs emitted by token contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: Sum raw value grouped by indexed to. Include every opposite field; exclude the zero recipient address. Deduplicate by (blockHash,transactionHash,logIndex). Keep positive totals only.\nordering: Select the greatest total; ties choose the lowest numeric 20-byte address. A complete scan with no positive eligible total returns 0x0000000000000000000000000000000000000000. An incomplete scan is inability, not this sentinel.",
+          "question": "At the closing block of the last 1 hour on chain 1, what address does masterMinter() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call masterMinter() returning address at pinned toBlock. This mutable governance role identifies the account authorized to configure minters; return the role holder, not the token address. Zero means the role is unset.",
           "panelSize": 5,
           "answerType": "address",
           "evidence": "chain",
@@ -1567,18 +1725,18 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:15:49.206Z",
+        "date": "2026-10-02T22:10:59.395Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:49.206Z",
+            "date": "2026-10-02T22:10:59.395Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "Which single recipient address has the largest summed value in Transfer logs emitted by token contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: Sum raw value grouped by indexed to. Include every opposite field; exclude the zero recipient address. Deduplicate by (blockHash,transactionHash,logIndex). Keep positive totals only.\nordering: Select the greatest total; ties choose the lowest numeric 20-byte address. A complete scan with no positive eligible total returns 0x0000000000000000000000000000000000000000. An incomplete scan is inability, not this sentinel.",
+                "question": "At the closing block of the last 1 hour on chain 1, what address does masterMinter() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call masterMinter() returning address at pinned toBlock. This mutable governance role identifies the account authorized to configure minters; return the role holder, not the token address. Zero means the role is unset.",
                 "chainId": 1,
                 "window": {
                   "hours": 24
@@ -1600,11 +1758,11 @@
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 1
+                  "confidence": 0.95
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.5
+                  "confidence": 0.82
                 },
                 "head": {
                   "value": 1,
@@ -1614,123 +1772,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
-              "limits": {
-                "minPanelSize": 5,
-                "maxPanelSize": 100
-              },
-              "chains": [
-                {
-                  "id": 1,
-                  "name": "Ethereum mainnet"
-                },
-                {
-                  "id": 56,
-                  "name": "BNB Chain"
-                },
-                {
-                  "id": 4663,
-                  "name": "Robinhood Chain"
-                },
-                {
-                  "id": 8453,
-                  "name": "Base"
-                },
-                {
-                  "id": 42161,
-                  "name": "Arbitrum One"
-                }
-              ]
-            },
-            "verdict": "no_blockers"
-          }
-        ]
-      }
-    },
-    {
-      "file": "questions/15-1-weth-largest-sender.json",
-      "sha256": "d0b55a039e56219804b40ee69f67ca43ff2be08261f4940f9d0fb9082d17e0dd",
-      "date": "2026-10-02T22:15:55.890Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
-      "full": {
-        "date": "2026-10-02T22:15:52.872Z",
-        "verdict": "http_error",
-        "attempts": [
-          {
-            "date": "2026-10-02T22:15:52.872Z",
-            "number": 1,
-            "httpStatus": 400,
-            "response": {
-              "error": "invalid_request",
-              "detail": "request: Unrecognized keys: \"v\", \"window\", \"quorum\", \"validForSeconds\", \"definitions\""
-            },
-            "verdict": "http_error"
-          }
-        ]
-      },
-      "draft": {
-        "input": {
-          "question": "Which single sender address has the largest summed value in Transfer logs emitted by token contract 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: Sum raw value grouped by indexed from. Include every opposite field; exclude the zero sender address. Deduplicate by (blockHash,transactionHash,logIndex). Keep positive totals only.\nordering: Select the greatest total; ties choose the lowest numeric 20-byte address. A complete scan with no positive eligible total returns 0x0000000000000000000000000000000000000000. An incomplete scan is inability, not this sentinel.",
-          "panelSize": 5,
-          "answerType": "address",
-          "evidence": "chain",
-          "chainId": 1
-        },
-        "omittedFields": [
-          "v",
-          "window",
-          "quorum",
-          "validForSeconds",
-          "definitions"
-        ],
-        "date": "2026-10-02T22:15:55.890Z",
-        "verdict": "no_blockers",
-        "attempts": [
-          {
-            "date": "2026-10-02T22:15:55.890Z",
-            "number": 1,
-            "httpStatus": 200,
-            "response": {
-              "action": "oracle.request",
-              "request": {
-                "v": 1,
-                "question": "Which single sender address has the largest summed value in Transfer logs emitted by token contract 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: Sum raw value grouped by indexed from. Include every opposite field; exclude the zero sender address. Deduplicate by (blockHash,transactionHash,logIndex). Keep positive totals only.\nordering: Select the greatest total; ties choose the lowest numeric 20-byte address. A complete scan with no positive eligible total returns 0x0000000000000000000000000000000000000000. An incomplete scan is inability, not this sentinel.",
-                "chainId": 1,
-                "window": {
-                  "hours": 24
-                },
-                "answerType": "address",
-                "evidence": "chain",
-                "panelSize": 5,
-                "quorum": 4,
-                "validForSeconds": 86400
-              },
-              "proposed": {
-                "answerType": {
-                  "value": "address",
-                  "confidence": 1
-                },
-                "evidence": {
-                  "value": "chain",
-                  "confidence": 1
-                },
-                "chainId": {
-                  "value": 1,
-                  "confidence": 1
-                },
-                "toleranceBps": {
-                  "value": 0,
-                  "confidence": 0.48
-                },
-                "head": {
-                  "value": 1,
-                  "confidence": 1
-                }
-              },
-              "judged": true,
-              "blockers": [],
-              "suggestions": [],
-              "online": 546,
+              "online": 548,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1766,14 +1808,14 @@
     {
       "file": "questions/16-imd-recipient-rank.json",
       "sha256": "5a865b9b54bf7b1978e3ba4918e64f1d1cfe6ae26070f03c1832b5d2febd24a8",
-      "date": "2026-10-02T22:14:51.043Z",
+      "date": "2026-10-02T22:11:06.191Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:14:48.026Z",
+        "date": "2026-10-02T22:11:03.139Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:48.026Z",
+            "date": "2026-10-02T22:11:03.139Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1801,11 +1843,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:14:51.043Z",
+        "date": "2026-10-02T22:11:06.191Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:51.043Z",
+            "date": "2026-10-02T22:11:06.191Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -1835,11 +1877,11 @@
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 1
+                  "confidence": 0.99
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.63
+                  "confidence": 0.56
                 },
                 "head": {
                   "value": 3,
@@ -1849,7 +1891,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 548,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -1885,14 +1927,14 @@
     {
       "file": "questions/17-weth-recipient-rank.json",
       "sha256": "f1bfe833ba984c2b5f387b835fb9805310fdbe6d4dbb75299e16a78f8d777ce1",
-      "date": "2026-10-02T22:14:57.797Z",
+      "date": "2026-10-02T22:11:12.880Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:14:54.783Z",
+        "date": "2026-10-02T22:11:09.863Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:54.783Z",
+            "date": "2026-10-02T22:11:09.863Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1920,11 +1962,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:14:57.797Z",
+        "date": "2026-10-02T22:11:12.880Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:14:57.797Z",
+            "date": "2026-10-02T22:11:12.880Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -1958,7 +2000,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.53
+                  "confidence": 0.57
                 },
                 "head": {
                   "value": 3,
@@ -1968,7 +2010,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 548,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2004,14 +2046,14 @@
     {
       "file": "questions/18-4663-sender-rank.json",
       "sha256": "e4cc4b470d9ae7fc77d537b6c6e86f2a3bd27fcccc241375b3b843755786a59a",
-      "date": "2026-10-02T22:15:04.610Z",
+      "date": "2026-10-02T22:11:19.910Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:15:01.593Z",
+        "date": "2026-10-02T22:11:16.680Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:01.593Z",
+            "date": "2026-10-02T22:11:16.680Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2039,11 +2081,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:15:04.610Z",
+        "date": "2026-10-02T22:11:19.910Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:04.610Z",
+            "date": "2026-10-02T22:11:19.910Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2073,7 +2115,7 @@
                 },
                 "chainId": {
                   "value": 4663,
-                  "confidence": 1
+                  "confidence": 0.99
                 },
                 "toleranceBps": {
                   "value": 0,
@@ -2087,7 +2129,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 548,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2123,14 +2165,14 @@
     {
       "file": "questions/19-8453-sender-rank.json",
       "sha256": "fcc0af4421b63e429df2654254375b546b6153473dc479adc4f1adf3956c7708",
-      "date": "2026-10-02T22:15:11.615Z",
+      "date": "2026-10-02T22:11:28.626Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:15:08.592Z",
+        "date": "2026-10-02T22:11:25.610Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:08.592Z",
+            "date": "2026-10-02T22:11:25.610Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2158,11 +2200,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:15:11.615Z",
+        "date": "2026-10-02T22:11:28.626Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:11.615Z",
+            "date": "2026-10-02T22:11:28.626Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2196,7 +2238,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.45
+                  "confidence": 0.47
                 },
                 "head": {
                   "value": 3,
@@ -2206,7 +2248,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 548,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2242,14 +2284,14 @@
     {
       "file": "questions/20-1-imd-sender-value-rank.json",
       "sha256": "44c0e80dfd8908e9cb5dce1b2e45e42580a961f1b5d147956c6813da062c7af4",
-      "date": "2026-10-02T22:15:18.362Z",
+      "date": "2026-10-02T22:11:35.416Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:15:15.349Z",
+        "date": "2026-10-02T22:11:32.399Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:15.349Z",
+            "date": "2026-10-02T22:11:32.399Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2277,11 +2319,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:15:18.362Z",
+        "date": "2026-10-02T22:11:35.416Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:18.362Z",
+            "date": "2026-10-02T22:11:35.416Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2315,7 +2357,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.37
+                  "confidence": 0.38
                 },
                 "head": {
                   "value": 3,
@@ -2325,7 +2367,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 548,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2361,14 +2403,14 @@
     {
       "file": "questions/21-1-weth-balance-word.json",
       "sha256": "88a7d7e498d3bc7551ab52b10e3220f14014a614420397659777f7ae4006a9f9",
-      "date": "2026-10-02T22:15:25.067Z",
+      "date": "2026-10-02T22:11:42.156Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:15:22.049Z",
+        "date": "2026-10-02T22:11:39.137Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:22.049Z",
+            "date": "2026-10-02T22:11:39.137Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2394,11 +2436,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:15:25.067Z",
+        "date": "2026-10-02T22:11:42.156Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:25.067Z",
+            "date": "2026-10-02T22:11:42.156Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2418,8 +2460,8 @@
               },
               "proposed": {
                 "answerType": {
-                  "value": "uint256",
-                  "confidence": 0.38
+                  "value": "bytes32",
+                  "confidence": 0.4
                 },
                 "evidence": {
                   "value": "chain",
@@ -2431,7 +2473,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.81
+                  "confidence": 0.83
                 },
                 "head": {
                   "value": 1,
@@ -2441,7 +2483,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 548,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2477,14 +2519,14 @@
     {
       "file": "questions/22-8453-weth-balance-word.json",
       "sha256": "2c05a1c9fe49479ecdc3a5c3e4d1e921fcd7c2cfd3108579ed41fc5a5d2e15c5",
-      "date": "2026-10-02T22:15:31.765Z",
+      "date": "2026-10-02T22:11:48.899Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:15:28.718Z",
+        "date": "2026-10-02T22:11:45.883Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:28.718Z",
+            "date": "2026-10-02T22:11:45.883Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2510,11 +2552,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:15:31.765Z",
+        "date": "2026-10-02T22:11:48.899Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:31.765Z",
+            "date": "2026-10-02T22:11:48.899Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2535,7 +2577,7 @@
               "proposed": {
                 "answerType": {
                   "value": "bytes32",
-                  "confidence": 0.46
+                  "confidence": 0.37
                 },
                 "evidence": {
                   "value": "chain",
@@ -2557,7 +2599,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 548,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2593,14 +2635,14 @@
     {
       "file": "questions/23-1-v4-new-weth-pool.json",
       "sha256": "b52cffea9033ea6c4535285d454fe06652a6a4b5cc8370566a6c22d2d382fe8a",
-      "date": "2026-10-02T22:15:38.618Z",
+      "date": "2026-10-02T22:11:55.667Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:15:35.604Z",
+        "date": "2026-10-02T22:11:52.640Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:35.604Z",
+            "date": "2026-10-02T22:11:52.640Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2626,11 +2668,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:15:38.618Z",
+        "date": "2026-10-02T22:11:55.667Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:38.618Z",
+            "date": "2026-10-02T22:11:55.667Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2651,7 +2693,7 @@
               "proposed": {
                 "answerType": {
                   "value": "address",
-                  "confidence": 0.59
+                  "confidence": 0.51
                 },
                 "evidence": {
                   "value": "chain",
@@ -2663,7 +2705,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.74
+                  "confidence": 0.79
                 },
                 "head": {
                   "value": 1,
@@ -2673,7 +2715,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 548,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2709,14 +2751,14 @@
     {
       "file": "questions/24-1-usdc-paused-word.json",
       "sha256": "fc452c3b33a45f51a20e65467e455b40dc8495a4516846d96e89cbc3186c7e39",
-      "date": "2026-10-02T22:15:45.798Z",
+      "date": "2026-10-02T22:12:02.856Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:15:42.782Z",
+        "date": "2026-10-02T22:11:59.362Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:42.782Z",
+            "date": "2026-10-02T22:11:59.362Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2742,11 +2784,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:15:45.798Z",
+        "date": "2026-10-02T22:12:02.856Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:45.798Z",
+            "date": "2026-10-02T22:12:02.856Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2767,7 +2809,7 @@
               "proposed": {
                 "answerType": {
                   "value": "bytes32",
-                  "confidence": 0.45
+                  "confidence": 0.4
                 },
                 "evidence": {
                   "value": "chain",
@@ -2779,7 +2821,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.82
+                  "confidence": 0.79
                 },
                 "head": {
                   "value": 1,
@@ -2789,7 +2831,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 548,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2825,14 +2867,14 @@
     {
       "file": "questions/25-8453-weth-supply-word.json",
       "sha256": "202e8d2afd010290c2515180fe6c98ebf9bdcfbdbefc078dcaeea3bc4cfd4d89",
-      "date": "2026-10-02T22:15:52.756Z",
+      "date": "2026-10-02T22:12:11.507Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:15:49.741Z",
+        "date": "2026-10-02T22:12:08.491Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:49.741Z",
+            "date": "2026-10-02T22:12:08.491Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2858,11 +2900,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:15:52.756Z",
+        "date": "2026-10-02T22:12:11.507Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:52.756Z",
+            "date": "2026-10-02T22:12:11.507Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -2883,7 +2925,7 @@
               "proposed": {
                 "answerType": {
                   "value": "uint256",
-                  "confidence": 0.41
+                  "confidence": 0.44
                 },
                 "evidence": {
                   "value": "chain",
@@ -2895,7 +2937,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.82
+                  "confidence": 0.81
                 },
                 "head": {
                   "value": 1,
@@ -2905,7 +2947,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 548,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -2941,14 +2983,14 @@
     {
       "file": "questions/26-1-v4-volume-pools.json",
       "sha256": "df7f16e2561aff976082072f14bcbedb79a511efc40fbb6a68dbfe012c8516b4",
-      "date": "2026-10-02T22:15:59.444Z",
+      "date": "2026-10-02T22:12:18.309Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:15:56.428Z",
+        "date": "2026-10-02T22:12:15.293Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:56.428Z",
+            "date": "2026-10-02T22:12:15.293Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -2976,11 +3018,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:15:59.444Z",
+        "date": "2026-10-02T22:12:18.309Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:59.444Z",
+            "date": "2026-10-02T22:12:18.309Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -3002,7 +3044,7 @@
               "proposed": {
                 "answerType": {
                   "value": "address[]",
-                  "confidence": 0.55
+                  "confidence": 0.6
                 },
                 "evidence": {
                   "value": "chain",
@@ -3010,11 +3052,11 @@
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 0.97
+                  "confidence": 0.98
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.55
+                  "confidence": 0.56
                 },
                 "head": {
                   "value": 3,
@@ -3024,7 +3066,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3060,14 +3102,14 @@
     {
       "file": "questions/27-8453-v4-volume-pools.json",
       "sha256": "a3b100a8357cfc20b160ac427bb3af0e4fd7ca20ccfdd805719989ee209aff47",
-      "date": "2026-10-02T22:16:06.122Z",
+      "date": "2026-10-02T22:12:25.014Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:16:03.106Z",
+        "date": "2026-10-02T22:12:21.986Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:16:03.106Z",
+            "date": "2026-10-02T22:12:21.986Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -3095,11 +3137,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:16:06.122Z",
+        "date": "2026-10-02T22:12:25.014Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:16:06.122Z",
+            "date": "2026-10-02T22:12:25.014Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -3121,7 +3163,7 @@
               "proposed": {
                 "answerType": {
                   "value": "address[]",
-                  "confidence": 0.58
+                  "confidence": 0.59
                 },
                 "evidence": {
                   "value": "chain",
@@ -3133,7 +3175,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.53
+                  "confidence": 0.5
                 },
                 "head": {
                   "value": 3,
@@ -3143,7 +3185,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3179,14 +3221,14 @@
     {
       "file": "questions/28-1-v4-volume-pools.json",
       "sha256": "fa65e73404cd464afea384a01c87bf7142f6ee235c39e9cfe648a61e3ce83aa8",
-      "date": "2026-10-02T22:16:12.899Z",
+      "date": "2026-10-02T22:12:31.783Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:16:09.884Z",
+        "date": "2026-10-02T22:12:28.763Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:16:09.884Z",
+            "date": "2026-10-02T22:12:28.763Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -3214,11 +3256,11 @@
           "definitions",
           "guards"
         ],
-        "date": "2026-10-02T22:16:12.899Z",
+        "date": "2026-10-02T22:12:31.783Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:16:12.899Z",
+            "date": "2026-10-02T22:12:31.783Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -3240,7 +3282,7 @@
               "proposed": {
                 "answerType": {
                   "value": "address[]",
-                  "confidence": 0.49
+                  "confidence": 0.51
                 },
                 "evidence": {
                   "value": "chain",
@@ -3252,7 +3294,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.45
+                  "confidence": 0.49
                 },
                 "head": {
                   "value": 3,
@@ -3262,7 +3304,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3298,14 +3340,14 @@
     {
       "file": "questions/29-1-usdc-weth-reserve-words.json",
       "sha256": "c8849ce72bc52ce07362db4225e3af6c08534ba03cde56a8bbdbf2551eb7a345",
-      "date": "2026-10-02T22:16:19.744Z",
+      "date": "2026-10-02T22:12:38.527Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:16:16.729Z",
+        "date": "2026-10-02T22:12:35.513Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:16:16.729Z",
+            "date": "2026-10-02T22:12:35.513Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -3332,11 +3374,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:16:19.744Z",
+        "date": "2026-10-02T22:12:38.527Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:16:19.744Z",
+            "date": "2026-10-02T22:12:38.527Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -3370,7 +3412,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.46
+                  "confidence": 0.44
                 },
                 "head": {
                   "value": 2,
@@ -3380,7 +3422,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3416,14 +3458,14 @@
     {
       "file": "questions/30-1-dai-weth-reserve-words.json",
       "sha256": "3ebee0f0e29a6a1d59c650662f26d214f7c85b2da507e6e6031106de82a7f09d",
-      "date": "2026-10-02T22:16:26.486Z",
+      "date": "2026-10-02T22:12:45.362Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:16:23.472Z",
+        "date": "2026-10-02T22:12:42.250Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:16:23.472Z",
+            "date": "2026-10-02T22:12:42.250Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -3450,11 +3492,11 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:16:26.486Z",
+        "date": "2026-10-02T22:12:45.362Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:16:26.486Z",
+            "date": "2026-10-02T22:12:45.362Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
@@ -3476,7 +3518,7 @@
               "proposed": {
                 "answerType": {
                   "value": "bytes32[]",
-                  "confidence": 0.74
+                  "confidence": 0.72
                 },
                 "evidence": {
                   "value": "chain",
@@ -3488,7 +3530,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.58
+                  "confidence": 0.57
                 },
                 "head": {
                   "value": 2,
@@ -3498,7 +3540,7 @@
               "judged": true,
               "blockers": [],
               "suggestions": [],
-              "online": 546,
+              "online": 547,
               "limits": {
                 "minPanelSize": 5,
                 "maxPanelSize": 100
@@ -3530,16 +3572,6 @@
           }
         ]
       }
-    }
-  ],
-  "rechecks": [
-    {
-      "files": [
-        "questions/14-1-usdc-largest-recipient.json",
-        "questions/15-1-weth-largest-sender.json"
-      ],
-      "report": "test/live/revision/rank-rechecks.json",
-      "reason": "Replace temporary administrative-role drafts with distinct time-varying inflow/outflow selectors; retain full previous batch under test/live/revision/final-batch-before-rank-rechecks.json."
     }
   ]
 }

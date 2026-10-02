@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "question": "Which bytes32 pool ID is in the most recent Uniswap v4 Initialize event paired with WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 on chain 1 in the last 24 hours? Return the indexed id as 0x and 64 hex digits; return the zero bytes32 if a complete scan finds none.",
+  "chainId": 1,
+  "window": {
+    "hours": 24
+  },
+  "answerType": "bytes32",
+  "evidence": "chain",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "event": "Scan logs emitted by PoolManager 0x000000000004444c5dc75cb358380d2e3de08a90 for Initialize(bytes32,address,address,uint24,int24,address,uint160,int24). Indexed fields are id,currency0,currency1. Include logs where either currency is the named WETH.",
+    "order": "Select the greatest (blockNumber,transactionIndex,logIndex) within inclusive pinned fromBlock..toBlock. Return only indexed id, not a transaction hash or address. Deduplicate by (blockHash,transactionHash,logIndex). A failed/incomplete scan is inability, not the zero sentinel."
+  }
+}

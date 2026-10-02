@@ -2,13 +2,13 @@
   "experimental": "Experimental, commissioned as a test of the IMD swarm. It may not work as described. Read the code, start with small amounts, no warranty.",
   "endpoint": "https://api.imd.fun/requests/check",
   "startedAt": "2026-10-02T22:13:03.029Z",
-  "completedAt": "2026-10-02T22:16:53.335Z",
+  "completedAt": "2026-10-02T22:16:28.311Z",
   "policy": {
     "maxRetries": 3,
     "retryDelayMs": 3000,
     "mode": "exact body, then documented draft on unknown-field rejection"
   },
-  "note": "A no_blockers draft is a wording/admission screen, not a check of omitted fields or a signed oracle result. Suggestions are non-blocking service advice; read them before spending. All screening outcomes are dated samples, not guaranteed properties. Bodies 11–15,21–25,29–30 remain unsupported for paid chain attestation on the observed service.",
+  "note": "A no_blockers draft is a wording/admission screen, not a check of omitted fields or a signed oracle result. Suggestions are non-blocking service advice; read them before spending.",
   "results": [
     {
       "file": "questions/01-imd-supply-positive.json",
@@ -1532,16 +1532,16 @@
       }
     },
     {
-      "file": "questions/14-1-usdc-largest-recipient.json",
-      "sha256": "dd7e8ed0d373dc409d85e88a220781188120e1f2d4801c074110111149f001de",
-      "date": "2026-10-02T22:15:49.206Z",
+      "file": "questions/14-1-usdc-blacklister.json",
+      "sha256": "c45958a317241a5c551a9e6f7ae363b641e95febf31d58b28f2bcdfd56cf6626",
+      "date": "2026-10-02T22:14:37.545Z",
       "verdict": "full_body_rejected; draft_no_blockers",
       "full": {
-        "date": "2026-10-02T22:15:46.043Z",
+        "date": "2026-10-02T22:14:34.526Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:46.043Z",
+            "date": "2026-10-02T22:14:34.526Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1554,7 +1554,7 @@
       },
       "draft": {
         "input": {
-          "question": "Which single recipient address has the largest summed value in Transfer logs emitted by token contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: Sum raw value grouped by indexed to. Include every opposite field; exclude the zero recipient address. Deduplicate by (blockHash,transactionHash,logIndex). Keep positive totals only.\nordering: Select the greatest total; ties choose the lowest numeric 20-byte address. A complete scan with no positive eligible total returns 0x0000000000000000000000000000000000000000. An incomplete scan is inability, not this sentinel.",
+          "question": "At the latest finalized Ethereum mainnet block available when requested, return the address decoded from the ABI result of blacklister() on USDC contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Use function blacklister() view returns (address), with no arguments, at the fixed toBlock. Return the lowercase 20-byte role-holder address with 0x prefix. It is the current mutable blacklister role, not the token contract, caller, proxy admin or owner.",
           "panelSize": 5,
           "answerType": "address",
           "evidence": "chain",
@@ -1567,18 +1567,18 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:15:49.206Z",
+        "date": "2026-10-02T22:14:37.545Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:49.206Z",
+            "date": "2026-10-02T22:14:37.545Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "Which single recipient address has the largest summed value in Transfer logs emitted by token contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: Sum raw value grouped by indexed to. Include every opposite field; exclude the zero recipient address. Deduplicate by (blockHash,transactionHash,logIndex). Keep positive totals only.\nordering: Select the greatest total; ties choose the lowest numeric 20-byte address. A complete scan with no positive eligible total returns 0x0000000000000000000000000000000000000000. An incomplete scan is inability, not this sentinel.",
+                "question": "At the latest finalized Ethereum mainnet block available when requested, return the address decoded from the ABI result of blacklister() on USDC contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Use function blacklister() view returns (address), with no arguments, at the fixed toBlock. Return the lowercase 20-byte role-holder address with 0x prefix. It is the current mutable blacklister role, not the token contract, caller, proxy admin or owner.",
                 "chainId": 1,
                 "window": {
                   "hours": 24
@@ -1604,7 +1604,7 @@
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.5
+                  "confidence": 0.88
                 },
                 "head": {
                   "value": 1,
@@ -1648,16 +1648,16 @@
       }
     },
     {
-      "file": "questions/15-1-weth-largest-sender.json",
-      "sha256": "d0b55a039e56219804b40ee69f67ca43ff2be08261f4940f9d0fb9082d17e0dd",
-      "date": "2026-10-02T22:15:55.890Z",
-      "verdict": "full_body_rejected; draft_no_blockers",
+      "file": "questions/15-1-usdc-masterminter.json",
+      "sha256": "a0f5fd6b7c1fc8eb65d0e07669576735dfd4e70015e2634a963e8005d1b5d4b0",
+      "date": "2026-10-02T22:14:44.397Z",
+      "verdict": "full_body_rejected; draft_no_blockers; suggestions: wording",
       "full": {
-        "date": "2026-10-02T22:15:52.872Z",
+        "date": "2026-10-02T22:14:41.378Z",
         "verdict": "http_error",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:52.872Z",
+            "date": "2026-10-02T22:14:41.378Z",
             "number": 1,
             "httpStatus": 400,
             "response": {
@@ -1670,7 +1670,7 @@
       },
       "draft": {
         "input": {
-          "question": "Which single sender address has the largest summed value in Transfer logs emitted by token contract 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: Sum raw value grouped by indexed from. Include every opposite field; exclude the zero sender address. Deduplicate by (blockHash,transactionHash,logIndex). Keep positive totals only.\nordering: Select the greatest total; ties choose the lowest numeric 20-byte address. A complete scan with no positive eligible total returns 0x0000000000000000000000000000000000000000. An incomplete scan is inability, not this sentinel.",
+          "question": "At the closing block of the last 1 hour on chain 1, what address does masterMinter() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call masterMinter() returning address at pinned toBlock. This mutable governance role identifies the account authorized to configure minters; return the role holder, not the token address. Zero means the role is unset.",
           "panelSize": 5,
           "answerType": "address",
           "evidence": "chain",
@@ -1683,18 +1683,18 @@
           "validForSeconds",
           "definitions"
         ],
-        "date": "2026-10-02T22:15:55.890Z",
+        "date": "2026-10-02T22:14:44.397Z",
         "verdict": "no_blockers",
         "attempts": [
           {
-            "date": "2026-10-02T22:15:55.890Z",
+            "date": "2026-10-02T22:14:44.397Z",
             "number": 1,
             "httpStatus": 200,
             "response": {
               "action": "oracle.request",
               "request": {
                 "v": 1,
-                "question": "Which single sender address has the largest summed value in Transfer logs emitted by token contract 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.\nwindow: The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nevent: event Transfer(address indexed from,address indexed to,uint256 value)\nmetric: Sum raw value grouped by indexed from. Include every opposite field; exclude the zero sender address. Deduplicate by (blockHash,transactionHash,logIndex). Keep positive totals only.\nordering: Select the greatest total; ties choose the lowest numeric 20-byte address. A complete scan with no positive eligible total returns 0x0000000000000000000000000000000000000000. An incomplete scan is inability, not this sentinel.",
+                "question": "At the closing block of the last 1 hour on chain 1, what address does masterMinter() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?\nwindow: The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\ncall: Call masterMinter() returning address at pinned toBlock. This mutable governance role identifies the account authorized to configure minters; return the role holder, not the token address. Zero means the role is unset.",
                 "chainId": 1,
                 "window": {
                   "hours": 24
@@ -1716,11 +1716,11 @@
                 },
                 "chainId": {
                   "value": 1,
-                  "confidence": 1
+                  "confidence": 0.94
                 },
                 "toleranceBps": {
                   "value": 0,
-                  "confidence": 0.48
+                  "confidence": 0.82
                 },
                 "head": {
                   "value": 1,
@@ -1729,7 +1729,12 @@
               },
               "judged": true,
               "blockers": [],
-              "suggestions": [],
+              "suggestions": [
+                {
+                  "code": "wording",
+                  "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+                }
+              ],
               "online": 546,
               "limits": {
                 "minPanelSize": 5,
@@ -1761,7 +1766,10 @@
             "verdict": "no_blockers"
           }
         ]
-      }
+      },
+      "suggestions": [
+        "wording"
+      ]
     },
     {
       "file": "questions/16-imd-recipient-rank.json",
@@ -3530,16 +3538,6 @@
           }
         ]
       }
-    }
-  ],
-  "rechecks": [
-    {
-      "files": [
-        "questions/14-1-usdc-largest-recipient.json",
-        "questions/15-1-weth-largest-sender.json"
-      ],
-      "report": "test/live/revision/rank-rechecks.json",
-      "reason": "Replace temporary administrative-role drafts with distinct time-varying inflow/outflow selectors; retain full previous batch under test/live/revision/final-batch-before-rank-rechecks.json."
     }
   ]
 }

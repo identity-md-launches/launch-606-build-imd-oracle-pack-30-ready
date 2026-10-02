@@ -1,0 +1,87 @@
+{
+  "input": {
+    "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 4663 available when requested?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: At request time, resolve the latest already-finalized block once as toBlock. Its UTC timestamp T is the fixed end of the observation; count published_at in [T minus 2592000 seconds,T). Include the lower bound and exclude T. This is a completed historical interval, never a future block or a moving wall-clock endpoint.",
+    "panelSize": 5,
+    "answerType": "bool",
+    "evidence": "panel",
+    "chainId": 4663
+  },
+  "date": "2026-10-02T22:10:35.904Z",
+  "verdict": "no_blockers",
+  "attempts": [
+    {
+      "date": "2026-10-02T22:10:35.904Z",
+      "number": 1,
+      "httpStatus": 200,
+      "response": {
+        "action": "oracle.request",
+        "request": {
+          "v": 1,
+          "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 4663 available when requested?\nmissing: If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.\nsource: Use https://api.github.com/repos/nodejs/node/releases and paginate completely. Use published_at, not created_at or tag dates.\ncalendar: At request time, resolve the latest already-finalized block once as toBlock. Its UTC timestamp T is the fixed end of the observation; count published_at in [T minus 2592000 seconds,T). Include the lower bound and exclude T. This is a completed historical interval, never a future block or a moving wall-clock endpoint.",
+          "chainId": 4663,
+          "window": {
+            "hours": 24
+          },
+          "answerType": "bool",
+          "evidence": "panel",
+          "panelSize": 5,
+          "quorum": 4,
+          "validForSeconds": 86400
+        },
+        "proposed": {
+          "answerType": {
+            "value": "bool",
+            "confidence": 1
+          },
+          "evidence": {
+            "value": "panel",
+            "confidence": 0.8
+          },
+          "chainId": {
+            "value": 4663,
+            "confidence": 0.97
+          },
+          "toleranceBps": {
+            "value": 0,
+            "confidence": 0.83
+          },
+          "head": {
+            "value": 1,
+            "confidence": 0.94
+          }
+        },
+        "judged": true,
+        "blockers": [],
+        "suggestions": [],
+        "online": 547,
+        "limits": {
+          "minPanelSize": 5,
+          "maxPanelSize": 100
+        },
+        "chains": [
+          {
+            "id": 1,
+            "name": "Ethereum mainnet"
+          },
+          {
+            "id": 56,
+            "name": "BNB Chain"
+          },
+          {
+            "id": 4663,
+            "name": "Robinhood Chain"
+          },
+          {
+            "id": 8453,
+            "name": "Base"
+          },
+          {
+            "id": 42161,
+            "name": "Arbitrum One"
+          }
+        ]
+      },
+      "verdict": "no_blockers"
+    }
+  ]
+}
