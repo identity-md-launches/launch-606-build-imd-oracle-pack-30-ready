@@ -14,11 +14,9 @@ export function isCleanScreen(result) {
 }
 const draftKeys = ['question','panelSize','answerType','evidence','chainId','toleranceBps','head'];
 export function draftInput(body) {
-  // The documented check route accepts a draft, not all quote input fields.
-  // Put definitions into question text so its semantic screen can see them.
-  const question = [body.question, ...Object.entries(body.definitions ?? {}).map(([k,v]) => `${k}: ${v}`)].join('\n');
-  if (question.length > 2000) throw new Error('draft question plus definitions exceeds 2000 characters');
-  return {...Object.fromEntries(draftKeys.filter(k => k in body).map(k => [k,body[k]])), question};
+  // The documented check route accepts a draft, not all quote input fields. Send the bare
+  // question: it must stand alone, so no definitions are pasted into it.
+  return Object.fromEntries(draftKeys.filter(k => k in body).map(k => [k,body[k]]));
 }
 
 export async function checkInput(input, {fetchFn = fetch, wait = sleep, timeoutMs = 30000, now = () => new Date().toISOString()} = {}) {
@@ -99,7 +97,7 @@ export async function checkPack(entries, {output = resolve(ROOT,'results.json'),
 async function main() {
   const args = process.argv.slice(2);
   if (args.includes('--help')) {
-    console.log(`${WARNING}\n\nUsage: node scripts/check.mjs [--output PATH]\nNode 20+, built-in fetch only. Sends all 30 exact bodies to the free check\nendpoint; on unknown-field rejection also checks the documented draft,\nwith definitions appended to question text. Records raw responses, UTC dates,\nbody hashes and non-blocking suggestion codes. Retries transport failures, 408/425/429/5xx and malformed\nresponses up to 3 times, at least 3 seconds apart. 30-second timeout per call.\nNo payment, quote, wallet or oracle submission.\n--output PATH  Save results elsewhere (default: repository results.json).\nExit 0: every body or fallback draft was judged with no blockers, wording, not_answerable or answer_type suggestions.\nExit 1: quality gate failed, network/HTTP failure, unclassified response, or local error.`);
+    console.log(`${WARNING}\n\nUsage: node scripts/check.mjs [--output PATH]\nNode 20+, built-in fetch only. Sends all 30 exact bodies to the free check\nendpoint; on unknown-field rejection also checks the documented draft,\nwith the bare question (no definitions pasted in). Records raw responses, UTC dates,\nbody hashes and non-blocking suggestion codes. Retries transport failures, 408/425/429/5xx and malformed\nresponses up to 3 times, at least 3 seconds apart. 30-second timeout per call.\nNo payment, quote, wallet or oracle submission.\n--output PATH  Save results elsewhere (default: repository results.json).\nExit 0: every body or fallback draft was judged with no blockers, wording, not_answerable or answer_type suggestions.\nExit 1: quality gate failed, network/HTTP failure, unclassified response, or local error.`);
     return;
   }
   let output = resolve(ROOT,'results.json');

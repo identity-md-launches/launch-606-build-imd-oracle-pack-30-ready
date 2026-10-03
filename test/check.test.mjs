@@ -78,7 +78,7 @@ test('exact body rejection and draft verdict remain separate in persisted report
     assert.equal(report.results[0].verdict,'full_body_rejected; draft_no_blockers; suggestions: wording,evidence');
     assert.ok(report.results[0].draft.omittedFields.includes('window'));
     assert.equal(report.results[0].sha256.length,64);
-    assert.ok(report.results[0].draft.input.question.includes('missing:'));
+    assert.ok(!report.results[0].draft.input.question.includes('missing:'));
     assert.deepEqual(JSON.parse(await readFile(output,'utf8')),report);
     assert.ok(report.completedAt);
   } finally {await rm(directory,{recursive:true,force:true});}
@@ -145,5 +145,19 @@ test('captured paid scalar calls ended in recipe mismatch', async () => {
     assert.equal(r.evidence,'chain');
     assert.equal(r.agreement.recipe.kind,'call-compare');
     assert.equal(r.failure,'recipe yields bool, request asks for uint256');
+  }
+});
+
+test('drafts carry the bare question and every body type matches the live proposal', async () => {
+  const { ROOT, PAID_TYPES } = await import('../scripts/validate.mjs');
+  const report = JSON.parse(await readFile(join(ROOT,'results.json'),'utf8'));
+  for (const {file,body} of await loadPack()) {
+    assert.equal(draftInput(body).question,body.question);
+    assert.ok(PAID_TYPES.includes(body.answerType));
+    const record = report.results.find(x => x.file === `questions/${file}`);
+    assert.equal(record.draft.input.question,body.question);
+    const last = record.draft.attempts.at(-1).response;
+    assert.equal(last.proposed.answerType.value,body.answerType,`${file}: live check proposes another type`);
+    assert.deepEqual((last.suggestions ?? []).map(s => s.code),[],`${file}: suggestions`);
   }
 });

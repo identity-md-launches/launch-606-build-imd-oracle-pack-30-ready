@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "Which three from addresses occur most often among transactions in the last 1 hours on chain 4663?",
+  "question": "Which three sender (from) addresses sent the most transactions on Robinhood Chain (chain 4663) in the last 1 hour? Count every transaction once, including failed and system transactions. Highest count first, ties by ascending address, positive counts only.",
   "chainId": 4663,
   "window": {
     "hours": 1

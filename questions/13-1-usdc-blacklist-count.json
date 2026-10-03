@@ -1,0 +1,24 @@
+{
+  "v": 1,
+  "question": "How many Blacklisted(address) logs did the USDC contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 emit on Ethereum mainnet (chain 1) in the last 30 days (720 hours)? Count each log once and answer as a uint256.",
+  "chainId": 1,
+  "window": {
+    "hours": 720
+  },
+  "answerType": "uint256",
+  "evidence": "chain",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "The observation covers the last 720 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "event": "event Blacklisted(address indexed _account)",
+    "metric": "Count matching logs emitted by the token proxy only; deduplicate by blockHash, transactionHash and logIndex. Unit is logs. A complete empty log set returns 0."
+  },
+  "guards": {
+    "min": "0",
+    "max": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  },
+  "toleranceBps": 0
+}

@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "Does at least one block in the last 1 hours on chain 4663 contain at least one transaction whose type is not 0x6a (ArbOS internal)?",
+  "question": "On Robinhood Chain (chain 4663), during the last 1 hour (3600 seconds before the request), did any block include a transaction whose type is not 0x6a (the ArbOS internal type)? Answer true or false.",
   "chainId": 4663,
   "window": {
     "hours": 1

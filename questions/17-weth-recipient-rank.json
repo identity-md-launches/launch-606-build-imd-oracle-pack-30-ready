@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0x4200000000000000000000000000000000000006 (the token contract) on chain 8453 in the last 24 hours?",
+  "question": "Which three recipient addresses received the largest total value, in raw token units, summed over Transfer(address,address,uint256) logs emitted by 0x4200000000000000000000000000000000000006 on chain 8453 during the 24 hours ending at the latest finalized block when requested? Highest first, ties by ascending address, positive totals only, excluding the zero address.",
   "chainId": 8453,
   "window": {
     "hours": 24

@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "Which three Uniswap v4 pools containing token 0x4200000000000000000000000000000000000006 on chain 8453 had the greatest swap volume in that token in the last 24 hours, with volume as the total raw token amount summed over Swap events? Return the three bytes32 pool IDs, highest first, ties by ascending pool ID, positive volume only, excluding the zero pool ID. The answer is a bytes32[], not token addresses.",
+  "question": "Which three Uniswap v4 pools containing token 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 on chain 8453 had the greatest swap volume in that token in the last 24 hours, with volume as the total raw token amount summed over Swap events? Return the three bytes32 pool IDs, highest first, ties by ascending pool ID, positive volume only, excluding the zero pool ID. The answer is a bytes32[], not token addresses.",
   "chainId": 8453,
   "window": {
     "hours": 24
@@ -14,7 +14,7 @@
     "window": "The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
     "source": "Use only PoolManager 0x498581ff718922c3f8e6a244956af099b2652b2b. Discover pool currency0/currency1 from its Initialize logs up to toBlock.",
-    "metric": "For pools containing 0x4200000000000000000000000000000000000006, sum the absolute signed Swap amount for that currency over inclusive fromBlock..toBlock in raw token units. Count each canonical log once. Keep positive-volume pools only.",
+    "metric": "For pools containing 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913, sum the absolute signed Swap amount for that currency over inclusive fromBlock..toBlock in raw token units. Count each canonical log once. Keep positive-volume pools only.",
     "ordering": "Sort by descending volume, ties by ascending numeric bytes32 pool ID. Return up to 3 unique IDs; return [] only for a complete scan with no eligible pools."
   },
   "guards": {

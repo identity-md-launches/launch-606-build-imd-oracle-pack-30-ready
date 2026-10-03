@@ -5,6 +5,7 @@ import { resolve } from 'node:path';
 export const ROOT = fileURLToPath(new URL('../', import.meta.url));
 export const WARNING = 'Experimental, commissioned as a test of the IMD swarm. It may not work as described. Read the code, start with small amounts, no warranty.';
 export const TYPES = ['bool', 'uint256', 'address', 'address[]', 'bytes32', 'bytes32[]'];
+export const PAID_TYPES = ['bool', 'uint256', 'address[]', 'bytes32[]'];
 const address = /^0x[0-9a-fA-F]{40}$/;
 const hash = /^0x[0-9a-fA-F]{64}$/;
 const decimal = /^(0|[1-9][0-9]*)$/;
@@ -122,7 +123,9 @@ export function validatePack(entries) {
   const errors = [];
   if (entries.length !== 30) errors.push('pack must contain exactly 30 JSON bodies');
   for (const {file,body} of entries) for (const e of validateBody(body)) errors.push(`${file}: ${e}`);
-  for (const type of TYPES) if (entries.filter(x => x.body.answerType === type).length !== 5) errors.push(`${type}: pack must contain five bodies`);
+  // Chain recipes yield only these types; scalar address/bytes32 have none (see README).
+  for (const type of PAID_TYPES) if (!entries.some(x => x.body.answerType === type)) errors.push(`${type}: pack must contain a body`);
+  for (const {file,body} of entries) if (!PAID_TYPES.includes(body.answerType)) errors.push(`${file}: ${body.answerType} has no live chain recipe`);
   for (const chain of [1,8453,4663]) if (!entries.some(x => x.body.chainId === chain)) errors.push(`missing chain ${chain}`);
   for (const mode of ['chain','panel']) if (!entries.some(x => x.body.evidence === mode)) errors.push(`missing evidence ${mode}`);
   return errors;
@@ -132,6 +135,6 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   try {
     const errors = validatePack(await loadPack());
     if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; }
-    else console.log('30 bodies pass local structural checks; five per answer type. No network calls.');
+    else console.log('30 bodies pass local structural checks. No network calls.');
   } catch (e) { console.error(e.message); process.exitCode = 1; }
 }

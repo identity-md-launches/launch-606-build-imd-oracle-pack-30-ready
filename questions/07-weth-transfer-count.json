@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "How many Transfer(address,address,uint256) logs were emitted by 0x4200000000000000000000000000000000000006 on chain 8453 in the last 24 hours?",
+  "question": "How many Transfer(address,address,uint256) logs were emitted by 0x4200000000000000000000000000000000000006 on chain 8453 during the 24 hours ending at the latest finalized block when requested? Count each log once, including zero-value transfers. Answer as a uint256 number of logs.",
   "chainId": 8453,
   "window": {
     "hours": 24

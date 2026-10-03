@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "Which three sender addresses sent the largest total raw IMD value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on Ethereum mainnet during the last 24 hours?",
+  "question": "Which three sender addresses sent the largest total value, in raw IMD units (18 decimals), summed over Transfer(address,address,uint256) logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 during the 24 hours ending at the latest finalized block when requested? Highest first, ties by ascending address, positive totals only, excluding the zero address.",
   "chainId": 1,
   "window": {
     "hours": 24

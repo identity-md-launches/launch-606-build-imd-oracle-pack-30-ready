@@ -1,0 +1,2511 @@
+[
+ {
+  "file": "01-imd-supply-positive.json",
+  "input": {
+   "question": "At the closing block of the last 1 hours on chain 1, does totalSupply() on 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 return a uint256 greater than 0?",
+   "panelSize": 5,
+   "answerType": "bool",
+   "evidence": "chain",
+   "chainId": 1
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "At the closing block of the last 1 hours on chain 1, does totalSupply() on 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 return a uint256 greater than 0?",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bool",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bool",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 0.95
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.87
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 547,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "02-weth-supply-positive.json",
+  "input": {
+   "question": "At the closing block of the pinned window on chain 8453, does totalSupply() on 0x4200000000000000000000000000000000000006 return a uint256 greater than 0?",
+   "panelSize": 5,
+   "answerType": "bool",
+   "evidence": "chain",
+   "chainId": 8453
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "At the closing block of the pinned window on chain 8453, does totalSupply() on 0x4200000000000000000000000000000000000006 return a uint256 greater than 0?",
+    "chainId": 8453,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bool",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bool",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 8453,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.93
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [],
+   "online": 547,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "03-robinhood-block-activity.json",
+  "input": {
+   "question": "Does at least one block in the last 1 hours on chain 4663 contain at least one transaction whose type is not 0x6a (ArbOS internal)?",
+   "panelSize": 5,
+   "answerType": "bool",
+   "evidence": "chain",
+   "chainId": 4663
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Does at least one block in the last 1 hours on chain 4663 contain at least one transaction whose type is not 0x6a (ArbOS internal)?",
+    "chainId": 4663,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bool",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bool",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 4663,
+     "confidence": 0.94
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.86
+    },
+    "head": {
+     "value": 1,
+     "confidence": 0.99
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [],
+   "online": 547,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "04-go-ethereum-release.json",
+  "input": {
+   "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 1 available when requested?",
+   "panelSize": 5,
+   "answerType": "bool",
+   "evidence": "panel",
+   "chainId": 1
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Did ethereum/go-ethereum publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 1 available when requested?",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bool",
+    "evidence": "panel",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bool",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "panel",
+     "confidence": 0.98
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 0.95
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.77
+    },
+    "head": {
+     "value": 1,
+     "confidence": 0.98
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 546,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "05-node-release.json",
+  "input": {
+   "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 4663 available when requested?",
+   "panelSize": 5,
+   "answerType": "bool",
+   "evidence": "panel",
+   "chainId": 4663
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 4663 available when requested?",
+    "chainId": 4663,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bool",
+    "evidence": "panel",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bool",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "panel",
+     "confidence": 0.85
+    },
+    "chainId": {
+     "value": 4663,
+     "confidence": 0.97
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.84
+    },
+    "head": {
+     "value": 1,
+     "confidence": 0.99
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    },
+    {
+     "code": "not_answerable",
+     "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+    }
+   ],
+   "online": 546,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "06-imd-transfer-count.json",
+  "input": {
+   "question": "How many Transfer(address,address,uint256) logs were emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 in the last 24 hours?",
+   "panelSize": 5,
+   "answerType": "uint256",
+   "evidence": "chain",
+   "chainId": 1,
+   "toleranceBps": 0
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "How many Transfer(address,address,uint256) logs were emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 in the last 24 hours?",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "uint256",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "uint256",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 0.99
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.36
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "07-weth-transfer-count.json",
+  "input": {
+   "question": "How many Transfer(address,address,uint256) logs were emitted by 0x4200000000000000000000000000000000000006 on chain 8453 in the last 24 hours?",
+   "panelSize": 5,
+   "answerType": "uint256",
+   "evidence": "chain",
+   "chainId": 8453,
+   "toleranceBps": 0
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "How many Transfer(address,address,uint256) logs were emitted by 0x4200000000000000000000000000000000000006 on chain 8453 in the last 24 hours?",
+    "chainId": 8453,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "uint256",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "uint256",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 8453,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 100,
+     "confidence": 0.45
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "08-imd-burn-sum.json",
+  "input": {
+   "question": "What is the sum of value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 to 0x0000000000000000000000000000000000000000 in the last 168 hours on chain 1, in raw token units?",
+   "panelSize": 5,
+   "answerType": "uint256",
+   "evidence": "chain",
+   "chainId": 1,
+   "toleranceBps": 0
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "What is the sum of value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 to 0x0000000000000000000000000000000000000000 in the last 168 hours on chain 1, in raw token units?",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "uint256",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "uint256",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 0.99
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.3
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "09-robinhood-block-count.json",
+  "input": {
+   "question": "How many canonical block numbers are in the last 6 hours on chain 4663?",
+   "panelSize": 5,
+   "answerType": "uint256",
+   "evidence": "chain",
+   "chainId": 4663,
+   "toleranceBps": 0
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "How many canonical block numbers are in the last 6 hours on chain 4663?",
+    "chainId": 4663,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "uint256",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "uint256",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 0.99
+    },
+    "chainId": {
+     "value": 4663,
+     "confidence": 0.99
+    },
+    "toleranceBps": {
+     "value": 100,
+     "confidence": 0.47
+    },
+    "head": {
+     "value": 1,
+     "confidence": 0.99
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "10-robinhood-transaction-count.json",
+  "input": {
+   "question": "What is the total count of transactions included in canonical Robinhood Chain blocks (chain 4663) during the last one hour, counting both successful and reverted transactions and including system transactions?",
+   "panelSize": 5,
+   "answerType": "uint256",
+   "evidence": "chain",
+   "chainId": 4663,
+   "toleranceBps": 0
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "What is the total count of transactions included in canonical Robinhood Chain blocks (chain 4663) during the last one hour, counting both successful and reverted transactions and including system transactions?",
+    "chainId": 4663,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "uint256",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "uint256",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 4663,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 100,
+     "confidence": 0.37
+    },
+    "head": {
+     "value": 1,
+     "confidence": 0.99
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "11-1-usdc-owner.json",
+  "input": {
+   "question": "At the latest finalized block on chain 1 when requested, what address does owner() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?",
+   "panelSize": 5,
+   "answerType": "address",
+   "evidence": "chain",
+   "chainId": 1
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "At the latest finalized block on chain 1 when requested, what address does owner() return on USDC at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "address",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 0.99
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 0.95
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.88
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "12-8453-usdc-owner.json",
+  "input": {
+   "question": "At the latest finalized block on chain 8453 when requested, what address does owner() return on USDC at 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913?",
+   "panelSize": 5,
+   "answerType": "address",
+   "evidence": "chain",
+   "chainId": 8453
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "At the latest finalized block on chain 8453 when requested, what address does owner() return on USDC at 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913?",
+    "chainId": 8453,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "address",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 0.99
+    },
+    "chainId": {
+     "value": 8453,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.91
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "13-1-usdc-pauser.json",
+  "input": {
+   "question": "At the latest finalized Ethereum mainnet block available when requested, return the address decoded from the ABI result of pauser() on USDC contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.",
+   "panelSize": 5,
+   "answerType": "address",
+   "evidence": "chain",
+   "chainId": 1
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "At the latest finalized Ethereum mainnet block available when requested, return the address decoded from the ABI result of pauser() on USDC contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "address",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.81
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "14-1-usdc-largest-recipient.json",
+  "input": {
+   "question": "Which single recipient address has the largest summed value in Transfer logs emitted by token contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.",
+   "panelSize": 5,
+   "answerType": "address",
+   "evidence": "chain",
+   "chainId": 1
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Which single recipient address has the largest summed value in Transfer logs emitted by token contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "address",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.33
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "15-1-weth-largest-sender.json",
+  "input": {
+   "question": "Which single sender address has the largest summed value in Transfer logs emitted by token contract 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.",
+   "panelSize": 5,
+   "answerType": "address",
+   "evidence": "chain",
+   "chainId": 1
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Which single sender address has the largest summed value in Transfer logs emitted by token contract 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 on chain 1 in the last 24 hours? Return one address, not a list; return the zero address if a complete scan has no eligible activity.",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "address",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.26
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "16-imd-recipient-rank.json",
+  "input": {
+   "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 (the token contract) on chain 1 in the last 24 hours?",
+   "panelSize": 5,
+   "answerType": "address[]",
+   "evidence": "chain",
+   "chainId": 1,
+   "head": 3
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 (the token contract) on chain 1 in the last 24 hours?",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "address[]",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400,
+    "head": 3
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address[]",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 0.99
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.33
+    },
+    "head": {
+     "value": 3,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "17-weth-recipient-rank.json",
+  "input": {
+   "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0x4200000000000000000000000000000000000006 (the token contract) on chain 8453 in the last 24 hours?",
+   "panelSize": 5,
+   "answerType": "address[]",
+   "evidence": "chain",
+   "chainId": 8453,
+   "head": 3
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Which three recipient addresses received the largest summed value in Transfer logs emitted by 0x4200000000000000000000000000000000000006 (the token contract) on chain 8453 in the last 24 hours?",
+    "chainId": 8453,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "address[]",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400,
+    "head": 3
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address[]",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 8453,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.12
+    },
+    "head": {
+     "value": 3,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "18-4663-sender-rank.json",
+  "input": {
+   "question": "Which three from addresses occur most often among transactions in the last 1 hours on chain 4663?",
+   "panelSize": 5,
+   "answerType": "address[]",
+   "evidence": "chain",
+   "chainId": 4663,
+   "head": 3
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Which three from addresses occur most often among transactions in the last 1 hours on chain 4663?",
+    "chainId": 4663,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "address[]",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400,
+    "head": 3
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address[]",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 4663,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.32
+    },
+    "head": {
+     "value": 3,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "19-8453-sender-rank.json",
+  "input": {
+   "question": "Which three from addresses occur most often among transactions in the last 1 hours on chain 8453?",
+   "panelSize": 5,
+   "answerType": "address[]",
+   "evidence": "chain",
+   "chainId": 8453,
+   "head": 3
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Which three from addresses occur most often among transactions in the last 1 hours on chain 8453?",
+    "chainId": 8453,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "address[]",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400,
+    "head": 3
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address[]",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 8453,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.14
+    },
+    "head": {
+     "value": 3,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "20-1-imd-sender-value-rank.json",
+  "input": {
+   "question": "Which three sender addresses sent the largest total raw IMD value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on Ethereum mainnet during the last 24 hours?",
+   "panelSize": 5,
+   "answerType": "address[]",
+   "evidence": "chain",
+   "chainId": 1,
+   "head": 3
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Which three sender addresses sent the largest total raw IMD value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on Ethereum mainnet during the last 24 hours?",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "address[]",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400,
+    "head": 3
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address[]",
+     "confidence": 1
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 100,
+     "confidence": 0.02
+    },
+    "head": {
+     "value": 3,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "21-1-weth-balance-word.json",
+  "input": {
+   "question": "At the closing block of the last 1 hour on chain 1, return the exact 32-byte hexadecimal ABI return data of balanceOf(0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc) on WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2. The answer is one bytes32 word (0x and 64 hex digits), not a decimal number.",
+   "panelSize": 5,
+   "answerType": "bytes32",
+   "evidence": "chain",
+   "chainId": 1
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "At the closing block of the last 1 hour on chain 1, return the exact 32-byte hexadecimal ABI return data of balanceOf(0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc) on WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2. The answer is one bytes32 word (0x and 64 hex digits), not a decimal number.",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bytes32",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bytes32",
+     "confidence": 0.69
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 0.98
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.89
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "22-8453-weth-balance-word.json",
+  "input": {
+   "question": "At the closing block of the last 1 hour on chain 8453, return the exact 32-byte hexadecimal ABI return data of balanceOf(0xd0b53d9277642d899df5c87a3966a349a798f224) on WETH 0x4200000000000000000000000000000000000006. The answer is one bytes32 word (0x and 64 hex digits), not a decimal number.",
+   "panelSize": 5,
+   "answerType": "bytes32",
+   "evidence": "chain",
+   "chainId": 8453
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "At the closing block of the last 1 hour on chain 8453, return the exact 32-byte hexadecimal ABI return data of balanceOf(0xd0b53d9277642d899df5c87a3966a349a798f224) on WETH 0x4200000000000000000000000000000000000006. The answer is one bytes32 word (0x and 64 hex digits), not a decimal number.",
+    "chainId": 8453,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bytes32",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bytes32",
+     "confidence": 0.73
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 8453,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.9
+    },
+    "head": {
+     "value": 1,
+     "confidence": 0.99
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "23-1-v4-new-weth-pool.json",
+  "input": {
+   "question": "Which bytes32 pool ID is in the most recent Uniswap v4 Initialize event paired with WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 on chain 1 in the last 24 hours? Return the indexed id as 0x and 64 hex digits; return the zero bytes32 if a complete scan finds none.",
+   "panelSize": 5,
+   "answerType": "bytes32",
+   "evidence": "chain",
+   "chainId": 1
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Which bytes32 pool ID is in the most recent Uniswap v4 Initialize event paired with WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 on chain 1 in the last 24 hours? Return the indexed id as 0x and 64 hex digits; return the zero bytes32 if a complete scan finds none.",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bytes32",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address",
+     "confidence": 0.47
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.81
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "24-1-usdc-paused-word.json",
+  "input": {
+   "question": "At the latest finalized Ethereum mainnet block when requested, what is the USDC paused() state at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48, encoded as bytes32 with integer 1 for paused and 0 for unpaused?",
+   "panelSize": 5,
+   "answerType": "bytes32",
+   "evidence": "chain",
+   "chainId": 1
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "At the latest finalized Ethereum mainnet block when requested, what is the USDC paused() state at 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48, encoded as bytes32 with integer 1 for paused and 0 for unpaused?",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bytes32",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bytes32",
+     "confidence": 0.48
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.87
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "25-8453-weth-supply-word.json",
+  "input": {
+   "question": "At the closing block of the last 1 hour on chain 8453, return the exact 32-byte hexadecimal ABI return data of totalSupply() on WETH 0x4200000000000000000000000000000000000006. The answer is one bytes32 word (0x and 64 hex digits), not a decimal number.",
+   "panelSize": 5,
+   "answerType": "bytes32",
+   "evidence": "chain",
+   "chainId": 8453
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "At the closing block of the last 1 hour on chain 8453, return the exact 32-byte hexadecimal ABI return data of totalSupply() on WETH 0x4200000000000000000000000000000000000006. The answer is one bytes32 word (0x and 64 hex digits), not a decimal number.",
+    "chainId": 8453,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bytes32",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bytes32",
+     "confidence": 0.64
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 8453,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.89
+    },
+    "head": {
+     "value": 1,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "26-1-v4-volume-pools.json",
+  "input": {
+   "question": "Which three Uniswap v4 pool IDs paired with token 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 had the greatest swap volume in that token on chain 1 during the last 24 hours? Return bytes32[] pool IDs.",
+   "panelSize": 5,
+   "answerType": "bytes32[]",
+   "evidence": "chain",
+   "chainId": 1,
+   "head": 3
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Which three Uniswap v4 pool IDs paired with token 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 had the greatest swap volume in that token on chain 1 during the last 24 hours? Return bytes32[] pool IDs.",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bytes32[]",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400,
+    "head": 3
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address[]",
+     "confidence": 0.41
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 0.99
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.34
+    },
+    "head": {
+     "value": 3,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "27-8453-v4-volume-pools.json",
+  "input": {
+   "question": "Which three Uniswap v4 pool IDs paired with token 0x4200000000000000000000000000000000000006 had the greatest swap volume in that token on chain 8453 during the last 24 hours? Return bytes32[] pool IDs.",
+   "panelSize": 5,
+   "answerType": "bytes32[]",
+   "evidence": "chain",
+   "chainId": 8453,
+   "head": 3
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Which three Uniswap v4 pool IDs paired with token 0x4200000000000000000000000000000000000006 had the greatest swap volume in that token on chain 8453 during the last 24 hours? Return bytes32[] pool IDs.",
+    "chainId": 8453,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bytes32[]",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400,
+    "head": 3
+   },
+   "proposed": {
+    "answerType": {
+     "value": "address[]",
+     "confidence": 0.46
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 8453,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.38
+    },
+    "head": {
+     "value": 3,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "28-1-v4-volume-pools.json",
+  "input": {
+   "question": "Which three Uniswap v4 pool IDs paired with token 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 had the greatest swap volume in that token on chain 1 during the last 24 hours? Return bytes32[] pool IDs.",
+   "panelSize": 5,
+   "answerType": "bytes32[]",
+   "evidence": "chain",
+   "chainId": 1,
+   "head": 3
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "Which three Uniswap v4 pool IDs paired with token 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 had the greatest swap volume in that token on chain 1 during the last 24 hours? Return bytes32[] pool IDs.",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bytes32[]",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400,
+    "head": 3
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bytes32[]",
+     "confidence": 0.39
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 0.99
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.26
+    },
+    "head": {
+     "value": 3,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 545,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "29-1-usdc-weth-reserve-words.json",
+  "input": {
+   "question": "At the latest finalized Ethereum mainnet block when requested, what are reserve0 and reserve1 from getReserves() on Uniswap V2 pair 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc, returned in that order as bytes32[] unsigned integer words?",
+   "panelSize": 5,
+   "answerType": "bytes32[]",
+   "evidence": "chain",
+   "chainId": 1,
+   "head": 2
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "At the latest finalized Ethereum mainnet block when requested, what are reserve0 and reserve1 from getReserves() on Uniswap V2 pair 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc, returned in that order as bytes32[] unsigned integer words?",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bytes32[]",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400,
+    "head": 2
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bytes32[]",
+     "confidence": 0.72
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.2
+    },
+    "head": {
+     "value": 2,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 544,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ },
+ {
+  "file": "30-1-dai-weth-reserve-words.json",
+  "input": {
+   "question": "At the latest finalized Ethereum mainnet block when requested, what are reserve0 and reserve1 from getReserves() on Uniswap V2 pair 0xa478c2975ab1ea89e8196811f51a7b7ade33eb11, returned in that order as bytes32[] unsigned integer words?",
+   "panelSize": 5,
+   "answerType": "bytes32[]",
+   "evidence": "chain",
+   "chainId": 1,
+   "head": 2
+  },
+  "status": 200,
+  "response": {
+   "action": "oracle.request",
+   "request": {
+    "v": 1,
+    "question": "At the latest finalized Ethereum mainnet block when requested, what are reserve0 and reserve1 from getReserves() on Uniswap V2 pair 0xa478c2975ab1ea89e8196811f51a7b7ade33eb11, returned in that order as bytes32[] unsigned integer words?",
+    "chainId": 1,
+    "window": {
+     "hours": 24
+    },
+    "answerType": "bytes32[]",
+    "evidence": "chain",
+    "panelSize": 5,
+    "quorum": 4,
+    "validForSeconds": 86400,
+    "head": 2
+   },
+   "proposed": {
+    "answerType": {
+     "value": "bytes32[]",
+     "confidence": 0.75
+    },
+    "evidence": {
+     "value": "chain",
+     "confidence": 1
+    },
+    "chainId": {
+     "value": 1,
+     "confidence": 1
+    },
+    "toleranceBps": {
+     "value": 0,
+     "confidence": 0.31
+    },
+    "head": {
+     "value": 2,
+     "confidence": 1
+    }
+   },
+   "judged": true,
+   "blockers": [],
+   "suggestions": [
+    {
+     "code": "wording",
+     "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+    }
+   ],
+   "online": 544,
+   "limits": {
+    "minPanelSize": 5,
+    "maxPanelSize": 100
+   },
+   "chains": [
+    {
+     "id": 1,
+     "name": "Ethereum mainnet"
+    },
+    {
+     "id": 56,
+     "name": "BNB Chain"
+    },
+    {
+     "id": 4663,
+     "name": "Robinhood Chain"
+    },
+    {
+     "id": 8453,
+     "name": "Base"
+    },
+    {
+     "id": 42161,
+     "name": "Arbitrum One"
+    }
+   ]
+  }
+ }
+]

@@ -1,11 +1,11 @@
 {
   "v": 1,
-  "question": "At the latest finalized Ethereum mainnet block available when requested, return the address decoded from the ABI result of pauser() on USDC contract 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.",
+  "question": "On Ethereum mainnet (chain 1), at the latest finalized block when requested, is the USDC token 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 paused, meaning paused() returns true? Answer true or false.",
   "chainId": 1,
   "window": {
     "hours": 1
   },
-  "answerType": "address",
+  "answerType": "bool",
   "evidence": "chain",
   "panelSize": 5,
   "quorum": 4,
@@ -13,6 +13,6 @@
   "definitions": {
     "window": "The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
-    "call": "Use function pauser() view returns (address), with no arguments, at the fixed toBlock. Return the lowercase 20-byte role-holder address with 0x prefix. It is the current mutable pauser role, not the token contract, caller, proxy admin or owner."
+    "recipe": "call-compare: call paused() returning bool on 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 at toBlock; compare equal to true."
   }
 }

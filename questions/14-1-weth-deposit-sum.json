@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "How many Transfer(address,address,uint256) logs were emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 during the 24 hours ending at the latest finalized block when requested? Count each log once, including zero-value transfers.",
+  "question": "What is the total wad, in raw wei of WETH, summed over Deposit(address,uint256) logs emitted by 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 on chain 1 during the 24 hours ending at the latest finalized block when requested?",
   "chainId": 1,
   "window": {
     "hours": 24
@@ -13,8 +13,8 @@
   "definitions": {
     "window": "The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
-    "metric": "Count matching logs, including zero-value transfers; deduplicate by blockHash, transactionHash and logIndex. Do not count other emitting contracts.",
-    "event": "event Transfer(address indexed from,address indexed to,uint256 value)"
+    "event": "event Deposit(address indexed dst,uint256 wad)",
+    "metric": "log-sum over wad for logs emitted by the WETH contract only, each canonical log once. Empty complete log set returns 0; no decimal scaling."
   },
   "guards": {
     "min": "0",

@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-10-03 — Recipe-backed types and bare-question drafts
+
+Experimental, commissioned as a test of the IMD swarm. It may not work as described. Read the code, start with small amounts, no warranty.
+
+1. **Replace or re-type the 12 unpayable bodies.** The live docs list no recipe for a scalar `address` or `bytes32` (and a saved paid request ended `recipe yields bool, request asks for uint256`), so those types are gone from the pack. 11/12 owner → USDC `paused()` bool (mainnet, Base); 13 pauser → `Blacklisted` log count over 720 h; 14/15 largest recipient/sender → WETH `Deposit`/`Withdrawal` wad sums; 21 → v2 pair WETH balance floor (bool); 22 → Base WETH `Deposit` count; 23 → mainnet v4 native-ETH pool `Initialize` count; 24 → WETH depositor ranking (`address[]`); 25 → Base USDC `Transfer` sum; 29/30 reserve words → Base USDC sender ranking and WETH withdrawer ranking (`address[]`). Each body's type equals the type the live check proposes in the final run.
+2. **Bare-question drafts.** `draftInput` no longer pastes definitions into the question; every question was reworded to carry period, unit, order and tie rule itself. Final run: 30/30 judged, no blockers, no `wording`, `not_answerable` or `answer_type` suggestion, recorded in `results.json` (copy in `test/live/bare/`). The service is noisy: identical text sometimes drew `wording` or flipped the proposed type, so wordings were chosen by repeated live samples and the full run repeated until clean. Bodies 04/05 were reworded (the old 05 drew `not_answerable`).
+3. **Quality of the questions.** Dropped near-constants: 01/02 (`totalSupply() > 0`) → Uniswap pool WETH balance floors, 11/12 fixed owner → pause flag. At most three per pattern (audit in `questions/README.md`). 09/10 (Robinhood block and transaction counts) drew `wording` on every attempt and have no recipe; replaced by Base v4 native-pool and USDC transfer counts. 28 moved to Base USDC and 26 to mainnet WBTC (v4 pools) after the previous tokens drew `wording` or an `address[]` proposal. Chain evidence is kept for all chain data; 04/05 stay `panel`.
+4. **Docs.** `validatePack` now requires the four recipe-backed types and rejects scalar `address`/`bytes32` instead of requiring five per type. README, GUIDE, catalog and index no longer list any body as unpayable. Added a test that drafts are bare and each body's type matches the recorded live proposal. Live GET/POST captures are in `test/live/bare/`.
+
+`npm run validate` and all 12 offline tests pass. No paid request, deployment or token change. Not changed: 03, 18 and 19 (block/transaction scans) still lack a listed recipe. Existing experimental labels are kept.
+
 ## 2026-10-02 — Review corrections
 
 Experimental, commissioned as a test of the IMD swarm. It may not work as described. Read the code, start with small amounts, no warranty.

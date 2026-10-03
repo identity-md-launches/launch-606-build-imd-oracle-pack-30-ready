@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "What is the sum of value in Transfer logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 to 0x0000000000000000000000000000000000000000 in the last 168 hours on chain 1, in raw token units?",
+  "question": "What is the total value, in raw IMD units (18 decimals), summed over Transfer(address,address,uint256) logs emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 whose recipient is 0x0000000000000000000000000000000000000000 during the 168 hours ending at the latest finalized block when requested?",
   "chainId": 1,
   "window": {
     "hours": 168

@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "question": "Did nodejs/node publish a non-draft, non-prerelease GitHub release in the last 30 days ending at the latest finalized block timestamp on chain 4663 available when requested?",
+  "question": "Did the GitHub repository nodejs/node publish at least one stable release (not a draft, not a prerelease) with a published_at date in the last 30 days (720 hours)? Answer true or false.",
   "chainId": 4663,
   "window": {
     "hours": 720

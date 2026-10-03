@@ -1,0 +1,18 @@
+{
+  "v": 1,
+  "question": "On chain 1, at the latest finalized block when requested, is balanceOf(0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc) on WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 greater than or equal to 1000000000000000000000 raw units (1000 WETH, 18 decimals)? Answer true or false.",
+  "chainId": 1,
+  "window": {
+    "hours": 1
+  },
+  "answerType": "bool",
+  "evidence": "chain",
+  "panelSize": 5,
+  "quorum": 4,
+  "validForSeconds": 3600,
+  "definitions": {
+    "window": "The observation covers the last 1 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
+    "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
+    "recipe": "call-compare: call balanceOf(address) returning uint256 with argument 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc on 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 at toBlock; compare greater than or equal to 1000000000000000000000. Units are raw wei, no scaling."
+  }
+}

@@ -1,7 +1,7 @@
 {
   "v": 1,
-  "question": "How many Transfer(address,address,uint256) logs were emitted by 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on chain 1 during the 24 hours ending at the latest finalized block when requested? Count each log once, including zero-value transfers.",
-  "chainId": 1,
+  "question": "How many Transfer(address,address,uint256) logs were emitted by 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 on chain 8453 during the 24 hours ending at the latest finalized block when requested? Count each log once, including zero-value transfers. Answer as a uint256 number of logs.",
+  "chainId": 8453,
   "window": {
     "hours": 24
   },
@@ -13,8 +13,8 @@
   "definitions": {
     "window": "The observation covers the last 24 hours ending at the latest finalized block available when requested. Resolve this once to inclusive fromBlock and toBlock; state reads use toBlock.",
     "missing": "If any required data is unavailable, inconsistent or incomplete, report inability; do not encode unknown as zero, false or an empty list.",
-    "metric": "Count matching logs, including zero-value transfers; deduplicate by blockHash, transactionHash and logIndex. Do not count other emitting contracts.",
-    "event": "event Transfer(address indexed from,address indexed to,uint256 value)"
+    "event": "event Transfer(address indexed from,address indexed to,uint256 value)",
+    "metric": "Count matching logs emitted by the USDC contract only; deduplicate by blockHash, transactionHash and logIndex. Unit is logs. A complete empty log set returns 0."
   },
   "guards": {
     "min": "0",
